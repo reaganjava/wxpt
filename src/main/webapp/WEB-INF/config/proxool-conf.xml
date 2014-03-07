@@ -22,7 +22,7 @@
 		<test-before-use>true</test-before-use>
 		<simultaneous-build-throttle>20</simultaneous-build-throttle>
 		<!--用于保持连接的测试语句 -->
-		<house-keeping-test-sql>select 100 + 1000 from dual</house-keeping-test-sql>
+		<house-keeping-test-sql>select 1</house-keeping-test-sql>
 	</proxool>
 	
 	<!-- <proxool>
