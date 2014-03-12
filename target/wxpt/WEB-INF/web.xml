@@ -4,7 +4,7 @@
   <listener>
     <listener-class>com.reagan.views.listener.AppListener</listener-class>
   </listener>
-  <context-param>
+ <!--  <context-param>
     <param-name>log4jConfigLocation</param-name>
     <param-value>classpath:config/log4j.properties</param-value>
   </context-param>
@@ -20,7 +20,7 @@
     <listener-class>
 			org.springframework.web.util.Log4jConfigListener
 		</listener-class>
-  </listener>
+  </listener> -->
   <filter>
     <filter-name>setCharacterEncoding</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -35,7 +35,7 @@
   </filter-mapping>
   <filter>
     <filter-name>hiddenHttpMethodFilter</filter-name>
-    <filter-class>com.mopon.filter.MyHiddenHttpMethodFilter</filter-class>
+    <filter-class>com.reagan.views.filter.MyHiddenHttpMethodFilter</filter-class>
   </filter>
   <filter-mapping>
     <filter-name>hiddenHttpMethodFilter</filter-name>
@@ -63,15 +63,15 @@
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
     <init-param>
       <param-name>contextConfigLocation</param-name>
-      <param-value>
-				
-				
-				
-				
-				
-				
-				
-			</param-value>
+     <param-value>
+		classpath:spring/memcached.xml
+		<!-- classpath:config/spring/repository.xml  -->
+		classpath:spring/spring-servlet.xml
+		<!-- classpath:spring/daoSource.xml -->
+		<!-- classpath:spring/webService.xml -->
+		<!-- classpath:config/spring/mail.xml -->
+		<!-- classpath:config/spring/times.xml -->
+    </param-value>
     </init-param>
     <load-on-startup>2</load-on-startup>
   </servlet>
@@ -79,7 +79,7 @@
     <servlet-name>springServlet</servlet-name>
     <url-pattern>/</url-pattern>
   </servlet-mapping>
-  <context-param>
+ <!--  <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>
 			classpath:spring/webService.xml
@@ -87,8 +87,8 @@
   </context-param>
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-  </listener>
-  <servlet>
+  </listener> -->
+<!--   <servlet>
     <servlet-name>CXFServlet</servlet-name>
     <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
     <load-on-startup>2</load-on-startup>
@@ -96,5 +96,5 @@
   <servlet-mapping>
     <servlet-name>CXFServlet</servlet-name>
     <url-pattern>/webservice/*</url-pattern>
-  </servlet-mapping>
+  </servlet-mapping> -->  
 </web-app>

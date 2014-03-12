@@ -8,6 +8,10 @@
 	<packaging>war</packaging>
 	<name>wxpt</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<axis2.version>1.6.2</axis2.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+   </properties>
 	<dependencies>
 		<dependency>
 			<groupId>reagan</groupId>
@@ -23,6 +27,11 @@
 			<groupId>reagan</groupId>
 			<artifactId>views</artifactId>
 			<version>0.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thoughtworks.xstream</groupId>
+			<artifactId>xstream</artifactId>
+			<version>1.4.7</version>
 		</dependency>
 	</dependencies>
 	<build>

@@ -6,7 +6,7 @@
 		<driver-class>com.mysql.jdbc.Driver</driver-class>
 		<driver-properties>
 			<property name="user" value="root" />
-			<property name="password" value="changeme101" />
+			<property name="password" value="1234" />
 		</driver-properties>
 		<!--proxool自动侦察各个连接状态的时间间隔(毫秒),侦察到空闲的连接就马上回收,超时的销毁 默认30秒 -->
 		<house-keeping-sleep-time>90000</house-keeping-sleep-time>
@@ -22,7 +22,7 @@
 		<test-before-use>true</test-before-use>
 		<simultaneous-build-throttle>20</simultaneous-build-throttle>
 		<!--用于保持连接的测试语句 -->
-		<house-keeping-test-sql>select 100 + 1000 from dual</house-keeping-test-sql>
+		<house-keeping-test-sql>select 1</house-keeping-test-sql>
 	</proxool>
 	
 	<!-- <proxool>
