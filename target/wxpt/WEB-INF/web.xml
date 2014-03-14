@@ -4,7 +4,7 @@
   <listener>
     <listener-class>com.reagan.views.listener.AppListener</listener-class>
   </listener>
- <!--  <context-param>
+ <context-param>
     <param-name>log4jConfigLocation</param-name>
     <param-value>classpath:config/log4j.properties</param-value>
   </context-param>
@@ -20,7 +20,7 @@
     <listener-class>
 			org.springframework.web.util.Log4jConfigListener
 		</listener-class>
-  </listener> -->
+  </listener>
   <filter>
     <filter-name>setCharacterEncoding</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -67,7 +67,7 @@
 		classpath:spring/memcached.xml
 		<!-- classpath:config/spring/repository.xml  -->
 		classpath:spring/spring-servlet.xml
-		<!-- classpath:spring/daoSource.xml -->
+		classpath:spring/daoSource.xml
 		<!-- classpath:spring/webService.xml -->
 		<!-- classpath:config/spring/mail.xml -->
 		<!-- classpath:config/spring/times.xml -->
