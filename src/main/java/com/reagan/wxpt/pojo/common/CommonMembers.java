@@ -1,9 +1,13 @@
-package com.reagan.wxpt.pojo;
+package com.reagan.wxpt.pojo.common;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
 import java.util.HashSet;
 import java.util.Set;
+
+import com.reagan.wxpt.pojo.business.BusinessDistribution;
+import com.reagan.wxpt.pojo.business.BusinessOrder;
+import com.reagan.wxpt.pojo.business.BusinessShopcar;
 
 
 /**
@@ -21,6 +25,7 @@ public class CommonMembers implements java.io.Serializable {
 	private String province;
 	private String language;
 	private String subscribeTime;
+	private int status;
 	private Set<BusinessShopcar> businessShopcars = new HashSet<BusinessShopcar>(
 			0);
 	private Set<BusinessOrder> businessOrders = new HashSet<BusinessOrder>(0);
@@ -147,6 +152,13 @@ public class CommonMembers implements java.io.Serializable {
 		this.subscribeTime = subscribeTime;
 	}
 
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
 
 	public Set<BusinessShopcar> getBusinessShopcars() {
 		return this.businessShopcars;

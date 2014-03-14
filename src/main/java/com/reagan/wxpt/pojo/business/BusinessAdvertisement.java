@@ -1,4 +1,4 @@
-package com.reagan.wxpt.pojo;
+package com.reagan.wxpt.pojo.business;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
@@ -24,6 +24,7 @@ public class BusinessAdvertisement implements java.io.Serializable {
 	private Date date;
 	private String url;
 	private int sort;
+	private int status;
 
 	public BusinessAdvertisement() {
 	}
@@ -128,6 +129,14 @@ public class BusinessAdvertisement implements java.io.Serializable {
 
 	public void setSort(int sort) {
 		this.sort = sort;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 }

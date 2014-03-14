@@ -1,10 +1,14 @@
-package com.reagan.wxpt.pojo;
+package com.reagan.wxpt.pojo.business;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.reagan.wxpt.pojo.common.CommonAdmin;
+import com.reagan.wxpt.pojo.system.SysCategory;
+import com.reagan.wxpt.pojo.system.SysMenuGroup;
 
 
 /**

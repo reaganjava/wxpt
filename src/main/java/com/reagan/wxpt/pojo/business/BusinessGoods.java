@@ -1,10 +1,14 @@
-package com.reagan.wxpt.pojo;
+package com.reagan.wxpt.pojo.business;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
 import java.math.BigDecimal;
 import java.util.HashSet;
 import java.util.Set;
+
+import com.reagan.wxpt.pojo.system.SysCategory;
+import com.reagan.wxpt.pojo.system.SysMenuGroup;
+import com.reagan.wxpt.pojo.system.SysRegionCategory;
 
 
 /**
@@ -26,6 +30,7 @@ public class BusinessGoods implements java.io.Serializable {
 	private int payQuantity;
 	private int evaluate;
 	private int payType;
+	private int status;
 	private Set<SysMenuGroup> sysMenuGroups = new HashSet<SysMenuGroup>(0);
 	private Set<BusinessOrderDetail> businessOrderDetails = new HashSet<BusinessOrderDetail>(
 			0);
@@ -197,6 +202,14 @@ public class BusinessGoods implements java.io.Serializable {
 	}
 
 	
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
 	public Set<SysMenuGroup> getSysMenuGroups() {
 		return this.sysMenuGroups;
 	}

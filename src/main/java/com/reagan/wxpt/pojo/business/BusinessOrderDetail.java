@@ -1,4 +1,4 @@
-package com.reagan.wxpt.pojo;
+package com.reagan.wxpt.pojo.business;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 

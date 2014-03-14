@@ -1,8 +1,10 @@
-package com.reagan.wxpt.pojo;
+package com.reagan.wxpt.pojo.common;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
+
+import com.reagan.wxpt.pojo.business.BusinessCompany;
 
 
 /**
@@ -10,15 +12,17 @@ import java.util.Date;
  */
 
 public class CommonAdmin implements java.io.Serializable {
-
+	
 	private Integer admid;
 	private BusinessCompany businessCompany;
+	private int companyId;
 	private int groupId;
 	private String username;
 	private String password;
 	private String realname;
 	private Date createdate;
 	private String createname;
+	private int status;
 
 	public CommonAdmin() {
 	}
@@ -105,6 +109,22 @@ public class CommonAdmin implements java.io.Serializable {
 
 	public void setCreatename(String createname) {
 		this.createname = createname;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public int getCompanyId() {
+		return companyId;
+	}
+
+	public void setCompanyId(int companyId) {
+		this.companyId = companyId;
 	}
 
 }
