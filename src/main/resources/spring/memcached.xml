@@ -60,5 +60,14 @@
             <aop:after-returning method="after" pointcut-ref="method"/>           
         </aop:aspect>  
     </aop:config>  
+    
+    <bean id="sessionManager" class="com.reagan.core.session.SessionManager"/>
+    
+    <bean id="sessionListener" class="com.reagan.core.session.listener.SessionListener"/>
+    
+    <bean id="session" class="com.reagan.core.session.Session" scope="prototype">
+    	<property name="maxInactiveInterval" value="-1"/>
+    	<property name="listener" ref="sessionListener"/>
+    </bean>
         
    </beans>
