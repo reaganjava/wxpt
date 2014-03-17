@@ -13,9 +13,9 @@ public interface IAdminDao {
 	
 	public int deleteAdmin(CommonAdmin admin);
 	
-	public CommonAdmin findAdmin(CommonAdmin admin);
+	public CommonAdmin queryAdmin(CommonAdmin admin);
 	
-	public List<CommonAdmin> findAdminForList(CommonAdmin admin);
+	public List<CommonAdmin> queryAdminForList(CommonAdmin admin);
 	
-	public PageBean<CommonAdmin> findAdminForList(CommonAdmin admin, int pageON, int pageCount);
+	public PageBean<CommonAdmin> queryAdminForList(CommonAdmin admin, int pageON, int pageCount);
 }

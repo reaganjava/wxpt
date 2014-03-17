@@ -3,21 +3,21 @@ package com.reagan.wxpt.dao.impl.common;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.reagan.core.data.dao.IBaseDao;
 import com.reagan.core.util.ObjectParams;
+import com.reagan.core.util.QueryMapper;
 import com.reagan.views.dto.PageBean;
 import com.reagan.wxpt.dao.common.IAdminDao;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
 
+@Repository
 public class AdminDaoImpl implements IAdminDao {
 	
 	public final String INSERT_ADMIN = "INSERT INTO COMMON_ADMIN"
@@ -59,6 +59,7 @@ public class AdminDaoImpl implements IAdminDao {
 	public void saveAdmin(CommonAdmin admin) {
 		ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
 		Object[] args = objectParams.objectArrayFactory(admin, new String[]{"admid"});
+		System.out.println(args.length);
 		baseDao.execute(INSERT_ADMIN, args);
 	}
 
@@ -80,54 +81,65 @@ public class AdminDaoImpl implements IAdminDao {
 
 	@Override
 	public int deleteAdmin(CommonAdmin admin) {		
-		Map<String, Object> mapper = whereMapper(admin, DELETE_ADMIN);
-		return baseDao.executeReturn((String) mapper.get("QUERY"),  ((List<?>)mapper.get("ARGS")).toArray());
+		QueryMapper mapper = whereMapper(admin, DELETE_ADMIN);
+		return baseDao.executeReturn(mapper.toQueryString(), mapper.toQueryArgs());
 	}
 
 	@Override
-	public CommonAdmin findAdmin(CommonAdmin admin) {
-		Map<String, Object> mapper = whereMapper(admin, DELETE_ADMIN);
-		return baseDao.queryForObject((String) mapper.get("QUERY"),  ((List<?>)mapper.get("ARGS")).toArray(), new AdminMapper());
+	public CommonAdmin queryAdmin(CommonAdmin admin) {
+		QueryMapper mapper = whereMapper(admin, DELETE_ADMIN);
+		return baseDao.queryForObject(mapper.toQueryString(), mapper.toQueryArgs(), new AdminMapper());
 	}
 
 	@Override
-	public List<CommonAdmin> findAdminForList(CommonAdmin admin) {
-		Map<String, Object> mapper = whereMapper(admin, DELETE_ADMIN);
-		return baseDao.queryForList((String) mapper.get("QUERY"),  ((List<?>)mapper.get("ARGS")).toArray(), new AdminMapper());
+	public List<CommonAdmin> queryAdminForList(CommonAdmin admin) {
+		QueryMapper mapper = whereMapper(admin, DELETE_ADMIN);
+		return baseDao.queryForList(mapper.toQueryString(), mapper.toQueryArgs(), new AdminMapper());
 	}
 
 	@Override
-	public PageBean<CommonAdmin> findAdminForList(CommonAdmin admin, int pageON,
+	public PageBean<CommonAdmin> queryAdminForList(CommonAdmin admin, int pageON,
 			int pageCount) {
-		Map<String, Object> mapper = whereMapper(admin, DELETE_ADMIN);
-		List<?> args = (List<?>) mapper.get("ARGS");
+		QueryMapper mapper = whereMapper(admin, QUERY_ADMIN);
 		PageBean<CommonAdmin> pageBean = new PageBean<CommonAdmin>();
-		return null;
+		pageBean.setCurrentPage(pageON);
+		if(pageON > 0) {
+			pageON = pageON - 1;
+		}
+		long count = (long) baseDao.queryForValue(mapper.toQueryString(new String[]{"count(*)"}), mapper.toQueryArgs(), Long.class);
+		//设置开始位置
+		int startPage = pageON * pageCount;
+		mapper = whereMapper(admin, QUERY_ADMIN, startPage, pageCount);
+		List<CommonAdmin> commonAdminList = baseDao.queryForList(mapper.toQueryString(new String[]{"*"}), mapper.toQueryArgs(), new AdminMapper());
+		//放入分页容器
+		pageBean.setDataList(commonAdminList);
+		//设置页大小
+		pageBean.setPageSize(pageCount);
+		//总记录数
+		pageBean.setRecordCount(count);
+		return pageBean;
 	}
 	
-	private Map<String, Object> whereMapper(CommonAdmin admin, String queryString) {
-		Map<String, Object> mapper = new HashMap<String, Object>();
-		StringBuilder query = new StringBuilder(queryString);
-		List<Object> args = new ArrayList<Object>();
+	private QueryMapper whereMapper(CommonAdmin admin, String queryString) {
+		QueryMapper queryMapper = new QueryMapper(queryString);
 		if(admin.getAdmid() != 0) {
-			query.append(WHERE_BY_ID);
-			args.add(admin.getAdmid());
+			queryMapper.addQueryWhere(WHERE_BY_ID, admin.getAdmid());
 		}
 		if(admin.getGroupId() != 0) {
-			query.append(WHERE_BY_GROUP_ID);
-			args.add(admin.getGroupId());
+			queryMapper.addQueryWhere(WHERE_BY_GROUP_ID, admin.getGroupId());
 		}
 		if(admin.getCompanyId() != 0) {
-			query.append(WHERE_BY_COMPANY_ID);
-			args.add(admin.getCompanyId());
+			queryMapper.addQueryWhere(WHERE_BY_COMPANY_ID, admin.getCompanyId());
 		}
-		if(admin.getCompanyId() != 0) {
-			query.append(WHERE_BY_COMPANY_ID);
-			args.add(admin.getCompanyId());
-		}
-		mapper.put("QUERY", query.toString());
-		mapper.put("ARGS", args);
-		return mapper;
+		return queryMapper;
+	}
+	
+	private QueryMapper whereMapper(CommonAdmin admin, String queryString, int pageNO, int pageCount) {
+		QueryMapper queryMapper = whereMapper(admin, queryString);
+		queryMapper.getQueryBuilder().append(LIMIT);
+		queryMapper.getArgs().add(pageNO);
+		queryMapper.getArgs().add(pageCount);
+		return queryMapper;
 	}
 	
 	class AdminMapper implements RowMapper<CommonAdmin> {

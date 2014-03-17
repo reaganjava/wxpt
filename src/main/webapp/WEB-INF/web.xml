@@ -64,7 +64,7 @@
     <init-param>
       <param-name>contextConfigLocation</param-name>
      <param-value>
-		classpath:spring/memcached.xml
+		<!-- classpath:spring/memcached.xml -->
 		<!-- classpath:config/spring/repository.xml  -->
 		classpath:spring/spring-servlet.xml
 		classpath:spring/daoSource.xml
