@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.reagan.views.dto.PageBean;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
+import com.reagan.wxpt.vo.common.AdminVO;
 
 public interface IAdminDao {
 
@@ -11,11 +12,11 @@ public interface IAdminDao {
 	
 	public int updateForPassword(String password, int admid);
 	
-	public int deleteAdmin(CommonAdmin admin);
+	public int deleteAdmin(AdminVO adminVO);
 	
-	public CommonAdmin queryAdmin(CommonAdmin admin);
+	public CommonAdmin queryAdmin(AdminVO adminVO);
 	
-	public List<CommonAdmin> queryAdminForList(CommonAdmin admin);
+	public List<CommonAdmin> queryAdminForList(AdminVO adminVO);
 	
-	public PageBean<CommonAdmin> queryAdminForList(CommonAdmin admin, int pageON, int pageCount);
+	public PageBean<CommonAdmin> queryAdminForPage(AdminVO adminVO);
 }

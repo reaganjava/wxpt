@@ -19,14 +19,12 @@ public class CommonAdmin implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = 4058847395045273376L;
 	
-	private int admid;
-	
-	private BusinessCompany businessCompany;
+	private Integer admid;
 	
 	@Mapper(column="COMPANY_ID")
-	private int companyId;
+	private Integer companyId;
 	@Mapper(column="GROUP_ID")
-	private int groupId;
+	private Integer groupId;
 	@Mapper(column="USERNAME")
 	private String username;
 	@Mapper(column="PASSWORD")
@@ -38,15 +36,14 @@ public class CommonAdmin implements java.io.Serializable {
 	@Mapper(column="CREATENAME")
 	private String createname;
 	@Mapper(column="STATUS")
-	private int status = -1;
+	private Integer status;
 
 	public CommonAdmin() {
 	}
 
-	public CommonAdmin(BusinessCompany businessCompany, int groupId,
+	public CommonAdmin(Integer groupId,
 			String username, String password, String realname, Date createdate,
 			String createname) {
-		this.businessCompany = businessCompany;
 		this.groupId = groupId;
 		this.username = username;
 		this.password = password;
@@ -56,29 +53,19 @@ public class CommonAdmin implements java.io.Serializable {
 	}
 
 
-	public int getAdmid() {
+	public Integer getAdmid() {
 		return this.admid;
 	}
 
-	public void setAdmid(int admid) {
+	public void setAdmid(Integer admid) {
 		this.admid = admid;
 	}
 
-
-	public BusinessCompany getBusinessCompany() {
-		return this.businessCompany;
-	}
-
-	public void setBusinessCompany(BusinessCompany businessCompany) {
-		this.businessCompany = businessCompany;
-	}
-
-
-	public int getGroupId() {
+	public Integer getGroupId() {
 		return this.groupId;
 	}
 
-	public void setGroupId(int groupId) {
+	public void setGroupId(Integer groupId) {
 		this.groupId = groupId;
 	}
 
@@ -127,19 +114,19 @@ public class CommonAdmin implements java.io.Serializable {
 		this.createname = createname;
 	}
 
-	public int getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
-	public int getCompanyId() {
+	public Integer getCompanyId() {
 		return companyId;
 	}
 
-	public void setCompanyId(int companyId) {
+	public void setCompanyId(Integer companyId) {
 		this.companyId = companyId;
 	}
 

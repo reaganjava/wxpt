@@ -17,6 +17,7 @@ import com.reagan.util.ValidatorUtil;
 import com.reagan.views.dto.PageBean;
 import com.reagan.wxpt.dao.common.IAdminDao;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
+import com.reagan.wxpt.vo.common.AdminVO;
 
 @Repository
 public class AdminDaoImpl implements IAdminDao {
@@ -81,36 +82,38 @@ public class AdminDaoImpl implements IAdminDao {
 	}
 
 	@Override
-	public int deleteAdmin(CommonAdmin admin) {		
-		QueryMapper mapper = whereMapper(admin, DELETE_ADMIN);
+	public int deleteAdmin(AdminVO adminVO) {		
+		QueryMapper mapper = whereMapper(adminVO, DELETE_ADMIN);
 		return baseDao.executeReturn(mapper.toQueryString(), mapper.toQueryArgs());
 	}
 
 	@Override
-	public CommonAdmin queryAdmin(CommonAdmin admin) {
-		QueryMapper mapper = whereMapper(admin, QUERY_ADMIN);
+	public CommonAdmin queryAdmin(AdminVO adminVO) {
+		QueryMapper mapper = whereMapper(adminVO, QUERY_ADMIN);
+		System.out.println(mapper.toQueryString());
 		return baseDao.queryForObject(mapper.toQueryString(new String[]{"*"}), mapper.toQueryArgs(), new AdminMapper());
 	}
 
 	@Override
-	public List<CommonAdmin> queryAdminForList(CommonAdmin admin) {
-		QueryMapper mapper = whereMapper(admin, QUERY_ADMIN);
+	public List<CommonAdmin> queryAdminForList(AdminVO adminVO) {
+		QueryMapper mapper = whereMapper(adminVO, QUERY_ADMIN);
 		return baseDao.queryForList(mapper.toQueryString(), mapper.toQueryArgs(), new AdminMapper());
 	}
 
 	@Override
-	public PageBean<CommonAdmin> queryAdminForList(CommonAdmin admin, int pageON,
-			int pageCount) {
-		QueryMapper mapper = whereMapper(admin, QUERY_ADMIN);
+	public PageBean<CommonAdmin> queryAdminForPage(AdminVO adminVO) {
+		QueryMapper mapper = whereMapper(adminVO, QUERY_ADMIN);
 		PageBean<CommonAdmin> pageBean = new PageBean<CommonAdmin>();
-		pageBean.setCurrentPage(pageON);
-		if(pageON > 0) {
-			pageON = pageON - 1;
+		int pageNO = adminVO.getPageNO();
+		int pageCount = adminVO.getPageCount();
+		pageBean.setCurrentPage(pageNO);
+		if(pageNO > 0) {
+			pageNO = pageNO - 1;
 		}
 		long count = (long) baseDao.queryForValue(mapper.toQueryString(new String[]{"count(*)"}), mapper.toQueryArgs(), Long.class);
 		//设置开始位置
-		int startPage = pageON * pageCount;
-		mapper = whereMapper(admin, QUERY_ADMIN, startPage, pageCount);
+		int startPage = pageNO * pageCount;
+		mapper = whereMapper(adminVO, QUERY_ADMIN, startPage, pageCount);
 		List<CommonAdmin> commonAdminList = baseDao.queryForList(mapper.toQueryString(new String[]{"*"}), mapper.toQueryArgs(), new AdminMapper());
 		//放入分页容器
 		pageBean.setDataList(commonAdminList);
@@ -121,15 +124,16 @@ public class AdminDaoImpl implements IAdminDao {
 		return pageBean;
 	}
 	
-	private QueryMapper whereMapper(CommonAdmin admin, String queryString) {
+	private QueryMapper whereMapper(AdminVO adminVO, String queryString) {
 		QueryMapper queryMapper = new QueryMapper(queryString);
-		if(admin.getAdmid() != 0) {
+		CommonAdmin admin = adminVO.getAdmin();
+		if(ValidatorUtil.isNotObjectNull(admin.getAdmid())) {
 			queryMapper.addQueryWhere(WHERE_BY_ID, admin.getAdmid());
 		}
-		if(admin.getGroupId() != 0) {
+		if(ValidatorUtil.isNotObjectNull(admin.getGroupId())) {
 			queryMapper.addQueryWhere(WHERE_BY_GROUP_ID, admin.getGroupId());
 		}
-		if(admin.getCompanyId() != 0) {
+		if(ValidatorUtil.isNotObjectNull(admin.getCompanyId())) {
 			queryMapper.addQueryWhere(WHERE_BY_COMPANY_ID, admin.getCompanyId());
 		}
 		if(ValidatorUtil.isNotEmpty(admin.getUsername())) {
@@ -141,7 +145,7 @@ public class AdminDaoImpl implements IAdminDao {
 		if(ValidatorUtil.isNotEmpty(admin.getRealname())) {
 			queryMapper.addQueryWhere(LIKE_BY_REALNAME, "%" + admin.getRealname() + "%");
 		}
-		if(admin.getStatus() != -1) {
+		if(ValidatorUtil.isNotObjectNull(admin.getStatus())) {
 			queryMapper.addQueryWhere(WHERE_BY_STATUS, admin.getStatus());
 		}
 		if(ValidatorUtil.isNotObjectNull(admin.getCreatedate())) {
@@ -150,8 +154,8 @@ public class AdminDaoImpl implements IAdminDao {
 		return queryMapper;
 	}
 	
-	private QueryMapper whereMapper(CommonAdmin admin, String queryString, int pageNO, int pageCount) {
-		QueryMapper queryMapper = whereMapper(admin, queryString);
+	private QueryMapper whereMapper(AdminVO adminVO, String queryString, int pageNO, int pageCount) {
+		QueryMapper queryMapper = whereMapper(adminVO, queryString);
 		queryMapper.getQueryBuilder().append(LIMIT);
 		queryMapper.getArgs().add(pageNO);
 		queryMapper.getArgs().add(pageCount);
@@ -166,6 +170,7 @@ public class AdminDaoImpl implements IAdminDao {
 			int index = 0;
 			try {
 				for(Field field : CommonAdmin.class.getDeclaredFields()) {
+					System.out.println(field.getName() + " : " + rs.getObject(index + 1));
 					BeanUtils.setProperty(admin, field.getName(), rs.getObject(index + 1));
 					index++;
 				}
