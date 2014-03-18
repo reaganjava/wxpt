@@ -1,6 +1,5 @@
 package com.reagan.wxpt.views.manager;
 
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,12 +22,6 @@ public class AdminController extends Component {
 		CommonAdmin admin = new CommonAdmin();
 		admin.setUsername("kokomi");
 		admin.setPassword("123456");
-		admin.setGroupId(1);
-		admin.setCompanyId(1);
-		admin.setRealname("reagan");
-		admin.setStatus(0);
-		admin.setCreatename("admin");
-		admin.setCreatedate(new Date());
-		adminService.addAdmin(admin);
+		System.out.println(adminService.verifiAdmin(admin));
 	}
 }

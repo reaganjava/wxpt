@@ -8,7 +8,7 @@ public interface IAdminService {
 
 	public void addAdmin(CommonAdmin admin);
 	
-	public CommonAdmin getAdmin(CommonAdmin admin);
+	public CommonAdmin verifiAdmin(CommonAdmin admin);
 	
 	public PageBean<CommonAdmin> queryAdminList(CommonAdmin admin, int pageNO, int pageCount);
 }

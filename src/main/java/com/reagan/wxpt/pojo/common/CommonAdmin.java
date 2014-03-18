@@ -4,6 +4,7 @@ package com.reagan.wxpt.pojo.common;
 
 import java.util.Date;
 
+import com.reagan.core.annotation.Mapper;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
 
 
@@ -13,16 +14,31 @@ import com.reagan.wxpt.pojo.business.BusinessCompany;
 
 public class CommonAdmin implements java.io.Serializable {
 	
-	private Integer admid;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4058847395045273376L;
+	
+	private int admid;
+	
 	private BusinessCompany businessCompany;
+	
+	@Mapper(column="COMPANY_ID")
 	private int companyId;
+	@Mapper(column="GROUP_ID")
 	private int groupId;
+	@Mapper(column="USERNAME")
 	private String username;
+	@Mapper(column="PASSWORD")
 	private String password;
+	@Mapper(column="REALNAME")
 	private String realname;
+	@Mapper(column="CREATEDATE")
 	private Date createdate;
+	@Mapper(column="CREATENAME")
 	private String createname;
-	private int status;
+	@Mapper(column="STATUS")
+	private int status = -1;
 
 	public CommonAdmin() {
 	}
@@ -40,11 +56,11 @@ public class CommonAdmin implements java.io.Serializable {
 	}
 
 
-	public Integer getAdmid() {
+	public int getAdmid() {
 		return this.admid;
 	}
 
-	public void setAdmid(Integer admid) {
+	public void setAdmid(int admid) {
 		this.admid = admid;
 	}
 

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import com.reagan.core.data.dao.IBaseDao;
 import com.reagan.core.util.ObjectParams;
 import com.reagan.core.util.QueryMapper;
+import com.reagan.util.ValidatorUtil;
 import com.reagan.views.dto.PageBean;
 import com.reagan.wxpt.dao.common.IAdminDao;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
@@ -20,9 +21,7 @@ import com.reagan.wxpt.pojo.common.CommonAdmin;
 @Repository
 public class AdminDaoImpl implements IAdminDao {
 	
-	public final String INSERT_ADMIN = "INSERT INTO COMMON_ADMIN"
-									+ " (GROUP_ID,COMPANY_ID,USERNAME,PASSWORD,REALNAME,CREATEDATE,CREATENAME,STATUS)"
-									+ " VALUES (?,?,?,?,?,?,?,?)";
+	public final String INSERT_ADMIN = "INSERT INTO COMMON_ADMIN";
 	
 	public final String UPDATE_ADMIN_PASSWORD = "UPDATE COMMON_ADMIN SET PASSWORD = ? WHERE ADMID = ?";
 	
@@ -32,23 +31,27 @@ public class AdminDaoImpl implements IAdminDao {
 	
 	public final String QUERY_ADMIN = "SELECT {0} FROM COMMON_ADMIN WHERE 1=1 ";
 	
-	public final String WHERE_BY_USERNAME_PASSWORD = "AND USERNAME = ? AND PASSWORD = ? ";
-	
 	public final String WHERE_BY_ID = "AND ADMID = ? ";
 	
 	public final String WHERE_BY_GROUP_ID = "AND GROUP_ID = ? ";
 	
 	public final String WHERE_BY_COMPANY_ID = "AND COMPANY_ID = ? ";
 	
+	public final String WHERE_BY_USERNAME = " AND USERNAME = ? ";
+	
+	public final String WHERE_BY_PASSWORD = " AND PASSWORD = ? ";
+	
 	public final String WHERE_BY_STATUS = "AND STATUS = ? ";
 	
-	public final String WHERE_BY_CREATEDATE = "AND CREATEDATE > ? AND CREATEDATE < ?";
+	public final String WHERE_BY_CREATEDATE_LT = " AND CREATEDATE < ?";
+
+	public final String WHERE_BY_CREATEDATE_GT = " AND CREATEDATE > ?";
 	
-	public final String LIKE_BY_CREATENAME = "AND CREATENAME LIKE ?";
-	
-	public final String LIKE_BY_USERNAME = "AND USERNAME LIKE ? ";
+	public final String WHERE_BY_CREATENAME = "AND CREATENAME = ?";
 	
 	public final String LIKE_BY_REALNAME = "AND REALNAME LIKE ? ";
+	
+	public final String LIKE_BY_CREATEDATE = "AND CREATEDATE LIKE ? ";
 	
 	public final String LIMIT = " LIMIT ?, ?";
 	
@@ -58,9 +61,8 @@ public class AdminDaoImpl implements IAdminDao {
 	@Override
 	public void saveAdmin(CommonAdmin admin) {
 		ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
-		Object[] args = objectParams.objectArrayFactory(admin, new String[]{"admid"});
-		System.out.println(args.length);
-		baseDao.execute(INSERT_ADMIN, args);
+		objectParams.objectArrayFactory(admin, INSERT_ADMIN);
+		baseDao.execute(objectParams.getSql(), objectParams.getArgs());
 	}
 
 	@Override
@@ -68,8 +70,7 @@ public class AdminDaoImpl implements IAdminDao {
 		Object[] args = new Object[2];
 		args[0] = password;
 		args[1] = admid;
-		baseDao.executeReturn(UPDATE_ADMIN_PASSWORD, args);
-		return 0;
+		return baseDao.executeReturn(UPDATE_ADMIN_PASSWORD, args);
 	}
 	
 	public int updateForStatus(int status, int admid) {
@@ -87,13 +88,13 @@ public class AdminDaoImpl implements IAdminDao {
 
 	@Override
 	public CommonAdmin queryAdmin(CommonAdmin admin) {
-		QueryMapper mapper = whereMapper(admin, DELETE_ADMIN);
-		return baseDao.queryForObject(mapper.toQueryString(), mapper.toQueryArgs(), new AdminMapper());
+		QueryMapper mapper = whereMapper(admin, QUERY_ADMIN);
+		return baseDao.queryForObject(mapper.toQueryString(new String[]{"*"}), mapper.toQueryArgs(), new AdminMapper());
 	}
 
 	@Override
 	public List<CommonAdmin> queryAdminForList(CommonAdmin admin) {
-		QueryMapper mapper = whereMapper(admin, DELETE_ADMIN);
+		QueryMapper mapper = whereMapper(admin, QUERY_ADMIN);
 		return baseDao.queryForList(mapper.toQueryString(), mapper.toQueryArgs(), new AdminMapper());
 	}
 
@@ -130,6 +131,21 @@ public class AdminDaoImpl implements IAdminDao {
 		}
 		if(admin.getCompanyId() != 0) {
 			queryMapper.addQueryWhere(WHERE_BY_COMPANY_ID, admin.getCompanyId());
+		}
+		if(ValidatorUtil.isNotEmpty(admin.getUsername())) {
+			queryMapper.addQueryWhere(WHERE_BY_USERNAME, admin.getUsername());
+		}
+		if(ValidatorUtil.isNotEmpty(admin.getPassword())) {
+			queryMapper.addQueryWhere(WHERE_BY_PASSWORD, admin.getPassword());
+		}
+		if(ValidatorUtil.isNotEmpty(admin.getRealname())) {
+			queryMapper.addQueryWhere(LIKE_BY_REALNAME, "%" + admin.getRealname() + "%");
+		}
+		if(admin.getStatus() != -1) {
+			queryMapper.addQueryWhere(WHERE_BY_STATUS, admin.getStatus());
+		}
+		if(ValidatorUtil.isNotObjectNull(admin.getCreatedate())) {
+			queryMapper.addQueryWhere(LIKE_BY_CREATEDATE,  "'%" + admin.getCreatedate() + "%'");
 		}
 		return queryMapper;
 	}
