@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.reagan.util.components.Component;
-import com.reagan.wxpt.pojo.common.CommonAdmin;
 import com.reagan.wxpt.service.common.IAdminService;
+import com.reagan.wxpt.vo.common.AdminVO;
 
 @Controller
 @RequestMapping(value = "/admin")
@@ -19,9 +19,9 @@ public class AdminController extends Component {
 	
 	@RequestMapping(value = "add.html", method = RequestMethod.GET)
 	public void add() {
-		CommonAdmin admin = new CommonAdmin();
-		admin.setUsername("kokomi");
-		admin.setPassword("123456");
-		System.out.println(adminService.verifiAdmin(admin));
+		AdminVO adminVO = new AdminVO();
+		adminVO.getAdmin().setUsername("kokomi");
+		adminVO.getAdmin().setPassword("123456");
+		System.out.println(adminService.verifiAdmin(adminVO));
 	}
 }

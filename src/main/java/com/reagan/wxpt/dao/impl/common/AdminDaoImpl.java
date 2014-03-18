@@ -148,8 +148,13 @@ public class AdminDaoImpl implements IAdminDao {
 		if(ValidatorUtil.isNotObjectNull(admin.getStatus())) {
 			queryMapper.addQueryWhere(WHERE_BY_STATUS, admin.getStatus());
 		}
-		if(ValidatorUtil.isNotObjectNull(admin.getCreatedate())) {
-			queryMapper.addQueryWhere(LIKE_BY_CREATEDATE,  "'%" + admin.getCreatedate() + "%'");
+		if(ValidatorUtil.isNotEmpty(adminVO.getDate())) {
+			queryMapper.addQueryWhere(LIKE_BY_CREATEDATE,  "'%" + adminVO.getDate() + "%'");
+		}
+		if(ValidatorUtil.isNotEmpty(adminVO.getStartDate())
+				&& ValidatorUtil.isNotEmpty(adminVO.getEndDate())) {
+			queryMapper.addQueryWhere(WHERE_BY_CREATEDATE_LT,  adminVO.getStartDate());
+			queryMapper.addQueryWhere(WHERE_BY_CREATEDATE_GT,  adminVO.getEndDate());
 		}
 		return queryMapper;
 	}

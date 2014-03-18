@@ -8,6 +8,7 @@ import com.reagan.views.dto.PageBean;
 import com.reagan.wxpt.dao.common.IAdminDao;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
 import com.reagan.wxpt.service.common.IAdminService;
+import com.reagan.wxpt.vo.common.AdminVO;
 
 @Service("adminService")
 public class AdminServiceImpl implements IAdminService {
@@ -16,8 +17,9 @@ public class AdminServiceImpl implements IAdminService {
 	private IAdminDao adminDao;
 
 	@Override
-	public void addAdmin(CommonAdmin admin) {
+	public void addAdmin(AdminVO adminVO) {
 		MD5 md5 = new MD5();
+		CommonAdmin admin = adminVO.getAdmin();
 		String password = admin.getPassword();
 		String md5Pwd = md5.getMD5ofStr(password);
 		admin.setPassword(md5Pwd);
@@ -25,18 +27,19 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public CommonAdmin verifiAdmin(CommonAdmin admin) {
+	public CommonAdmin verifiAdmin(AdminVO adminVO) {
 		MD5 md5 = new MD5();
+		CommonAdmin admin = adminVO.getAdmin();
 		String password = admin.getPassword();
 		String md5Pwd = md5.getMD5ofStr(password);
 		admin.setPassword(md5Pwd);
-		return adminDao.queryAdmin(admin);
+		
+		return adminDao.queryAdmin(adminVO);
 	}
 
 	@Override
-	public PageBean<CommonAdmin> queryAdminList(CommonAdmin admin, int pageON,
-			int pageCount) {
-		return adminDao.queryAdminForList(admin, pageON, pageCount);
+	public PageBean<CommonAdmin> queryAdminList(AdminVO adminVO) {
+		return adminDao.queryAdminForPage(adminVO);
 	}
 
 }

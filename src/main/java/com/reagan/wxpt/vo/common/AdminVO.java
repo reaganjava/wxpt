@@ -8,6 +8,11 @@ public class AdminVO extends BaseVO {
 	private BusinessCompany businessCompany;
 	
 	private CommonAdmin admin;
+	
+	public AdminVO() {
+		admin = new CommonAdmin();
+		businessCompany = new BusinessCompany();
+	}
 
 	public BusinessCompany getBusinessCompany() {
 		return this.businessCompany;

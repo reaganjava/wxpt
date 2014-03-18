@@ -1,31 +1,40 @@
 package com.reagan.wxpt.vo.common;
 
-import java.util.Date;
-
 public class BaseVO {
 
-	private Date startDate;
+	private String startDate;
 	
-	private Date endDate;
+	private String endDate;
+	
+	private String date;
 	
 	private int pageNO;
 	
 	private int pageCount;
+	
 
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
 
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
+	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public int getPageNO() {
