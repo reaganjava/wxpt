@@ -19,20 +19,18 @@ public class AdminServiceImpl implements IAdminService {
 	@Override
 	public void addAdmin(AdminVO adminVO) {
 		MD5 md5 = new MD5();
-		CommonAdmin admin = adminVO.getAdmin();
-		String password = admin.getPassword();
+		String password = adminVO.getAdmin().getPassword();
 		String md5Pwd = md5.getMD5ofStr(password);
-		admin.setPassword(md5Pwd);
-		adminDao.saveAdmin(admin);
+		adminVO.getAdmin().setPassword(md5Pwd);
+		adminDao.saveAdmin(adminVO.getAdmin());
 	}
 
 	@Override
 	public CommonAdmin verifiAdmin(AdminVO adminVO) {
 		MD5 md5 = new MD5();
-		CommonAdmin admin = adminVO.getAdmin();
-		String password = admin.getPassword();
+		String password = adminVO.getAdmin().getPassword();
 		String md5Pwd = md5.getMD5ofStr(password);
-		admin.setPassword(md5Pwd);
+		adminVO.getAdmin().setPassword(md5Pwd);
 		
 		return adminDao.queryAdmin(adminVO);
 	}
