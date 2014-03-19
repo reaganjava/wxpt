@@ -24,7 +24,7 @@ public class AdminDaoImpl implements IAdminDao {
 	
 	public final String UPDATE_ADMIN_STATUS = "UPDATE COMMON_ADMIN SET STATUS = ? WHERE ADMID = ?";
 	
-	public final String DELETE_ADMIN = "DELETE FROM COMMON_ADMIN ";
+	public final String DELETE_ADMIN = "DELETE FROM COMMON_ADMIN WHERE 1=1 ";
 	
 	public final String QUERY_ADMIN = "SELECT {0} FROM COMMON_ADMIN WHERE 1=1 ";
 	
