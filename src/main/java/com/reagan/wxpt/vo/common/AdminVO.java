@@ -9,6 +9,8 @@ public class AdminVO extends BaseVO {
 	
 	private CommonAdmin admin;
 	
+	private String newPassword;
+	
 	public AdminVO() {
 		admin = new CommonAdmin();
 		businessCompany = new BusinessCompany();
@@ -28,6 +30,14 @@ public class AdminVO extends BaseVO {
 
 	public void setAdmin(CommonAdmin admin) {
 		this.admin = admin;
+	}
+
+	public String getNewPassword() {
+		return newPassword;
+	}
+
+	public void setNewPassword(String newPassword) {
+		this.newPassword = newPassword;
 	}
 
 }

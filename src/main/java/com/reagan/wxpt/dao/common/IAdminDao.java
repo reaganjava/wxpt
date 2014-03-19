@@ -9,8 +9,8 @@ import com.reagan.wxpt.vo.common.AdminVO;
 public interface IAdminDao {
 
 	public void saveAdmin(CommonAdmin admin);
-	
-	public int updateForPassword(String password, int admid);
+		
+	public int updateAdmin(CommonAdmin admin);
 	
 	public int deleteAdmin(AdminVO adminVO);
 	

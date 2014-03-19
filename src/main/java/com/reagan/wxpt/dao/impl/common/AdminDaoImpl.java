@@ -1,11 +1,9 @@
 package com.reagan.wxpt.dao.impl.common;
 
-import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
@@ -21,8 +19,6 @@ import com.reagan.wxpt.vo.common.AdminVO;
 
 @Repository
 public class AdminDaoImpl implements IAdminDao {
-	
-	public final String INSERT_ADMIN = "INSERT INTO COMMON_ADMIN";
 	
 	public final String UPDATE_ADMIN_PASSWORD = "UPDATE COMMON_ADMIN SET PASSWORD = ? WHERE ADMID = ?";
 	
@@ -62,23 +58,14 @@ public class AdminDaoImpl implements IAdminDao {
 	@Override
 	public void saveAdmin(CommonAdmin admin) {
 		ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
-		objectParams.objectArrayFactory(admin, INSERT_ADMIN);
+		objectParams.objectArrayFactory(admin);
 		baseDao.execute(objectParams.getSql(), objectParams.getArgs());
 	}
-
-	@Override
-	public int updateForPassword(String password, int admid) {
-		Object[] args = new Object[2];
-		args[0] = password;
-		args[1] = admid;
-		return baseDao.executeReturn(UPDATE_ADMIN_PASSWORD, args);
-	}
 	
-	public int updateForStatus(int status, int admid) {
-		Object[] args = new Object[2];
-		args[0] = status;
-		args[1] = admid;
-		return baseDao.executeReturn(UPDATE_ADMIN_STATUS, args);
+	public int updateAdmin(CommonAdmin admin) {
+		ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
+		objectParams.objectArrayFactory(admin);
+		return baseDao.executeReturn(objectParams.getSql(), objectParams.getArgs());
 	}
 
 	@Override
@@ -172,17 +159,8 @@ public class AdminDaoImpl implements IAdminDao {
 		@Override
 		public CommonAdmin mapRow(ResultSet rs, int rowNum) throws SQLException {
 			CommonAdmin admin = new CommonAdmin();
-			int index = 0;
-			try {
-				for(Field field : CommonAdmin.class.getDeclaredFields()) {
-					System.out.println(field.getName() + " : " + rs.getObject(index + 1));
-					BeanUtils.setProperty(admin, field.getName(), rs.getObject(index + 1));
-					index++;
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-			return admin;
+			ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
+			return objectParams.resultObjectFactory(admin, rs);
 		}
 		
 	}

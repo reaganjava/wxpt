@@ -12,5 +12,11 @@ public interface IAdminService {
 	
 	public CommonAdmin verifiAdmin(AdminVO adminVO);
 	
+	public boolean modifiAdmin(AdminVO adminVO);
+	
+	public boolean modifiAdminPwd(AdminVO adminVO);
+	
+	public boolean revmoeAdmin(AdminVO adminVO);
+	
 	public PageBean<CommonAdmin> queryAdminList(AdminVO adminVO);
 }
