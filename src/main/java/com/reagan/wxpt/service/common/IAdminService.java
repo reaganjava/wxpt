@@ -10,7 +10,9 @@ public interface IAdminService {
 
 	public void addAdmin(AdminVO adminVO);
 	
-	public CommonAdmin verifiAdmin(AdminVO adminVO);
+	public AdminVO verifiAdmin(AdminVO adminVO);
+	
+	public AdminVO viewAdminDetail(AdminVO adminVO);
 	
 	public boolean modifiAdmin(AdminVO adminVO);
 	

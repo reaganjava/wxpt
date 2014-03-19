@@ -64,7 +64,7 @@ public class AdminDaoImpl implements IAdminDao {
 	
 	public int updateAdmin(CommonAdmin admin) {
 		ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
-		objectParams.objectArrayFactory(admin);
+		objectParams.objectArrayUpdateFactory(admin);
 		return baseDao.executeReturn(objectParams.getSql(), objectParams.getArgs());
 	}
 

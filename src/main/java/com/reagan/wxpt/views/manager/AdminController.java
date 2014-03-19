@@ -20,8 +20,10 @@ public class AdminController extends Component {
 	@RequestMapping(value = "add.html", method = RequestMethod.GET)
 	public void add() {
 		AdminVO adminVO = new AdminVO();
-		adminVO.getAdmin().setUsername("kokomi");
-		adminVO.getAdmin().setPassword("123456");
-		System.out.println(adminService.verifiAdmin(adminVO));
+		adminVO.getAdmin().setAdmid(1);
+		adminVO = adminService.viewAdminDetail(adminVO);
+		adminVO.getAdmin().setRealname("reading");
+		adminService.modifiAdmin(adminVO);
 	}
+	
 }
