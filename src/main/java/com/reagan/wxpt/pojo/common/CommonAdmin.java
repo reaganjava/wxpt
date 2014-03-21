@@ -29,6 +29,12 @@ public class CommonAdmin implements java.io.Serializable {
 	private String password;
 	@Mapper(column="REALNAME", update=true)
 	private String realname;
+	@Mapper(column="EMAIL", update=true)
+	private String email;
+	@Mapper(column="TEL", update=true)
+	private String tel;
+	@Mapper(column="MOBILE", update=true)
+	private String mobile;
 	@Mapper(column="CREATEDATE")
 	private Date createdate;
 	@Mapper(column="CREATENAME")

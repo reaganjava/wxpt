@@ -9,6 +9,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.reagan.core.data.dao.IBaseDao;
+import com.reagan.core.exception.MapperException;
 import com.reagan.core.util.ObjectParams;
 import com.reagan.core.util.QueryMapper;
 import com.reagan.util.ValidatorUtil;
@@ -58,14 +59,23 @@ public class AdminDaoImpl implements IAdminDao {
 	@Override
 	public void saveAdmin(CommonAdmin admin) {
 		ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
-		objectParams.objectArrayFactory(admin);
-		baseDao.execute(objectParams.getSql(), objectParams.getArgs());
+		try {
+			objectParams.objectArrayFactory(admin);
+			baseDao.execute(objectParams.getSql(), objectParams.getArgs());
+		} catch (MapperException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public int updateAdmin(CommonAdmin admin) {
 		ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
-		objectParams.objectArrayUpdateFactory(admin);
-		return baseDao.executeReturn(objectParams.getSql(), objectParams.getArgs());
+		try {
+			objectParams.objectArrayUpdateFactory(admin);
+			return baseDao.executeReturn(objectParams.getSql(), objectParams.getArgs());
+		} catch (MapperException e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 
 	@Override
@@ -77,7 +87,6 @@ public class AdminDaoImpl implements IAdminDao {
 	@Override
 	public CommonAdmin queryAdmin(AdminVO adminVO) {
 		QueryMapper mapper = whereMapper(adminVO, QUERY_ADMIN);
-		System.out.println(mapper.toQueryString());
 		return baseDao.queryForObject(mapper.toQueryString(new String[]{"*"}), mapper.toQueryArgs(), new AdminMapper());
 	}
 
@@ -160,7 +169,12 @@ public class AdminDaoImpl implements IAdminDao {
 		public CommonAdmin mapRow(ResultSet rs, int rowNum) throws SQLException {
 			CommonAdmin admin = new CommonAdmin();
 			ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
-			return objectParams.resultObjectFactory(admin, rs);
+			try {
+				return objectParams.resultObjectFactory(admin, rs);
+			} catch (MapperException e) {
+				e.printStackTrace();
+				return null;
+			}
 		}
 		
 	}
