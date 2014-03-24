@@ -17,28 +17,40 @@ public class CommonAdmin implements java.io.Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 4058847395045273376L;
+	
 	@Mapper(column="ADMID", insert=false, updateWhere=true)
 	private Integer admid;
+	
 	@Mapper(column="COMPANY_ID", update=true)
 	private Integer companyId;
+	
 	@Mapper(column="GROUP_ID", update=true)
 	private Integer groupId;
+	
 	@Mapper(column="USERNAME")
 	private String username;
+	
 	@Mapper(column="PASSWORD", update=true)
 	private String password;
+	
 	@Mapper(column="REALNAME", update=true)
 	private String realname;
+	
 	@Mapper(column="EMAIL", update=true)
 	private String email;
+	
 	@Mapper(column="TEL", update=true)
 	private String tel;
+	
 	@Mapper(column="MOBILE", update=true)
 	private String mobile;
+	
 	@Mapper(column="CREATEDATE")
 	private Date createdate;
+	
 	@Mapper(column="CREATENAME")
 	private String createname;
+	
 	@Mapper(column="STATUS", update=true)
 	private Integer status;
 
@@ -132,6 +144,30 @@ public class CommonAdmin implements java.io.Serializable {
 
 	public void setCompanyId(Integer companyId) {
 		this.companyId = companyId;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 }

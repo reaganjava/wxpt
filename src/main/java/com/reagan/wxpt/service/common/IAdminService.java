@@ -1,7 +1,6 @@
 package com.reagan.wxpt.service.common;
 
-
-import com.reagan.views.dto.PageBean;
+import com.reagan.util.PageBean;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
 import com.reagan.wxpt.vo.common.AdminVO;
 

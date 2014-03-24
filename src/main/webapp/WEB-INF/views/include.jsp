@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<link href="<%=request.getContextPath()%>/resources/css/default.css" rel="stylesheet" type="text/css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/js/themes/default/easyui.css" />
-<link rel="stylesheet" type="text/css" href="<%=request.getContextPath()%>/resources/js/themes/icon.css" />
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/jquery.easyui.js"></script>
-<script type="text/javascript" src="<%=request.getContextPath()%>/resources/js/outlook2.js"> </script>
+ <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+ <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%> 
+<link href="${rootpath}/resources/css/default.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" type="text/css" href="${rootpath}/resources/js/themes/default/easyui.css" />
+<link rel="stylesheet" type="text/css" href="${rootpath}/resources/js/themes/icon.css" />
+<script type="text/javascript" src="${rootpath}/resources/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="${rootpath}/resources/js/jquery.easyui.js"></script>
+<script type="text/javascript" src="${rootpath}/resources/js/outlook2.js"> </script>
 <script type="text/javascript">
 var _menus = {"menus":[
 					{"menuid":"1","icon":"icon-sys","menuname":"系统管理",
@@ -37,6 +39,7 @@ var _menus = {"menus":[
 			]};
 			
    function login() {
+	   var $loginForm = $('#loginForm');
 	   var $username = $('#username');
        var $password = $('#password');
        if($username.val() == '') {
@@ -47,12 +50,7 @@ var _menus = {"menus":[
     	   msgShow('系统提示', '请输入密码！', 'warning');
     	   return false;
        }
-       $.post('/ajax/editpassword.ashx?newpass=' + $newpass.val(), function(msg) {
-           msgShow('系统提示', '恭喜，密码修改成功！<br>您的新密码为：' + msg, 'info');
-           $newpass.val('');
-           $rePass.val('');
-           close();
-       })
+       $loginForm.submit();
    }
    
    
@@ -92,31 +90,17 @@ var _menus = {"menus":[
        
    }
 
-   $(function() {
-
-       openPwd();
-       //
-       $('#editpass').click(function() {
-           $('#w').window('open');
-       });
-
-       $('#btnEp').click(function() {
-           serverLogin();
-       })
-
-      
-
+  $(function() {
+	  
        $('#loginOut').click(function() {
            $.messager.confirm('系统提示', '您确定要退出本次登录吗?', function(r) {
 
                if (r) {
-                   location.href = '/ajax/loginout.ashx';
+                   location.href = '/manager/loginOut.html';
                }
            });
 
        })
-		
-		
 		
    });
 </script>

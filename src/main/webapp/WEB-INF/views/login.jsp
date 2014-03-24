@@ -7,8 +7,8 @@
 
 
 
-
-	<!--修改密码窗口-->
+	<form id="loginForm" action="/manager/index.html" method="post">
+	<!--登录窗口-->
 	<div class="easyui-window" icon="icon-save"
 		style="width: 300px; height: 150px; padding: 5px; background: #fafafa;">
 		<div class="easyui-layout" fit="true">
@@ -17,21 +17,22 @@
 				<table cellpadding=3>
 					<tr>
 						<td>用户名</td>
-						<td><input id="username" type="text" class="txt01" /></td>
+						<td><input id="username" type="text" name="username" class="txt01" /></td>
 					</tr>
 					<tr>
 						<td>密码：</td>
-						<td><input id="password" type="Password" class="txt01" /></td>
+						<td><input id="password" type="Password" name="password" class="txt01" /></td>
 					</tr>
 				</table>
 			</div>
 			<div region="south" border="false"
 				style="text-align: right; height: 30px; line-height: 30px;">
-				<a id="btnEp" class="easyui-linkbutton" icon="icon-ok"
+				<a id="btnLogin" class="easyui-linkbutton" icon="icon-ok"
 					href="javascript:void(0)" onclick="login()"> 确定</a> <a class="easyui-linkbutton"
 					icon="icon-cancel" href="javascript:void(0)" onclick="cleanLogin()">清除</a>
 			</div>
 		</div>
 	</div>
+	</form>
 </body>
 </html>
