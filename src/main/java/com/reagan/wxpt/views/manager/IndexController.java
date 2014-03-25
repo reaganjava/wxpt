@@ -30,14 +30,14 @@ public class IndexController extends Component {
 		HttpSession session = request.getSession();
 		String adminID = (String) session.getAttribute(Component.SESSION_ADMIN_ID);
 		if(adminID == null || adminID == ""){
-			mav.setViewName("login");
-		}else{
 			mav.setViewName("index");
+		}else{
+			mav.setViewName("center");
 		}
 		return mav;
 	}
 	
-	@RequestMapping(value = "index.html", method = RequestMethod.POST)
+	@RequestMapping(value = "login.html", method = RequestMethod.POST)
 	public ModelAndView login(ModelAndView mav, String username, String password, HttpServletRequest request, HttpServletResponse response) {
 		AdminVO adminVO = new AdminVO();
 		adminVO.getAdmin().setUsername(username);
