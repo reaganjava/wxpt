@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Service;
 
 import com.reagan.wxpt.message.resp.TextMessage;
-import com.reagan.wxpt.service.IWXPortService;
+import com.reagan.wxpt.service.api.impl.IWXPortService;
 import com.reagan.wxpt.util.MessageUtil;
 
 @Service("portService")

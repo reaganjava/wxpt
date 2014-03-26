@@ -1,5 +1,8 @@
 package com.reagan.wxpt.vo.common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.reagan.wxpt.pojo.business.BusinessCompany;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
 import com.reagan.wxpt.vo.BaseVO;
@@ -10,11 +13,14 @@ public class AdminVO extends BaseVO {
 	
 	private CommonAdmin admin;
 	
+	private List<CommonAdmin> adminList;
+	
 	private String newPassword;
 	
 	public AdminVO() {
 		admin = new CommonAdmin();
 		company = new BusinessCompany();
+		adminList = new ArrayList<CommonAdmin>();
 	}
 	
 	public BusinessCompany getCompany() {
@@ -31,6 +37,14 @@ public class AdminVO extends BaseVO {
 
 	public void setAdmin(CommonAdmin admin) {
 		this.admin = admin;
+	}
+
+	public List<CommonAdmin> getAdminList() {
+		return adminList;
+	}
+
+	public void setAdminList(List<CommonAdmin> adminList) {
+		this.adminList = adminList;
 	}
 
 	public String getNewPassword() {

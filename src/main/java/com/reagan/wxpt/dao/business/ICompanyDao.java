@@ -1,5 +1,8 @@
 package com.reagan.wxpt.dao.business;
 
-public interface ICompanyDao {
+import com.reagan.core.data.dao.IJDBCDao;
+import com.reagan.wxpt.pojo.business.BusinessCompany;
+
+public interface ICompanyDao extends IJDBCDao<BusinessCompany>  {
 
 }

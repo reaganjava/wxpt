@@ -6,6 +6,7 @@ import java.util.List;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
 import com.reagan.wxpt.pojo.common.CommonGroup;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
+import com.reagan.wxpt.pojo.common.CommonMenuItem;
 import com.reagan.wxpt.vo.BaseVO;
 
 public class GroupVO extends BaseVO {
@@ -18,10 +19,13 @@ public class GroupVO extends BaseVO {
 	
 	private List<CommonAdmin> adminList;
 	
+	private List<CommonMenuItem> menuItemList;
+	
 	public GroupVO() {
 		this.group = new CommonGroup();
 		this.company = new BusinessCompany();
 		this.adminList = new ArrayList<CommonAdmin>();
+		this.menuItemList = new ArrayList<CommonMenuItem>();
 	}
 
 	public CommonGroup getGroup() {
@@ -54,6 +58,14 @@ public class GroupVO extends BaseVO {
 
 	public void setAdminList(List<CommonAdmin> adminList) {
 		this.adminList = adminList;
+	}
+
+	public List<CommonMenuItem> getMenuItemList() {
+		return menuItemList;
+	}
+
+	public void setMenuItemList(List<CommonMenuItem> menuItemList) {
+		this.menuItemList = menuItemList;
 	}
 	
 }

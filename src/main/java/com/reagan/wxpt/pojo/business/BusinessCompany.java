@@ -3,12 +3,7 @@ package com.reagan.wxpt.pojo.business;
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
-
-import com.reagan.wxpt.pojo.common.CommonAdmin;
 import com.reagan.wxpt.pojo.system.SysCategory;
-import com.reagan.wxpt.pojo.system.SysMenuGroup;
 
 
 /**
@@ -31,14 +26,6 @@ public class BusinessCompany implements java.io.Serializable {
 	private int scale;
 	private String salesName;
 	private Date createDate;
-	private Set<CommonAdmin> commonAdmins = new HashSet<CommonAdmin>(0);
-	private Set<BusinessGoods> businessGoodses = new HashSet<BusinessGoods>(0);
-	private Set<BusinessAdvertisement> businessAdvertisements = new HashSet<BusinessAdvertisement>(
-			0);
-	private Set<BusinessOrderDetail> businessOrderDetails = new HashSet<BusinessOrderDetail>(
-			0);
-	private Set<BusinessShop> businessShops = new HashSet<BusinessShop>(0);
-	private Set<SysMenuGroup> sysMenuGroups = new HashSet<SysMenuGroup>(0);
 
 	public BusinessCompany() {
 	}
@@ -57,29 +44,7 @@ public class BusinessCompany implements java.io.Serializable {
 		this.createDate = createDate;
 	}
 
-	public BusinessCompany(SysCategory sysCategory, String name,
-			String district, int level, int settleType, int serviceType,
-			int scale, String salesName, Date createDate,
-			Set<CommonAdmin> commonAdmins, Set<BusinessGoods> businessGoodses,
-			Set<BusinessAdvertisement> businessAdvertisements,
-			Set<BusinessOrderDetail> businessOrderDetails,
-			Set<BusinessShop> businessShops, Set<SysMenuGroup> sysMenuGroups) {
-		this.sysCategory = sysCategory;
-		this.name = name;
-		this.district = district;
-		this.level = level;
-		this.settleType = settleType;
-		this.serviceType = serviceType;
-		this.scale = scale;
-		this.salesName = salesName;
-		this.createDate = createDate;
-		this.commonAdmins = commonAdmins;
-		this.businessGoodses = businessGoodses;
-		this.businessAdvertisements = businessAdvertisements;
-		this.businessOrderDetails = businessOrderDetails;
-		this.businessShops = businessShops;
-		this.sysMenuGroups = sysMenuGroups;
-	}
+	
 
 	
 	public Integer getCoid() {
@@ -168,62 +133,6 @@ public class BusinessCompany implements java.io.Serializable {
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
-	}
-
-	
-	public Set<CommonAdmin> getCommonAdmins() {
-		return this.commonAdmins;
-	}
-
-	public void setCommonAdmins(Set<CommonAdmin> commonAdmins) {
-		this.commonAdmins = commonAdmins;
-	}
-
-	
-	public Set<BusinessGoods> getBusinessGoodses() {
-		return this.businessGoodses;
-	}
-
-	public void setBusinessGoodses(Set<BusinessGoods> businessGoodses) {
-		this.businessGoodses = businessGoodses;
-	}
-
-	
-	public Set<BusinessAdvertisement> getBusinessAdvertisements() {
-		return this.businessAdvertisements;
-	}
-
-	public void setBusinessAdvertisements(
-			Set<BusinessAdvertisement> businessAdvertisements) {
-		this.businessAdvertisements = businessAdvertisements;
-	}
-
-	
-	public Set<BusinessOrderDetail> getBusinessOrderDetails() {
-		return this.businessOrderDetails;
-	}
-
-	public void setBusinessOrderDetails(
-			Set<BusinessOrderDetail> businessOrderDetails) {
-		this.businessOrderDetails = businessOrderDetails;
-	}
-
-	
-	public Set<BusinessShop> getBusinessShops() {
-		return this.businessShops;
-	}
-
-	public void setBusinessShops(Set<BusinessShop> businessShops) {
-		this.businessShops = businessShops;
-	}
-
-	
-	public Set<SysMenuGroup> getSysMenuGroups() {
-		return this.sysMenuGroups;
-	}
-
-	public void setSysMenuGroups(Set<SysMenuGroup> sysMenuGroups) {
-		this.sysMenuGroups = sysMenuGroups;
 	}
 
 }
