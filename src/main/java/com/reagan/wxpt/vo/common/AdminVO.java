@@ -2,10 +2,11 @@ package com.reagan.wxpt.vo.common;
 
 import com.reagan.wxpt.pojo.business.BusinessCompany;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
+import com.reagan.wxpt.vo.BaseVO;
 
 public class AdminVO extends BaseVO {
 
-	private BusinessCompany businessCompany;
+	private BusinessCompany company;
 	
 	private CommonAdmin admin;
 	
@@ -13,15 +14,15 @@ public class AdminVO extends BaseVO {
 	
 	public AdminVO() {
 		admin = new CommonAdmin();
-		businessCompany = new BusinessCompany();
+		company = new BusinessCompany();
+	}
+	
+	public BusinessCompany getCompany() {
+		return company;
 	}
 
-	public BusinessCompany getBusinessCompany() {
-		return this.businessCompany;
-	}
-
-	public void setBusinessCompany(BusinessCompany businessCompany) {
-		this.businessCompany = businessCompany;
+	public void setCompany(BusinessCompany company) {
+		this.company = company;
 	}
 
 	public CommonAdmin getAdmin() {

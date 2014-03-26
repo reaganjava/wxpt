@@ -1,4 +1,4 @@
-package com.reagan.wxpt.vo.common;
+package com.reagan.wxpt.vo;
 
 public class BaseVO {
 
