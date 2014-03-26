@@ -6,26 +6,31 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
-import com.reagan.core.data.dao.impl.JDBCDaoImpl;
+import com.reagan.core.data.dao.impl.MapperDaoImpl;
 import com.reagan.core.exception.MapperException;
-import com.reagan.core.util.ObjectParams;
+import com.reagan.core.util.ObjectMapperParams;
 
 import com.reagan.wxpt.dao.common.IAdminDao;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
 
 
 @Repository
-public class AdminDaoImpl extends JDBCDaoImpl<CommonAdmin> implements IAdminDao {
+public class AdminDaoImpl extends MapperDaoImpl<CommonAdmin> implements IAdminDao {
 	
 	
 	class AdminMapper implements RowMapper<CommonAdmin> {
+		
+		private ObjectMapperParams<CommonAdmin> objectMapperParams = null;
+
+		public AdminMapper(ObjectMapperParams<CommonAdmin> objectMapperParams) {
+			this.objectMapperParams = objectMapperParams;
+		}
 
 		@Override
 		public CommonAdmin mapRow(ResultSet rs, int rowNum) throws SQLException {
 			CommonAdmin admin = new CommonAdmin();
-			ObjectParams<CommonAdmin> objectParams = new ObjectParams<CommonAdmin>();
 			try {
-				return objectParams.resultObjectFactory(admin, rs);
+				return objectMapperParams.resultObjectFactory(admin, rs);
 			} catch (MapperException e) {
 				e.printStackTrace();
 				return null;
@@ -35,8 +40,8 @@ public class AdminDaoImpl extends JDBCDaoImpl<CommonAdmin> implements IAdminDao 
 	}
 
 	@Override
-	public RowMapper<CommonAdmin> getRowMapper() {
-		return new AdminMapper();
+	public RowMapper<CommonAdmin> getRowMapper(ObjectMapperParams<CommonAdmin> objectMapperParams) {
+		return new AdminMapper(objectMapperParams);
 	}
 
 

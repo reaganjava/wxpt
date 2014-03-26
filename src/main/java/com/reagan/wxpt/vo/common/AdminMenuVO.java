@@ -12,6 +12,8 @@ public class AdminMenuVO extends BaseVO {
 
 	private BusinessCompany company;
 	
+	private CommonMenuItem menuItem;
+	
 	private CommonGroup group;
 	
 	private List<CommonMenuItem> menuItemList;
@@ -28,6 +30,14 @@ public class AdminMenuVO extends BaseVO {
 
 	public void setCompany(BusinessCompany company) {
 		this.company = company;
+	}
+
+	public CommonMenuItem getMenuItem() {
+		return menuItem;
+	}
+
+	public void setMenuItem(CommonMenuItem menuItem) {
+		this.menuItem = menuItem;
 	}
 
 	public CommonGroup getGroup() {

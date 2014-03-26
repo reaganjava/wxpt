@@ -49,13 +49,14 @@ public class AdminController extends Component {
 		
 	}
 	
-	@RequestMapping(value = "detail.html", method = RequestMethod.GET)
-	public ModelAndView viewDetail(ModelAndView mav, @PathVariable int adminID) {
+	@RequestMapping(value = "/detail/{adminId}.html", method = RequestMethod.GET)
+	public ModelAndView viewDetail(ModelAndView mav, @PathVariable int adminId) {
 		AdminVO adminVO = new AdminVO();
-		adminVO.getAdmin().setAdmid(adminID);
+		adminVO.getAdmin().setAdmid(adminId);
 		adminVO = adminService.viewAdminDetail(adminVO);
 		mav.addObject("ADMIN_DETAIL", adminVO);
 		mav.setViewName("detail");
+		System.out.println(adminVO.getGroup().getName());
 		return mav;
 	}
 	

@@ -32,14 +32,14 @@ public class CompanyServiceImpl implements ICompanyService {
 
 	@Override
 	public CompanyVO viewCompanyDetail(CompanyVO compnayVO) {
-		BusinessCompany company = companyDao.query(compnayVO.getCompany(), new String[]{"*"});
+		BusinessCompany company = companyDao.query(compnayVO.getCompany());
 		compnayVO.setCompany(company);
 		return compnayVO;
 	}
 
 	@Override
 	public PageBean<BusinessCompany> queryCompanyList(CompanyVO compnayVO) {
-		return companyDao.queryForPage(compnayVO.getCompany(), new String[]{"*"}, compnayVO.getPageNO(), compnayVO.getPageCount());
+		return companyDao.queryForPage(compnayVO.getCompany(), compnayVO.getPageNO(), compnayVO.getPageCount());
 	}
 	
 }

@@ -34,21 +34,21 @@ public class GroupServiceImpl implements IGroupService {
 
 	@Override
 	public GroupVO viewGroupDetail(GroupVO groupVO) {
-		CommonGroup group = groupDao.query(groupVO.getGroup(), new String[]{"*"});
+		CommonGroup group = groupDao.query(groupVO.getGroup());
 		groupVO.setGroup(group);
 		return groupVO;
 	}
 
 	@Override
 	public GroupVO viewGroupList(GroupVO groupVO) {
-		List<CommonGroup> groupList = groupDao.queryForList(groupVO.getGroup(), new String[]{"*"});
+		List<CommonGroup> groupList = groupDao.queryForList(groupVO.getGroup());
 		groupVO.setGroupList(groupList);
 		return groupVO;
 	}
 
 	@Override
 	public PageBean<CommonGroup> queryGroupList(GroupVO groupVO) {
-		return groupDao.queryForPage(groupVO.getGroup(), new String[]{"*"}, groupVO.getPageNO(), groupVO.getPageCount());
+		return groupDao.queryForPage(groupVO.getGroup(), groupVO.getPageNO(), groupVO.getPageCount());
 	}
 
 }
