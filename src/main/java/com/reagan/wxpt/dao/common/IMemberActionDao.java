@@ -1,5 +1,8 @@
 package com.reagan.wxpt.dao.common;
 
-public interface IMemberActionDao {
+import com.reagan.core.data.dao.IMapperDao;
+import com.reagan.wxpt.pojo.common.CommonMemberAction;
+
+public interface IMemberActionDao extends IMapperDao<CommonMemberAction> {
 
 }

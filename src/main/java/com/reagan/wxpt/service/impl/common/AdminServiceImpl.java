@@ -34,7 +34,7 @@ public class AdminServiceImpl implements IAdminService {
 	private ICompanyDao companyDao;
 
 	@Override
-	public void addAdmin(AdminVO adminVO) {
+	public void addAdmin(AdminVO adminVO) throws Exception {
 		MD5 md5 = new MD5();
 		String password = adminVO.getAdmin().getPassword();
 		String md5Pwd = md5.getMD5ofStr(password);

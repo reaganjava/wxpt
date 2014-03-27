@@ -16,7 +16,7 @@ public class CompanyServiceImpl implements ICompanyService {
 	private ICompanyDao companyDao;
 
 	@Override
-	public void addCompany(CompanyVO companyVO) {
+	public void addCompany(CompanyVO companyVO) throws Exception {
 		companyDao.save(companyVO.getCompany());
 	}
 
@@ -31,15 +31,15 @@ public class CompanyServiceImpl implements ICompanyService {
 	}
 
 	@Override
-	public CompanyVO viewCompanyDetail(CompanyVO compnayVO) {
-		BusinessCompany company = companyDao.query(compnayVO.getCompany());
-		compnayVO.setCompany(company);
-		return compnayVO;
+	public CompanyVO viewCompanyDetail(CompanyVO companyVO) {
+		BusinessCompany company = companyDao.query(companyVO.getCompany());
+		companyVO.setCompany(company);
+		return companyVO;
 	}
 
 	@Override
-	public PageBean<BusinessCompany> queryCompanyList(CompanyVO compnayVO) {
-		return companyDao.queryForPage(compnayVO.getCompany(), compnayVO.getPageNO(), compnayVO.getPageCount());
+	public PageBean<BusinessCompany> queryCompanyList(CompanyVO companyVO) {
+		return companyDao.queryForPage(companyVO.getCompany(), companyVO.getPageNO(), companyVO.getPageCount());
 	}
 	
 }

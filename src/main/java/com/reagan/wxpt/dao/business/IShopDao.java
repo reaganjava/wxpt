@@ -1,5 +1,8 @@
 package com.reagan.wxpt.dao.business;
 
-public interface IShopDao {
+import com.reagan.core.data.dao.IMapperDao;
+import com.reagan.wxpt.pojo.business.BusinessShop;
+
+public interface IShopDao extends IMapperDao<BusinessShop>{
 
 }

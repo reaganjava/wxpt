@@ -18,7 +18,7 @@ public class GroupServiceImpl implements IGroupService {
 	private IGroupDao groupDao;
 
 	@Override
-	public void addGroup(GroupVO groupVO) {
+	public void addGroup(GroupVO groupVO) throws Exception {
 		groupDao.save(groupVO.getGroup());
 	}
 

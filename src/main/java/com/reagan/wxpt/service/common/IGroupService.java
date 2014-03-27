@@ -6,7 +6,7 @@ import com.reagan.wxpt.vo.common.GroupVO;
 
 public interface IGroupService {
 
-	public void addGroup(GroupVO groupVO);
+	public void addGroup(GroupVO groupVO) throws Exception;
 	
 	public int modifiGroup(GroupVO groupVO);
 	

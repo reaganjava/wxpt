@@ -1,5 +1,8 @@
 package com.reagan.wxpt.dao.business;
 
-public interface ICompanyActionDao {
+import com.reagan.core.data.dao.IMapperDao;
+import com.reagan.wxpt.pojo.business.BusinessCompanyAction;
+
+public interface ICompanyActionDao extends IMapperDao<BusinessCompanyAction>{
 
 }

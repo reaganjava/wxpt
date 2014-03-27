@@ -7,7 +7,7 @@ import com.reagan.wxpt.vo.common.AdminVO;
 
 public interface IAdminService {
 
-	public void addAdmin(AdminVO adminVO);
+	public void addAdmin(AdminVO adminVO) throws Exception;
 	
 	public AdminVO verifiAdmin(AdminVO adminVO);
 	

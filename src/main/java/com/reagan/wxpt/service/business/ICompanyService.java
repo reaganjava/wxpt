@@ -6,14 +6,14 @@ import com.reagan.wxpt.vo.common.CompanyVO;
 
 public interface ICompanyService {
 	
-	public void addCompany(CompanyVO companyVO);
+	public void addCompany(CompanyVO companyVO) throws Exception;
 	
 	public int modifiCompany(CompanyVO companyVO);
 	
 	public int removeCompany(CompanyVO companyVO);
 	
-	public CompanyVO viewCompanyDetail(CompanyVO compnayVO);
+	public CompanyVO viewCompanyDetail(CompanyVO companyVO);
 	
-	public PageBean<BusinessCompany> queryCompanyList(CompanyVO compnayVO);
+	public PageBean<BusinessCompany> queryCompanyList(CompanyVO companyVO);
 
 }

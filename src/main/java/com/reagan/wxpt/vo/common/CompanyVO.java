@@ -1,8 +1,7 @@
 package com.reagan.wxpt.vo.common;
 
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import com.reagan.wxpt.pojo.business.BusinessAdvertisement;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
@@ -10,12 +9,14 @@ import com.reagan.wxpt.pojo.business.BusinessGoods;
 import com.reagan.wxpt.pojo.business.BusinessOrderDetail;
 import com.reagan.wxpt.pojo.business.BusinessShop;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
+import com.reagan.wxpt.pojo.system.SysCategory;
 import com.reagan.wxpt.pojo.system.SysMenuGroup;
 import com.reagan.wxpt.vo.BaseVO;
 
 public class CompanyVO extends BaseVO {
 	
 	private BusinessCompany company;
+	private SysCategory category;
 	private List<BusinessCompany> companyList;
 	private List<CommonAdmin> adminList;
 	private List<BusinessGoods> goodList;
@@ -23,11 +24,29 @@ public class CompanyVO extends BaseVO {
 	private List<BusinessOrderDetail> orderDetailList;
 	private List<BusinessShop> shopList;
 	private List<SysMenuGroup> menuGroupList;
+	
+	public CompanyVO() {
+		company = new BusinessCompany();
+		category = new SysCategory();
+		companyList = new ArrayList<BusinessCompany>();
+		adminList = new ArrayList<CommonAdmin>();
+		goodList = new ArrayList<BusinessGoods>();
+		advertisementList = new ArrayList<BusinessAdvertisement>();
+		orderDetailList = new ArrayList<BusinessOrderDetail>();
+		shopList = new ArrayList<BusinessShop>();
+		menuGroupList = new ArrayList<SysMenuGroup>();
+	}
 	public BusinessCompany getCompany() {
 		return company;
 	}
 	public void setCompany(BusinessCompany company) {
 		this.company = company;
+	}
+	public SysCategory getCategory() {
+		return category;
+	}
+	public void setCategory(SysCategory category) {
+		this.category = category;
 	}
 	public List<BusinessCompany> getCompanyList() {
 		return companyList;

@@ -45,7 +45,7 @@ public class IndexController extends Component {
 		adminVO = adminService.verifiAdmin(adminVO);
 		if(adminVO.getAdmin() != null) {
 			request.getSession().setAttribute(Component.SESSION_ADMIN_ID, adminVO.getAdmin().getAdmid().toString());
-			request.getSession().setAttribute(Component.SESSION_ADMIN_INFO, adminVO);
+			request.getSession().setAttribute(Component.SESSION_ADMIN_NAME, adminVO.getAdmin().getUsername());
 		}
 		return center(mav,request,response);
 	}
@@ -53,7 +53,7 @@ public class IndexController extends Component {
 	@RequestMapping(value = "loginOut.html", method = RequestMethod.GET)
 	public ModelAndView loginOut(ModelAndView mav, HttpServletRequest request, HttpServletResponse response) {
 		request.getSession().removeAttribute(Component.SESSION_ADMIN_ID);
-		request.getSession().removeAttribute(Component.SESSION_ADMIN_INFO);
+		request.getSession().removeAttribute(Component.SESSION_ADMIN_NAME);
 		return center(mav,request, response);
 	}
 

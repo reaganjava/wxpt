@@ -19,7 +19,7 @@ import com.reagan.wxpt.vo.common.AdminVO;
 public class AdminController extends Component {
 	
 	@Autowired
-	IAdminService adminService;
+	private IAdminService adminService;
 	
 	@RequestMapping(value = "add.html", method = RequestMethod.GET)
 	public void add() {
@@ -35,7 +35,12 @@ public class AdminController extends Component {
 		adminVO.getAdmin().setMobile("13590325680");
 		adminVO.getAdmin().setTel("62306306");
 		adminVO.getAdmin().setStatus(0);
-		adminService.addAdmin(adminVO);
+		try {
+			adminService.addAdmin(adminVO);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
@@ -50,7 +55,7 @@ public class AdminController extends Component {
 	}
 	
 	@RequestMapping(value = "/detail/{adminId}.html", method = RequestMethod.GET)
-	public ModelAndView viewDetail(ModelAndView mav, @PathVariable int adminId) {
+	public ModelAndView detail(ModelAndView mav, @PathVariable int adminId) {
 		AdminVO adminVO = new AdminVO();
 		adminVO.getAdmin().setAdmid(adminId);
 		adminVO = adminService.viewAdminDetail(adminVO);
@@ -66,7 +71,7 @@ public class AdminController extends Component {
 	}
 	
 	@RequestMapping(value = "list.html", method = RequestMethod.GET)
-	public ModelAndView viewAdminList(ModelAndView mav) {
+	public ModelAndView list(ModelAndView mav) {
 		return mav;
 	}
 }
