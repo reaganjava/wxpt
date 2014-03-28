@@ -5,7 +5,6 @@ package com.reagan.wxpt.pojo.business;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import com.reagan.wxpt.pojo.common.CommonMembers;
 
 
 /**
@@ -14,9 +13,13 @@ import com.reagan.wxpt.pojo.common.CommonMembers;
 
 public class BusinessOrder implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1908846686506396089L;
 	private Integer ordid;
-	private BusinessTransaction businessTransaction;
-	private CommonMembers commonMembers;
+	private Integer transactionId;
+	private Integer uid;
 	private String ordNumber;
 	private Date date;
 	private int status;
@@ -25,48 +28,8 @@ public class BusinessOrder implements java.io.Serializable {
 	private Date disDate;
 	private BigDecimal amount;
 	private int payMode;
-	private BusinessOrderDetail businessOrderDetail;
-	private BusinessDistribution businessDistribution;
-
-	public BusinessOrder() {
-	}
-
-	public BusinessOrder(BusinessTransaction businessTransaction,
-			CommonMembers commonMembers, String ordNumber, Date date,
-			int status, int goodsQuantity, Date orderDate, Date disDate,
-			BigDecimal amount, int payMode) {
-		this.businessTransaction = businessTransaction;
-		this.commonMembers = commonMembers;
-		this.ordNumber = ordNumber;
-		this.date = date;
-		this.status = status;
-		this.goodsQuantity = goodsQuantity;
-		this.orderDate = orderDate;
-		this.disDate = disDate;
-		this.amount = amount;
-		this.payMode = payMode;
-	}
-
-	public BusinessOrder(BusinessTransaction businessTransaction,
-			CommonMembers commonMembers, String ordNumber, Date date,
-			int status, int goodsQuantity, Date orderDate, Date disDate,
-			BigDecimal amount, int payMode,
-			BusinessOrderDetail businessOrderDetail,
-			BusinessDistribution businessDistribution) {
-		this.businessTransaction = businessTransaction;
-		this.commonMembers = commonMembers;
-		this.ordNumber = ordNumber;
-		this.date = date;
-		this.status = status;
-		this.goodsQuantity = goodsQuantity;
-		this.orderDate = orderDate;
-		this.disDate = disDate;
-		this.amount = amount;
-		this.payMode = payMode;
-		this.businessOrderDetail = businessOrderDetail;
-		this.businessDistribution = businessDistribution;
-	}
-
+	private Integer orderDetailId;
+	private Integer distributionId;
 
 	public Integer getOrdid() {
 		return this.ordid;
@@ -74,24 +37,6 @@ public class BusinessOrder implements java.io.Serializable {
 
 	public void setOrdid(Integer ordid) {
 		this.ordid = ordid;
-	}
-
-
-	public BusinessTransaction getBusinessTransaction() {
-		return this.businessTransaction;
-	}
-
-	public void setBusinessTransaction(BusinessTransaction businessTransaction) {
-		this.businessTransaction = businessTransaction;
-	}
-
-
-	public CommonMembers getCommonMembers() {
-		return this.commonMembers;
-	}
-
-	public void setCommonMembers(CommonMembers commonMembers) {
-		this.commonMembers = commonMembers;
 	}
 
 
@@ -166,23 +111,36 @@ public class BusinessOrder implements java.io.Serializable {
 		this.payMode = payMode;
 	}
 
-
-	public BusinessOrderDetail getBusinessOrderDetail() {
-		return this.businessOrderDetail;
+	public Integer getTransactionId() {
+		return transactionId;
 	}
 
-	public void setBusinessOrderDetail(BusinessOrderDetail businessOrderDetail) {
-		this.businessOrderDetail = businessOrderDetail;
+	public void setTransactionId(Integer transactionId) {
+		this.transactionId = transactionId;
 	}
 
-
-	public BusinessDistribution getBusinessDistribution() {
-		return this.businessDistribution;
+	public Integer getUid() {
+		return uid;
 	}
 
-	public void setBusinessDistribution(
-			BusinessDistribution businessDistribution) {
-		this.businessDistribution = businessDistribution;
+	public void setUid(Integer uid) {
+		this.uid = uid;
 	}
 
+	public Integer getOrderDetailId() {
+		return orderDetailId;
+	}
+
+	public void setOrderDetailId(Integer orderDetailId) {
+		this.orderDetailId = orderDetailId;
+	}
+
+	public Integer getDistributionId() {
+		return distributionId;
+	}
+
+	public void setDistributionId(Integer distributionId) {
+		this.distributionId = distributionId;
+	}
+	
 }

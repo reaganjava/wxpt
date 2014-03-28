@@ -2,12 +2,6 @@ package com.reagan.wxpt.pojo.business;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
-import java.util.HashSet;
-import java.util.Set;
-
-import com.reagan.wxpt.pojo.system.SysCategory;
-import com.reagan.wxpt.pojo.system.SysMenuGroup;
-import com.reagan.wxpt.pojo.system.SysRegionCategory;
 
 
 /**
@@ -16,10 +10,14 @@ import com.reagan.wxpt.pojo.system.SysRegionCategory;
 
 public class BusinessShop implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 144873009540405094L;
 	private Integer shid;
-	private BusinessCompany businessCompany;
-	private SysCategory sysCategory;
-	private SysRegionCategory sysRegionCategory;
+	private Integer companyId;
+	private Integer categoryId;
+	private Integer regionCategoryId;
 	private String name;
 	private String address;
 	private String tel;
@@ -30,61 +28,7 @@ public class BusinessShop implements java.io.Serializable {
 	private String district;
 	private int pushType;
 	private String description;
-	private Set<BusinessGoods> businessGoodses = new HashSet<BusinessGoods>(0);
-	private Set<BusinessOrderDetail> businessOrderDetails = new HashSet<BusinessOrderDetail>(
-			0);
-	private Set<SysMenuGroup> sysMenuGroups = new HashSet<SysMenuGroup>(0);
-
-	public BusinessShop() {
-	}
-
-	public BusinessShop(BusinessCompany businessCompany,
-			SysCategory sysCategory, SysRegionCategory sysRegionCategory,
-			String name, String address, String tel, String mobile,
-			String contact, String province, String city, String district,
-			int pushType, String description) {
-		this.businessCompany = businessCompany;
-		this.sysCategory = sysCategory;
-		this.sysRegionCategory = sysRegionCategory;
-		this.name = name;
-		this.address = address;
-		this.tel = tel;
-		this.mobile = mobile;
-		this.contact = contact;
-		this.province = province;
-		this.city = city;
-		this.district = district;
-		this.pushType = pushType;
-		this.description = description;
-	}
-
-	public BusinessShop(BusinessCompany businessCompany,
-			SysCategory sysCategory, SysRegionCategory sysRegionCategory,
-			String name, String address, String tel, String mobile,
-			String contact, String province, String city, String district,
-			int pushType, String description,
-			Set<BusinessGoods> businessGoodses,
-			Set<BusinessOrderDetail> businessOrderDetails,
-			Set<SysMenuGroup> sysMenuGroups) {
-		this.businessCompany = businessCompany;
-		this.sysCategory = sysCategory;
-		this.sysRegionCategory = sysRegionCategory;
-		this.name = name;
-		this.address = address;
-		this.tel = tel;
-		this.mobile = mobile;
-		this.contact = contact;
-		this.province = province;
-		this.city = city;
-		this.district = district;
-		this.pushType = pushType;
-		this.description = description;
-		this.businessGoodses = businessGoodses;
-		this.businessOrderDetails = businessOrderDetails;
-		this.sysMenuGroups = sysMenuGroups;
-	}
-
-
+	
 	public Integer getShid() {
 		return this.shid;
 	}
@@ -92,34 +36,6 @@ public class BusinessShop implements java.io.Serializable {
 	public void setShid(Integer shid) {
 		this.shid = shid;
 	}
-
-
-	public BusinessCompany getBusinessCompany() {
-		return this.businessCompany;
-	}
-
-	public void setBusinessCompany(BusinessCompany businessCompany) {
-		this.businessCompany = businessCompany;
-	}
-
-
-	public SysCategory getSysCategory() {
-		return this.sysCategory;
-	}
-
-	public void setSysCategory(SysCategory sysCategory) {
-		this.sysCategory = sysCategory;
-	}
-
-
-	public SysRegionCategory getSysRegionCategory() {
-		return this.sysRegionCategory;
-	}
-
-	public void setSysRegionCategory(SysRegionCategory sysRegionCategory) {
-		this.sysRegionCategory = sysRegionCategory;
-	}
-
 
 	public String getName() {
 		return this.name;
@@ -210,32 +126,29 @@ public class BusinessShop implements java.io.Serializable {
 		this.description = description;
 	}
 
-
-	public Set<BusinessGoods> getBusinessGoodses() {
-		return this.businessGoodses;
+	public Integer getCompanyId() {
+		return companyId;
 	}
 
-	public void setBusinessGoodses(Set<BusinessGoods> businessGoodses) {
-		this.businessGoodses = businessGoodses;
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
-
-	public Set<BusinessOrderDetail> getBusinessOrderDetails() {
-		return this.businessOrderDetails;
+	public Integer getCategoryId() {
+		return categoryId;
 	}
 
-	public void setBusinessOrderDetails(
-			Set<BusinessOrderDetail> businessOrderDetails) {
-		this.businessOrderDetails = businessOrderDetails;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 
-
-	public Set<SysMenuGroup> getSysMenuGroups() {
-		return this.sysMenuGroups;
+	public Integer getRegionCategoryId() {
+		return regionCategoryId;
 	}
 
-	public void setSysMenuGroups(Set<SysMenuGroup> sysMenuGroups) {
-		this.sysMenuGroups = sysMenuGroups;
+	public void setRegionCategoryId(Integer regionCategoryId) {
+		this.regionCategoryId = regionCategoryId;
 	}
+
 
 }

@@ -9,6 +9,10 @@ package com.reagan.wxpt.pojo.system;
 
 public class SysConfig implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3168200914970724586L;
 	private String key;
 	private String value;
 	private String description;

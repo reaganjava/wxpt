@@ -4,7 +4,6 @@ package com.reagan.wxpt.pojo.business;
 
 import java.util.Date;
 
-import com.reagan.wxpt.pojo.common.CommonMembers;
 
 
 /**
@@ -13,9 +12,13 @@ import com.reagan.wxpt.pojo.common.CommonMembers;
 
 public class BusinessDistribution implements java.io.Serializable {
 
-	private int ordid;
-	private BusinessOrder businessOrder;
-	private CommonMembers commonMembers;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -58469378799266252L;
+	private Integer ordid;
+	private Integer orderId;
+	private Integer uid;
 	private String cusName;
 	private String zip;
 	private String tel;
@@ -24,25 +27,6 @@ public class BusinessDistribution implements java.io.Serializable {
 	private int deliverMode;
 	private Date deliverDate;
 	private int isPay;
-
-	public BusinessDistribution() {
-	}
-
-	public BusinessDistribution(BusinessOrder businessOrder,
-			CommonMembers commonMembers, String cusName, String zip,
-			String tel, String mobile, String address, int deliverMode,
-			Date deliverDate, int isPay) {
-		this.businessOrder = businessOrder;
-		this.commonMembers = commonMembers;
-		this.cusName = cusName;
-		this.zip = zip;
-		this.tel = tel;
-		this.mobile = mobile;
-		this.address = address;
-		this.deliverMode = deliverMode;
-		this.deliverDate = deliverDate;
-		this.isPay = isPay;
-	}
 
 	
 	public int getOrdid() {
@@ -53,25 +37,6 @@ public class BusinessDistribution implements java.io.Serializable {
 		this.ordid = ordid;
 	}
 
-	
-	public BusinessOrder getBusinessOrder() {
-		return this.businessOrder;
-	}
-
-	public void setBusinessOrder(BusinessOrder businessOrder) {
-		this.businessOrder = businessOrder;
-	}
-
-	
-	public CommonMembers getCommonMembers() {
-		return this.commonMembers;
-	}
-
-	public void setCommonMembers(CommonMembers commonMembers) {
-		this.commonMembers = commonMembers;
-	}
-
-	
 	public String getCusName() {
 		return this.cusName;
 	}
@@ -79,8 +44,27 @@ public class BusinessDistribution implements java.io.Serializable {
 	public void setCusName(String cusName) {
 		this.cusName = cusName;
 	}
-
 	
+	public Integer getOrderId() {
+		return orderId;
+	}
+
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public void setOrdid(Integer ordid) {
+		this.ordid = ordid;
+	}
+
 	public String getZip() {
 		return this.zip;
 	}

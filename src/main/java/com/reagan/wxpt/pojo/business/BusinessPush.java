@@ -11,29 +11,18 @@ import java.util.Date;
 
 public class BusinessPush implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6221547079602303150L;
 	private Integer puid;
-	private int attachmentId;
-	private int type;
+	private Integer attachmentId;
+	private Integer type;
 	private Date date;
 	private String content;
-	private int mode;
-	private int status;
+	private Integer mode;
+	private Integer status;
 	private String createname;
-
-	public BusinessPush() {
-	}
-
-	public BusinessPush(int attachmentId, int type, Date date, String content,
-			int mode, int status, String createname) {
-		this.attachmentId = attachmentId;
-		this.type = type;
-		this.date = date;
-		this.content = content;
-		this.mode = mode;
-		this.status = status;
-		this.createname = createname;
-	}
-
 
 	public Integer getPuid() {
 		return this.puid;

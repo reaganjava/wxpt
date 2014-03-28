@@ -2,12 +2,6 @@ package com.reagan.wxpt.pojo.system;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
-import java.util.HashSet;
-import java.util.Set;
-
-import com.reagan.wxpt.pojo.business.BusinessCompany;
-import com.reagan.wxpt.pojo.business.BusinessGoods;
-import com.reagan.wxpt.pojo.business.BusinessShop;
 
 
 /**
@@ -16,31 +10,16 @@ import com.reagan.wxpt.pojo.business.BusinessShop;
 
 public class SysMenuGroup implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -7627542531109923088L;
 	private Integer mgid;
-	private BusinessCompany businessCompany;
-	private SysCommand sysCommand;
-	private BusinessShop businessShop;
-	private BusinessGoods businessGoods;
-	private Set<SysMenus> sysMenuses = new HashSet<SysMenus>(0);
-
-	public SysMenuGroup() {
-	}
-
-	public SysMenuGroup(BusinessCompany businessCompany) {
-		this.businessCompany = businessCompany;
-	}
-
-	public SysMenuGroup(BusinessCompany businessCompany, SysCommand sysCommand,
-			BusinessShop businessShop, BusinessGoods businessGoods,
-			Set<SysMenus> sysMenuses) {
-		this.businessCompany = businessCompany;
-		this.sysCommand = sysCommand;
-		this.businessShop = businessShop;
-		this.businessGoods = businessGoods;
-		this.sysMenuses = sysMenuses;
-	}
-
-
+	private Integer companyId;
+	private Integer commandId;
+	private Integer shopId;
+	private Integer goodsId;
+	
 	public Integer getMgid() {
 		return this.mgid;
 	}
@@ -49,49 +28,36 @@ public class SysMenuGroup implements java.io.Serializable {
 		this.mgid = mgid;
 	}
 
-
-	public BusinessCompany getBusinessCompany() {
-		return this.businessCompany;
+	public Integer getCompanyId() {
+		return companyId;
 	}
 
-	public void setBusinessCompany(BusinessCompany businessCompany) {
-		this.businessCompany = businessCompany;
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
-
-	public SysCommand getSysCommand() {
-		return this.sysCommand;
+	public Integer getCommandId() {
+		return commandId;
 	}
 
-	public void setSysCommand(SysCommand sysCommand) {
-		this.sysCommand = sysCommand;
+	public void setCommandId(Integer commandId) {
+		this.commandId = commandId;
 	}
 
-
-	public BusinessShop getBusinessShop() {
-		return this.businessShop;
+	public Integer getShopId() {
+		return shopId;
 	}
 
-	public void setBusinessShop(BusinessShop businessShop) {
-		this.businessShop = businessShop;
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
 	}
 
+	public Integer getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(Integer goodsId) {
+		this.goodsId = goodsId;
+	}
 	
-	public BusinessGoods getBusinessGoods() {
-		return this.businessGoods;
-	}
-
-	public void setBusinessGoods(BusinessGoods businessGoods) {
-		this.businessGoods = businessGoods;
-	}
-
-
-	public Set<SysMenus> getSysMenuses() {
-		return this.sysMenuses;
-	}
-
-	public void setSysMenuses(Set<SysMenus> sysMenuses) {
-		this.sysMenuses = sysMenuses;
-	}
-
 }

@@ -11,33 +11,19 @@ import java.math.BigDecimal;
 
 public class BusinessOrderDetail implements java.io.Serializable {
 
-	private int ordid;
-	private BusinessCompany businessCompany;
-	private BusinessOrder businessOrder;
-	private BusinessShop businessShop;
-	private BusinessGoods businessGoods;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5813446874915462750L;
+	private Integer ordid;
+	private Integer companyId;
+	private Integer orderId;
+	private Integer shopId;
+	private Integer goodsId;
 	private BigDecimal goodsPrice;
 	private BigDecimal disPrice;
 	private int discount;
 	private int goodsQuantity;
-
-	public BusinessOrderDetail() {
-	}
-
-	public BusinessOrderDetail(BusinessCompany businessCompany,
-			BusinessOrder businessOrder, BusinessShop businessShop,
-			BusinessGoods businessGoods, BigDecimal goodsPrice,
-			BigDecimal disPrice, int discount, int goodsQuantity) {
-		this.businessCompany = businessCompany;
-		this.businessOrder = businessOrder;
-		this.businessShop = businessShop;
-		this.businessGoods = businessGoods;
-		this.goodsPrice = goodsPrice;
-		this.disPrice = disPrice;
-		this.discount = discount;
-		this.goodsQuantity = goodsQuantity;
-	}
-
 
 	public int getOrdid() {
 		return this.ordid;
@@ -47,42 +33,41 @@ public class BusinessOrderDetail implements java.io.Serializable {
 		this.ordid = ordid;
 	}
 
-
-	public BusinessCompany getBusinessCompany() {
-		return this.businessCompany;
+	public Integer getCompanyId() {
+		return companyId;
 	}
 
-	public void setBusinessCompany(BusinessCompany businessCompany) {
-		this.businessCompany = businessCompany;
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
-
-	public BusinessOrder getBusinessOrder() {
-		return this.businessOrder;
+	public Integer getOrderId() {
+		return orderId;
 	}
 
-	public void setBusinessOrder(BusinessOrder businessOrder) {
-		this.businessOrder = businessOrder;
+	public void setOrderId(Integer orderId) {
+		this.orderId = orderId;
 	}
 
-
-	public BusinessShop getBusinessShop() {
-		return this.businessShop;
+	public Integer getShopId() {
+		return shopId;
 	}
 
-	public void setBusinessShop(BusinessShop businessShop) {
-		this.businessShop = businessShop;
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
 	}
 
-
-	public BusinessGoods getBusinessGoods() {
-		return this.businessGoods;
+	public Integer getGoodsId() {
+		return goodsId;
 	}
 
-	public void setBusinessGoods(BusinessGoods businessGoods) {
-		this.businessGoods = businessGoods;
+	public void setGoodsId(Integer goodsId) {
+		this.goodsId = goodsId;
 	}
 
+	public void setOrdid(Integer ordid) {
+		this.ordid = ordid;
+	}
 
 	public BigDecimal getGoodsPrice() {
 		return this.goodsPrice;

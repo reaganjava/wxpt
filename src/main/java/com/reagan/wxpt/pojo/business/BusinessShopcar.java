@@ -15,28 +15,15 @@ import com.reagan.wxpt.pojo.common.CommonMembers;
 public class BusinessShopcar implements java.io.Serializable {
 
 	private Integer scid;
-	private CommonMembers commonMembers;
-	private BusinessGoods businessGoods;
+	private Integer uid;
+	private Integer goodsId;
 	private String goodsName;
 	private int quantity;
 	private Date date;
 	private BigDecimal goodsPrice;
 	private BigDecimal amount;
 
-	public BusinessShopcar() {
-	}
-
-	public BusinessShopcar(CommonMembers commonMembers,
-			BusinessGoods businessGoods, String goodsName, int quantity,
-			Date date, BigDecimal goodsPrice, BigDecimal amount) {
-		this.commonMembers = commonMembers;
-		this.businessGoods = businessGoods;
-		this.goodsName = goodsName;
-		this.quantity = quantity;
-		this.date = date;
-		this.goodsPrice = goodsPrice;
-		this.amount = amount;
-	}
+	
 
 
 	public Integer getScid() {
@@ -45,24 +32,6 @@ public class BusinessShopcar implements java.io.Serializable {
 
 	public void setScid(Integer scid) {
 		this.scid = scid;
-	}
-
-
-	public CommonMembers getCommonMembers() {
-		return this.commonMembers;
-	}
-
-	public void setCommonMembers(CommonMembers commonMembers) {
-		this.commonMembers = commonMembers;
-	}
-
-
-	public BusinessGoods getBusinessGoods() {
-		return this.businessGoods;
-	}
-
-	public void setBusinessGoods(BusinessGoods businessGoods) {
-		this.businessGoods = businessGoods;
 	}
 
 
@@ -108,6 +77,22 @@ public class BusinessShopcar implements java.io.Serializable {
 
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public Integer getGoodsId() {
+		return goodsId;
+	}
+
+	public void setGoodsId(Integer goodsId) {
+		this.goodsId = goodsId;
 	}
 
 }

@@ -11,6 +11,10 @@ import java.util.Date;
 
 public class SysAttachment implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3913958906744635704L;
 	private Integer atid;
 	private Integer advertisementId;
 	private Integer goodsId;
@@ -19,31 +23,6 @@ public class SysAttachment implements java.io.Serializable {
 	private Date date;
 	private int mimetype;
 	private String createname;
-
-	public SysAttachment() {
-	}
-
-	public SysAttachment(String filename, String path, Date date, int mimetype,
-			String createname) {
-		this.filename = filename;
-		this.path = path;
-		this.date = date;
-		this.mimetype = mimetype;
-		this.createname = createname;
-	}
-
-	public SysAttachment(Integer advertisementId, Integer goodsId,
-			String filename, String path, Date date, int mimetype,
-			String createname) {
-		this.advertisementId = advertisementId;
-		this.goodsId = goodsId;
-		this.filename = filename;
-		this.path = path;
-		this.date = date;
-		this.mimetype = mimetype;
-		this.createname = createname;
-	}
-
 
 	public Integer getAtid() {
 		return this.atid;

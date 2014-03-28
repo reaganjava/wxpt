@@ -3,8 +3,7 @@ package com.reagan.wxpt.pojo.system;
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+
 
 
 /**
@@ -13,6 +12,10 @@ import java.util.Set;
 
 public class SysCommand implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 9122925774269533006L;
 	private Integer comid;
 	private int companyId;
 	private String keyvalue;
@@ -20,34 +23,7 @@ public class SysCommand implements java.io.Serializable {
 	private int eventType;
 	private String createName;
 	private Date createDate;
-	private Set<SysMenuGroup> sysMenuGroups = new HashSet<SysMenuGroup>(0);
-
-	public SysCommand() {
-	}
-
-	public SysCommand(int companyId, String keyvalue, String eventUrl,
-			int eventType, String createName, Date createDate) {
-		this.companyId = companyId;
-		this.keyvalue = keyvalue;
-		this.eventUrl = eventUrl;
-		this.eventType = eventType;
-		this.createName = createName;
-		this.createDate = createDate;
-	}
-
-	public SysCommand(int companyId, String keyvalue, String eventUrl,
-			int eventType, String createName, Date createDate,
-			Set<SysMenuGroup> sysMenuGroups) {
-		this.companyId = companyId;
-		this.keyvalue = keyvalue;
-		this.eventUrl = eventUrl;
-		this.eventType = eventType;
-		this.createName = createName;
-		this.createDate = createDate;
-		this.sysMenuGroups = sysMenuGroups;
-	}
-
-
+	
 	public Integer getComid() {
 		return this.comid;
 	}
@@ -108,15 +84,6 @@ public class SysCommand implements java.io.Serializable {
 
 	public void setCreateDate(Date createDate) {
 		this.createDate = createDate;
-	}
-
-
-	public Set<SysMenuGroup> getSysMenuGroups() {
-		return this.sysMenuGroups;
-	}
-
-	public void setSysMenuGroups(Set<SysMenuGroup> sysMenuGroups) {
-		this.sysMenuGroups = sysMenuGroups;
 	}
 
 }

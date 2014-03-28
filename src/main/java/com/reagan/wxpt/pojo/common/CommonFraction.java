@@ -12,22 +12,9 @@ import java.util.Date;
 public class CommonFraction implements java.io.Serializable {
 
 	private long uid;
-	private CommonMembers commonMembers;
 	private int quantity;
 	private Date lastTime;
 	private int lastQuantity;
-
-	public CommonFraction() {
-	}
-
-	public CommonFraction(CommonMembers commonMembers, int quantity,
-			Date lastTime, int lastQuantity) {
-		this.commonMembers = commonMembers;
-		this.quantity = quantity;
-		this.lastTime = lastTime;
-		this.lastQuantity = lastQuantity;
-	}
-
 
 	public long getUid() {
 		return this.uid;
@@ -36,16 +23,6 @@ public class CommonFraction implements java.io.Serializable {
 	public void setUid(long uid) {
 		this.uid = uid;
 	}
-
-
-	public CommonMembers getCommonMembers() {
-		return this.commonMembers;
-	}
-
-	public void setCommonMembers(CommonMembers commonMembers) {
-		this.commonMembers = commonMembers;
-	}
-
 
 	public int getQuantity() {
 		return this.quantity;

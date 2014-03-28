@@ -3,7 +3,7 @@ package com.reagan.wxpt.pojo.business;
 import java.io.Serializable;
 import java.util.Date;
 
-public class BusinessIdeaAnswer implements Serializable {
+public class BusinessAnswer implements Serializable {
 
 	private static final long serialVersionUID = -86510878602314879L;
 	

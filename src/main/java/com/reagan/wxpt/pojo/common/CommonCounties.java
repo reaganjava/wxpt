@@ -11,25 +11,12 @@ package com.reagan.wxpt.pojo.common;
 public class CommonCounties implements java.io.Serializable {
 
 	private long uid;
-	private CommonMembers commonMembers;
 	private String tel;
 	private String mobile;
 	private String zipcode;
 	private String address;
 
-	public CommonCounties() {
-	}
-
-	public CommonCounties(CommonMembers commonMembers, String tel,
-			String mobile, String zipcode, String address) {
-		this.commonMembers = commonMembers;
-		this.tel = tel;
-		this.mobile = mobile;
-		this.zipcode = zipcode;
-		this.address = address;
-	}
-
-
+	
 	public long getUid() {
 		return this.uid;
 	}
@@ -37,17 +24,6 @@ public class CommonCounties implements java.io.Serializable {
 	public void setUid(long uid) {
 		this.uid = uid;
 	}
-
-
-
-	public CommonMembers getCommonMembers() {
-		return this.commonMembers;
-	}
-
-	public void setCommonMembers(CommonMembers commonMembers) {
-		this.commonMembers = commonMembers;
-	}
-
 
 	public String getTel() {
 		return this.tel;

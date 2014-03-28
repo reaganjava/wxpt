@@ -24,29 +24,7 @@ public class BusinessCompanyAction implements java.io.Serializable {
 	private String name;
 	private int type;
 
-	public BusinessCompanyAction() {
-	}
-
-	public BusinessCompanyAction(String content, Date date, String name,
-			int type) {
-		this.content = content;
-		this.date = date;
-		this.name = name;
-		this.type = type;
-	}
-
-	public BusinessCompanyAction(Integer compnayId, Integer shopId,
-			Integer goodsId, String content, Date date, String name, int type) {
-		this.compnayId = compnayId;
-		this.shopId = shopId;
-		this.goodsId = goodsId;
-		this.content = content;
-		this.date = date;
-		this.name = name;
-		this.type = type;
-	}
-
-
+	
 	public Integer getCaid() {
 		return this.caid;
 	}

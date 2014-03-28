@@ -3,30 +3,56 @@ package com.reagan.wxpt.pojo.business;
 import java.io.Serializable;
 import java.util.Date;
 
-public class BusinessIdea implements Serializable {
+public class BusinessQuestion implements Serializable {
 
 	private static final long serialVersionUID = -2987419949377416381L;
 
-	private Integer deaId;
+	private Integer quid;
 	
 	private Integer goodsId;
 	
 	private Integer shopId;
 	
-	private Integer adminId;
+	private Integer uid;
 	
-	private String username;
+	private String nickname;
+	
+	private String content;
 	
 	private Date date;
 	
 	private Integer status;
 
-	public Integer getDeaId() {
-		return deaId;
+	public Integer getQuid() {
+		return quid;
 	}
 
-	public void setDeaId(Integer deaId) {
-		this.deaId = deaId;
+	public void setQuid(Integer quid) {
+		this.quid = quid;
+	}
+
+	public Integer getUid() {
+		return uid;
+	}
+
+	public void setUid(Integer uid) {
+		this.uid = uid;
+	}
+
+	public String getNickname() {
+		return nickname;
+	}
+
+	public void setNickname(String nickname) {
+		this.nickname = nickname;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
 	}
 
 	public Integer getGoodsId() {
@@ -45,21 +71,7 @@ public class BusinessIdea implements Serializable {
 		this.shopId = shopId;
 	}
 
-	public Integer getAdminId() {
-		return adminId;
-	}
-
-	public void setAdminId(Integer adminId) {
-		this.adminId = adminId;
-	}
-
-	public String getUsername() {
-		return username;
-	}
-
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	
 
 	public Date getDate() {
 		return date;

@@ -2,11 +2,6 @@ package com.reagan.wxpt.pojo.system;
 
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
-import java.util.HashSet;
-import java.util.Set;
-
-import com.reagan.wxpt.pojo.business.BusinessGoods;
-import com.reagan.wxpt.pojo.business.BusinessShop;
 
 
 /**
@@ -15,48 +10,18 @@ import com.reagan.wxpt.pojo.business.BusinessShop;
 
 public class SysRegionCategory implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4633109690670960406L;
 	private Integer rcid;
-	private SysRegionCategory sysRegionCategory;
+	private Integer regionCategoryId;
 	private String name;
 	private int type;
 	private int sort;
 	private int lng;
 	private int lat;
-	private Set<BusinessShop> businessShops = new HashSet<BusinessShop>(0);
-	private Set<SysRegionCategory> sysRegionCategories = new HashSet<SysRegionCategory>(
-			0);
-	private Set<BusinessGoods> businessGoodses = new HashSet<BusinessGoods>(0);
-
-	public SysRegionCategory() {
-	}
-
-	public SysRegionCategory(SysRegionCategory sysRegionCategory, String name,
-			int type, int sort, int lng, int lat) {
-		this.sysRegionCategory = sysRegionCategory;
-		this.name = name;
-		this.type = type;
-		this.sort = sort;
-		this.lng = lng;
-		this.lat = lat;
-	}
-
-	public SysRegionCategory(SysRegionCategory sysRegionCategory, String name,
-			int type, int sort, int lng, int lat,
-			Set<BusinessShop> businessShops,
-			Set<SysRegionCategory> sysRegionCategories,
-			Set<BusinessGoods> businessGoodses) {
-		this.sysRegionCategory = sysRegionCategory;
-		this.name = name;
-		this.type = type;
-		this.sort = sort;
-		this.lng = lng;
-		this.lat = lat;
-		this.businessShops = businessShops;
-		this.sysRegionCategories = sysRegionCategories;
-		this.businessGoodses = businessGoodses;
-	}
-
-
+	
 	public Integer getRcid() {
 		return this.rcid;
 	}
@@ -64,16 +29,6 @@ public class SysRegionCategory implements java.io.Serializable {
 	public void setRcid(Integer rcid) {
 		this.rcid = rcid;
 	}
-
-
-	public SysRegionCategory getSysRegionCategory() {
-		return this.sysRegionCategory;
-	}
-
-	public void setSysRegionCategory(SysRegionCategory sysRegionCategory) {
-		this.sysRegionCategory = sysRegionCategory;
-	}
-
 
 	public String getName() {
 		return this.name;
@@ -119,32 +74,12 @@ public class SysRegionCategory implements java.io.Serializable {
 		this.lat = lat;
 	}
 
-
-	public Set<BusinessShop> getBusinessShops() {
-		return this.businessShops;
+	public Integer getRegionCategoryId() {
+		return regionCategoryId;
 	}
 
-	public void setBusinessShops(Set<BusinessShop> businessShops) {
-		this.businessShops = businessShops;
-	}
-
-
-	public Set<SysRegionCategory> getSysRegionCategories() {
-		return this.sysRegionCategories;
-	}
-
-	public void setSysRegionCategories(
-			Set<SysRegionCategory> sysRegionCategories) {
-		this.sysRegionCategories = sysRegionCategories;
-	}
-
-
-	public Set<BusinessGoods> getBusinessGoodses() {
-		return this.businessGoodses;
-	}
-
-	public void setBusinessGoodses(Set<BusinessGoods> businessGoodses) {
-		this.businessGoodses = businessGoodses;
+	public void setRegionCategoryId(Integer regionCategoryId) {
+		this.regionCategoryId = regionCategoryId;
 	}
 
 }

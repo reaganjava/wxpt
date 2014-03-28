@@ -9,23 +9,15 @@ package com.reagan.wxpt.pojo.system;
 
 public class SysMenus implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1767930225031057027L;
 	private Integer menuid;
-	private SysMenuGroup sysMenuGroup;
+	private Integer menuGroupId;
 	private String name;
 	private int type;
 	private String event;
-
-	public SysMenus() {
-	}
-
-	public SysMenus(SysMenuGroup sysMenuGroup, String name, int type,
-			String event) {
-		this.sysMenuGroup = sysMenuGroup;
-		this.name = name;
-		this.type = type;
-		this.event = event;
-	}
-
 
 	public Integer getMenuid() {
 		return this.menuid;
@@ -35,15 +27,13 @@ public class SysMenus implements java.io.Serializable {
 		this.menuid = menuid;
 	}
 
-
-	public SysMenuGroup getSysMenuGroup() {
-		return this.sysMenuGroup;
+	public Integer getMenuGroupId() {
+		return menuGroupId;
 	}
 
-	public void setSysMenuGroup(SysMenuGroup sysMenuGroup) {
-		this.sysMenuGroup = sysMenuGroup;
+	public void setMenuGroupId(Integer menuGroupId) {
+		this.menuGroupId = menuGroupId;
 	}
-
 
 	public String getName() {
 		return this.name;

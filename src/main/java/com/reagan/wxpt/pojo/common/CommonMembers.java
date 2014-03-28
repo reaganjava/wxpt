@@ -16,6 +16,10 @@ import com.reagan.wxpt.pojo.business.BusinessShopcar;
 
 public class CommonMembers implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5054098813406085982L;
 	private Long uid;
 	private String openid;
 	private String nickname;
@@ -26,52 +30,7 @@ public class CommonMembers implements java.io.Serializable {
 	private String language;
 	private String subscribeTime;
 	private int status;
-	private Set<BusinessShopcar> businessShopcars = new HashSet<BusinessShopcar>(
-			0);
-	private Set<BusinessOrder> businessOrders = new HashSet<BusinessOrder>(0);
-	private CommonCounties commonCounties;
-	private CommonFraction commonFraction;
-	private Set<BusinessDistribution> businessDistributions = new HashSet<BusinessDistribution>(
-			0);
-
-	public CommonMembers() {
-	}
-
-	public CommonMembers(String openid, String nickname, int sex, String city,
-			String country, String province, String language,
-			String subscribeTime) {
-		this.openid = openid;
-		this.nickname = nickname;
-		this.sex = sex;
-		this.city = city;
-		this.country = country;
-		this.province = province;
-		this.language = language;
-		this.subscribeTime = subscribeTime;
-	}
-
-	public CommonMembers(String openid, String nickname, int sex, String city,
-			String country, String province, String language,
-			String subscribeTime, Set<BusinessShopcar> businessShopcars,
-			Set<BusinessOrder> businessOrders, CommonCounties commonCounties,
-			CommonFraction commonFraction,
-			Set<BusinessDistribution> businessDistributions) {
-		this.openid = openid;
-		this.nickname = nickname;
-		this.sex = sex;
-		this.city = city;
-		this.country = country;
-		this.province = province;
-		this.language = language;
-		this.subscribeTime = subscribeTime;
-		this.businessShopcars = businessShopcars;
-		this.businessOrders = businessOrders;
-		this.commonCounties = commonCounties;
-		this.commonFraction = commonFraction;
-		this.businessDistributions = businessDistributions;
-	}
-
-
+	
 	public Long getUid() {
 		return this.uid;
 	}
@@ -158,51 +117,6 @@ public class CommonMembers implements java.io.Serializable {
 
 	public void setStatus(int status) {
 		this.status = status;
-	}
-
-	public Set<BusinessShopcar> getBusinessShopcars() {
-		return this.businessShopcars;
-	}
-
-	public void setBusinessShopcars(Set<BusinessShopcar> businessShopcars) {
-		this.businessShopcars = businessShopcars;
-	}
-
-
-	public Set<BusinessOrder> getBusinessOrders() {
-		return this.businessOrders;
-	}
-
-	public void setBusinessOrders(Set<BusinessOrder> businessOrders) {
-		this.businessOrders = businessOrders;
-	}
-
-
-	public CommonCounties getCommonCounties() {
-		return this.commonCounties;
-	}
-
-	public void setCommonCounties(CommonCounties commonCounties) {
-		this.commonCounties = commonCounties;
-	}
-
-
-	public CommonFraction getCommonFraction() {
-		return this.commonFraction;
-	}
-
-	public void setCommonFraction(CommonFraction commonFraction) {
-		this.commonFraction = commonFraction;
-	}
-
-
-	public Set<BusinessDistribution> getBusinessDistributions() {
-		return this.businessDistributions;
-	}
-
-	public void setBusinessDistributions(
-			Set<BusinessDistribution> businessDistributions) {
-		this.businessDistributions = businessDistributions;
 	}
 
 }

@@ -4,8 +4,7 @@ package com.reagan.wxpt.pojo.business;
 
 import java.math.BigDecimal;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+
 
 
 /**
@@ -14,6 +13,10 @@ import java.util.Set;
 
 public class BusinessTransaction implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -5935866805686815972L;
 	private Integer traid;
 	private int tranNumber;
 	private String ordeNumber;
@@ -28,54 +31,7 @@ public class BusinessTransaction implements java.io.Serializable {
 	private int payMode;
 	private String paychannel;
 	private Date payDate;
-	private Set<BusinessOrder> businessOrders = new HashSet<BusinessOrder>(0);
-
-	public BusinessTransaction() {
-	}
-
-	public BusinessTransaction(int tranNumber, String ordeNumber,
-			String payNumber, Date startDate, Date endDate,
-			BigDecimal goodsAmount, BigDecimal discountAmount,
-			BigDecimal payAmount, BigDecimal transportAmount, int status,
-			int payMode, String paychannel, Date payDate) {
-		this.tranNumber = tranNumber;
-		this.ordeNumber = ordeNumber;
-		this.payNumber = payNumber;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.goodsAmount = goodsAmount;
-		this.discountAmount = discountAmount;
-		this.payAmount = payAmount;
-		this.transportAmount = transportAmount;
-		this.status = status;
-		this.payMode = payMode;
-		this.paychannel = paychannel;
-		this.payDate = payDate;
-	}
-
-	public BusinessTransaction(int tranNumber, String ordeNumber,
-			String payNumber, Date startDate, Date endDate,
-			BigDecimal goodsAmount, BigDecimal discountAmount,
-			BigDecimal payAmount, BigDecimal transportAmount, int status,
-			int payMode, String paychannel, Date payDate,
-			Set<BusinessOrder> businessOrders) {
-		this.tranNumber = tranNumber;
-		this.ordeNumber = ordeNumber;
-		this.payNumber = payNumber;
-		this.startDate = startDate;
-		this.endDate = endDate;
-		this.goodsAmount = goodsAmount;
-		this.discountAmount = discountAmount;
-		this.payAmount = payAmount;
-		this.transportAmount = transportAmount;
-		this.status = status;
-		this.payMode = payMode;
-		this.paychannel = paychannel;
-		this.payDate = payDate;
-		this.businessOrders = businessOrders;
-	}
-
-
+	
 	public Integer getTraid() {
 		return this.traid;
 	}
@@ -199,15 +155,6 @@ public class BusinessTransaction implements java.io.Serializable {
 
 	public void setPayDate(Date payDate) {
 		this.payDate = payDate;
-	}
-
-
-	public Set<BusinessOrder> getBusinessOrders() {
-		return this.businessOrders;
-	}
-
-	public void setBusinessOrders(Set<BusinessOrder> businessOrders) {
-		this.businessOrders = businessOrders;
 	}
 
 }

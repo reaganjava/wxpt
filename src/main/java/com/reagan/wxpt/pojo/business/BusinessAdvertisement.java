@@ -16,7 +16,7 @@ public class BusinessAdvertisement implements java.io.Serializable {
 	 */
 	private static final long serialVersionUID = -2891285980722106428L;
 	private Integer adid;
-	private BusinessCompany businessCompany;
+	private Integer companyId;
 	private Integer shopId;
 	private Integer goodsId;
 	private String title;
@@ -26,33 +26,6 @@ public class BusinessAdvertisement implements java.io.Serializable {
 	private int sort;
 	private int status;
 
-	public BusinessAdvertisement() {
-	}
-
-	public BusinessAdvertisement(BusinessCompany businessCompany, String title,
-			String content, Date date, String url, int sort) {
-		this.businessCompany = businessCompany;
-		this.title = title;
-		this.content = content;
-		this.date = date;
-		this.url = url;
-		this.sort = sort;
-	}
-
-	public BusinessAdvertisement(BusinessCompany businessCompany,
-			Integer shopId, Integer goodsId, String title, String content,
-			Date date, String url, int sort) {
-		this.businessCompany = businessCompany;
-		this.shopId = shopId;
-		this.goodsId = goodsId;
-		this.title = title;
-		this.content = content;
-		this.date = date;
-		this.url = url;
-		this.sort = sort;
-	}
-
-	
 	public Integer getAdid() {
 		return this.adid;
 	}
@@ -61,15 +34,14 @@ public class BusinessAdvertisement implements java.io.Serializable {
 		this.adid = adid;
 	}
 
-	public BusinessCompany getBusinessCompany() {
-		return this.businessCompany;
+	public Integer getCompanyId() {
+		return companyId;
 	}
 
-	public void setBusinessCompany(BusinessCompany businessCompany) {
-		this.businessCompany = businessCompany;
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
-	
 	public Integer getShopId() {
 		return this.shopId;
 	}

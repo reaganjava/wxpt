@@ -16,47 +16,17 @@ import com.reagan.wxpt.pojo.business.BusinessShop;
 
 public class SysCategory implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3033611939647200733L;
 	private Integer cateid;
-	private SysCategory sysCategory;
+	private Integer categoryId;
 	private String name;
 	private int type;
 	private int sort;
 	private String descrption;
-	private Set<BusinessCompany> businessCompanies = new HashSet<BusinessCompany>(
-			0);
-	private Set<BusinessShop> businessShops = new HashSet<BusinessShop>(0);
-	private Set<SysCategory> sysCategories = new HashSet<SysCategory>(0);
-	private Set<BusinessGoods> businessGoodses = new HashSet<BusinessGoods>(0);
-
-	public SysCategory() {
-	}
-
-	public SysCategory(SysCategory sysCategory, String name, int type,
-			int sort, String descrption) {
-		this.sysCategory = sysCategory;
-		this.name = name;
-		this.type = type;
-		this.sort = sort;
-		this.descrption = descrption;
-	}
-
-	public SysCategory(SysCategory sysCategory, String name, int type,
-			int sort, String descrption,
-			Set<BusinessCompany> businessCompanies,
-			Set<BusinessShop> businessShops, Set<SysCategory> sysCategories,
-			Set<BusinessGoods> businessGoodses) {
-		this.sysCategory = sysCategory;
-		this.name = name;
-		this.type = type;
-		this.sort = sort;
-		this.descrption = descrption;
-		this.businessCompanies = businessCompanies;
-		this.businessShops = businessShops;
-		this.sysCategories = sysCategories;
-		this.businessGoodses = businessGoodses;
-	}
-
-
+	
 	public Integer getCateid() {
 		return this.cateid;
 	}
@@ -64,16 +34,6 @@ public class SysCategory implements java.io.Serializable {
 	public void setCateid(Integer cateid) {
 		this.cateid = cateid;
 	}
-
-
-	public SysCategory getSysCategory() {
-		return this.sysCategory;
-	}
-
-	public void setSysCategory(SysCategory sysCategory) {
-		this.sysCategory = sysCategory;
-	}
-
 
 	public String getName() {
 		return this.name;
@@ -110,40 +70,12 @@ public class SysCategory implements java.io.Serializable {
 		this.descrption = descrption;
 	}
 
-
-	public Set<BusinessCompany> getBusinessCompanies() {
-		return this.businessCompanies;
+	public Integer getCategoryId() {
+		return categoryId;
 	}
 
-	public void setBusinessCompanies(Set<BusinessCompany> businessCompanies) {
-		this.businessCompanies = businessCompanies;
-	}
-
-
-	public Set<BusinessShop> getBusinessShops() {
-		return this.businessShops;
-	}
-
-	public void setBusinessShops(Set<BusinessShop> businessShops) {
-		this.businessShops = businessShops;
-	}
-
-
-	public Set<SysCategory> getSysCategories() {
-		return this.sysCategories;
-	}
-
-	public void setSysCategories(Set<SysCategory> sysCategories) {
-		this.sysCategories = sysCategories;
-	}
-
-
-	public Set<BusinessGoods> getBusinessGoodses() {
-		return this.businessGoodses;
-	}
-
-	public void setBusinessGoodses(Set<BusinessGoods> businessGoodses) {
-		this.businessGoodses = businessGoodses;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 
 }
