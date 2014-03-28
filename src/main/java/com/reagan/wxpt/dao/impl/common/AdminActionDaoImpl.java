@@ -1,12 +1,14 @@
 package com.reagan.wxpt.dao.impl.common;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.reagan.core.data.dao.impl.MapperDaoImpl;
 import com.reagan.core.util.ObjectMapperParams;
 import com.reagan.wxpt.dao.common.IAdminActionDao;
 import com.reagan.wxpt.pojo.common.CommonAdminAction;
 
+@Repository
 public class AdminActionDaoImpl extends MapperDaoImpl<CommonAdminAction>
 		implements IAdminActionDao {
 

@@ -1,5 +1,8 @@
 package com.reagan.wxpt.dao.system;
 
-public interface ICommandDao {
+import com.reagan.core.data.dao.IMapperDao;
+import com.reagan.wxpt.pojo.system.SysCommand;
+
+public interface ICommandDao extends IMapperDao<SysCommand> {
 
 }
