@@ -3,12 +3,7 @@ package com.reagan.wxpt.pojo.business;
 // Generated 2014-3-14 10:25:00 by Hibernate Tools 3.4.0.CR1
 
 import java.math.BigDecimal;
-import java.util.HashSet;
-import java.util.Set;
 
-import com.reagan.wxpt.pojo.system.SysCategory;
-import com.reagan.wxpt.pojo.system.SysMenuGroup;
-import com.reagan.wxpt.pojo.system.SysRegionCategory;
 
 
 /**
@@ -17,11 +12,12 @@ import com.reagan.wxpt.pojo.system.SysRegionCategory;
 
 public class BusinessGoods implements java.io.Serializable {
 
+	private static final long serialVersionUID = -8232662800623624371L;
 	private Integer goid;
-	private BusinessCompany businessCompany;
-	private SysCategory sysCategory;
-	private BusinessShop businessShop;
-	private SysRegionCategory sysRegionCategory;
+	private Integer companyId;
+	private Integer categoryId;
+	private Integer shopId;
+	private Integer regionCategoryId;
 	private int shid;
 	private String name;
 	private BigDecimal price;
@@ -31,59 +27,7 @@ public class BusinessGoods implements java.io.Serializable {
 	private int evaluate;
 	private int payType;
 	private int status;
-	private Set<SysMenuGroup> sysMenuGroups = new HashSet<SysMenuGroup>(0);
-	private Set<BusinessOrderDetail> businessOrderDetails = new HashSet<BusinessOrderDetail>(
-			0);
-	private Set<BusinessShopcar> businessShopcars = new HashSet<BusinessShopcar>(
-			0);
-
-	public BusinessGoods() {
-	}
-
-	public BusinessGoods(BusinessCompany businessCompany,
-			SysCategory sysCategory, BusinessShop businessShop,
-			SysRegionCategory sysRegionCategory, int shid, String name,
-			BigDecimal price, String description, int quantity,
-			int payQuantity, int evaluate, int payType) {
-		this.businessCompany = businessCompany;
-		this.sysCategory = sysCategory;
-		this.businessShop = businessShop;
-		this.sysRegionCategory = sysRegionCategory;
-		this.shid = shid;
-		this.name = name;
-		this.price = price;
-		this.description = description;
-		this.quantity = quantity;
-		this.payQuantity = payQuantity;
-		this.evaluate = evaluate;
-		this.payType = payType;
-	}
-
-	public BusinessGoods(BusinessCompany businessCompany,
-			SysCategory sysCategory, BusinessShop businessShop,
-			SysRegionCategory sysRegionCategory, int shid, String name,
-			BigDecimal price, String description, int quantity,
-			int payQuantity, int evaluate, int payType,
-			Set<SysMenuGroup> sysMenuGroups,
-			Set<BusinessOrderDetail> businessOrderDetails,
-			Set<BusinessShopcar> businessShopcars) {
-		this.businessCompany = businessCompany;
-		this.sysCategory = sysCategory;
-		this.businessShop = businessShop;
-		this.sysRegionCategory = sysRegionCategory;
-		this.shid = shid;
-		this.name = name;
-		this.price = price;
-		this.description = description;
-		this.quantity = quantity;
-		this.payQuantity = payQuantity;
-		this.evaluate = evaluate;
-		this.payType = payType;
-		this.sysMenuGroups = sysMenuGroups;
-		this.businessOrderDetails = businessOrderDetails;
-		this.businessShopcars = businessShopcars;
-	}
-
+	
 	
 	public Integer getGoid() {
 		return this.goid;
@@ -92,43 +36,6 @@ public class BusinessGoods implements java.io.Serializable {
 	public void setGoid(Integer goid) {
 		this.goid = goid;
 	}
-
-	
-	public BusinessCompany getBusinessCompany() {
-		return this.businessCompany;
-	}
-
-	public void setBusinessCompany(BusinessCompany businessCompany) {
-		this.businessCompany = businessCompany;
-	}
-
-	
-	public SysCategory getSysCategory() {
-		return this.sysCategory;
-	}
-
-	public void setSysCategory(SysCategory sysCategory) {
-		this.sysCategory = sysCategory;
-	}
-
-	
-	public BusinessShop getBusinessShop() {
-		return this.businessShop;
-	}
-
-	public void setBusinessShop(BusinessShop businessShop) {
-		this.businessShop = businessShop;
-	}
-
-	
-	public SysRegionCategory getSysRegionCategory() {
-		return this.sysRegionCategory;
-	}
-
-	public void setSysRegionCategory(SysRegionCategory sysRegionCategory) {
-		this.sysRegionCategory = sysRegionCategory;
-	}
-
 	
 	public int getShid() {
 		return this.shid;
@@ -210,31 +117,36 @@ public class BusinessGoods implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public Set<SysMenuGroup> getSysMenuGroups() {
-		return this.sysMenuGroups;
+	public Integer getCompanyId() {
+		return companyId;
 	}
 
-	public void setSysMenuGroups(Set<SysMenuGroup> sysMenuGroups) {
-		this.sysMenuGroups = sysMenuGroups;
+	public void setCompanyId(Integer companyId) {
+		this.companyId = companyId;
 	}
 
+	public Integer getCategoryId() {
+		return categoryId;
+	}
+
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
+	}
+
+	public Integer getShopId() {
+		return shopId;
+	}
+
+	public void setShopId(Integer shopId) {
+		this.shopId = shopId;
+	}
+
+	public Integer getRegionCategoryId() {
+		return regionCategoryId;
+	}
+
+	public void setRegionCategoryId(Integer regionCategoryId) {
+		this.regionCategoryId = regionCategoryId;
+	}
 	
-	public Set<BusinessOrderDetail> getBusinessOrderDetails() {
-		return this.businessOrderDetails;
-	}
-
-	public void setBusinessOrderDetails(
-			Set<BusinessOrderDetail> businessOrderDetails) {
-		this.businessOrderDetails = businessOrderDetails;
-	}
-
-	
-	public Set<BusinessShopcar> getBusinessShopcars() {
-		return this.businessShopcars;
-	}
-
-	public void setBusinessShopcars(Set<BusinessShopcar> businessShopcars) {
-		this.businessShopcars = businessShopcars;
-	}
-
 }
