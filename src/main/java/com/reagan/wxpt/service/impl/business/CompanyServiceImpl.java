@@ -7,7 +7,7 @@ import com.reagan.util.PageBean;
 import com.reagan.wxpt.dao.business.ICompanyDao;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
 import com.reagan.wxpt.service.business.ICompanyService;
-import com.reagan.wxpt.vo.common.CompanyVO;
+import com.reagan.wxpt.vo.business.CompanyVO;
 
 @Service("companyService")
 public class CompanyServiceImpl implements ICompanyService {

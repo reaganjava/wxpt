@@ -2,7 +2,7 @@ package com.reagan.wxpt.service.business;
 
 import com.reagan.util.PageBean;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
-import com.reagan.wxpt.vo.common.CompanyVO;
+import com.reagan.wxpt.vo.business.CompanyVO;
 
 public interface ICompanyService {
 	

@@ -5,7 +5,6 @@ package com.reagan.wxpt.pojo.business;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import com.reagan.wxpt.pojo.common.CommonMembers;
 
 
 /**
@@ -14,6 +13,10 @@ import com.reagan.wxpt.pojo.common.CommonMembers;
 
 public class BusinessShopcar implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 4346033413656912749L;
 	private Integer scid;
 	private Integer uid;
 	private Integer goodsId;

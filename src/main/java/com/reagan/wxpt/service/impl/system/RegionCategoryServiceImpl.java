@@ -7,7 +7,7 @@ import com.reagan.util.PageBean;
 import com.reagan.wxpt.dao.system.IRegionCategoryDao;
 import com.reagan.wxpt.pojo.system.SysRegionCategory;
 import com.reagan.wxpt.service.system.IRegionCategoryService;
-import com.reagan.wxpt.vo.common.RegionCategoryVO;
+import com.reagan.wxpt.vo.system.RegionCategoryVO;
 
 @Service("regionCategoryService")
 public class RegionCategoryServiceImpl implements IRegionCategoryService {

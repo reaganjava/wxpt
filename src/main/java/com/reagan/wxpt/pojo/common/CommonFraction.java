@@ -11,6 +11,10 @@ import java.util.Date;
 
 public class CommonFraction implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5388792450847489981L;
 	private long uid;
 	private int quantity;
 	private Date lastTime;

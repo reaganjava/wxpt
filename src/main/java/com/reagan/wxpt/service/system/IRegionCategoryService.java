@@ -2,7 +2,7 @@ package com.reagan.wxpt.service.system;
 
 import com.reagan.util.PageBean;
 import com.reagan.wxpt.pojo.system.SysRegionCategory;
-import com.reagan.wxpt.vo.common.RegionCategoryVO;
+import com.reagan.wxpt.vo.system.RegionCategoryVO;
 
 public interface IRegionCategoryService {
 

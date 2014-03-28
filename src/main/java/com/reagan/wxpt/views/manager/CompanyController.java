@@ -10,11 +10,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.reagan.util.PageBean;
-import com.reagan.util.ValidatorUtil;
 import com.reagan.util.components.Component;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
 import com.reagan.wxpt.service.business.ICompanyService;
-import com.reagan.wxpt.vo.common.CompanyVO;
+import com.reagan.wxpt.vo.business.CompanyVO;
 
 @Controller
 @RequestMapping(value = "/compnay")

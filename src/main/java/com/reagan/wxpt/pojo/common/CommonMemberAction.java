@@ -11,6 +11,10 @@ import java.util.Date;
 
 public class CommonMemberAction implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6266744486839199533L;
 	private Integer acid;
 	private long uid;
 	private String content;

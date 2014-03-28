@@ -10,6 +10,10 @@ package com.reagan.wxpt.pojo.common;
 
 public class CommonCounties implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4292814546567192759L;
 	private long uid;
 	private String tel;
 	private String mobile;

@@ -1,4 +1,4 @@
-package com.reagan.wxpt.vo.common;
+package com.reagan.wxpt.vo.business;
 
 import java.util.ArrayList;
 import java.util.List;
