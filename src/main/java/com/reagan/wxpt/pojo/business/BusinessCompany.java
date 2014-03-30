@@ -20,7 +20,7 @@ public class BusinessCompany implements java.io.Serializable {
 	@Mapper(column="COID", insert=false, updateWhere=true)
 	private Integer coid;
 	
-	@Mapper(column="CATEGORY_ID", update=true)
+	@Mapper(column="CATEGORY_ID", update=true, updateWhere=true)
 	private Integer categoryId;
 	
 	@Mapper(column="NAME", update=true)

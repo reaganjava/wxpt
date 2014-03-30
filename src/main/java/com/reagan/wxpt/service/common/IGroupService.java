@@ -8,9 +8,9 @@ public interface IGroupService {
 
 	public void addGroup(GroupVO groupVO) throws Exception;
 	
-	public int modifiGroup(GroupVO groupVO);
+	public boolean modifiGroup(GroupVO groupVO);
 	
-	public int removeGroup(GroupVO groupVO);
+	public boolean removeGroup(GroupVO groupVO);
 	
 	public GroupVO viewGroupDetail(GroupVO groupVO);
 	

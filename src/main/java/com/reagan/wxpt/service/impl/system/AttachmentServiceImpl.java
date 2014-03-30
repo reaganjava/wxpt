@@ -22,12 +22,11 @@ public class AttachmentServiceImpl implements IAttachmentService {
 	
 	@Override
 	public boolean removeAttachement(AttachmentVO attachmentVO) {
-		int row = attachmentDao.delete(attachmentVO.getAttachment());
-		if(row > 0) {
+		int rows = attachmentDao.delete(attachmentVO.getAttachment());
+		if(rows > 0) {
 			return true;
-		} else {
-			return false;
-		}
+		} 
+		return false;
 	} 
 	
 	@Override

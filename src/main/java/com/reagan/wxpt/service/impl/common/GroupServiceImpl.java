@@ -23,13 +23,21 @@ public class GroupServiceImpl implements IGroupService {
 	}
 
 	@Override
-	public int modifiGroup(GroupVO groupVO) {
-		return groupDao.update(groupVO.getGroup());
+	public boolean modifiGroup(GroupVO groupVO) {
+		int rows = groupDao.update(groupVO.getGroup());
+		if(rows > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
-	public int removeGroup(GroupVO groupVO) {
-		return groupDao.delete(groupVO.getGroup());
+	public boolean removeGroup(GroupVO groupVO) {
+		int rows = groupDao.delete(groupVO.getGroup());
+		if(rows > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
