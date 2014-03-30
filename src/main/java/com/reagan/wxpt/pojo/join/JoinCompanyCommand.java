@@ -1,6 +1,6 @@
 package com.reagan.wxpt.pojo.join;
 
-public class CompanyCommand {
+public class JoinCompanyCommand {
 
 	private Integer id;
 	

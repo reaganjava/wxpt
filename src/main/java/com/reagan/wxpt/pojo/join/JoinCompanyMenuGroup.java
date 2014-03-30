@@ -1,6 +1,6 @@
 package com.reagan.wxpt.pojo.join;
 
-public class CompanyMenuGroup {
+public class JoinCompanyMenuGroup {
 
 	private Integer id;
 	
