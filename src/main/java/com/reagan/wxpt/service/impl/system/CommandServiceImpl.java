@@ -27,7 +27,6 @@ public class CommandServiceImpl implements ICommandService {
 	public boolean removeCommand(CommandVO commandVO) {
 		JoinCompanyCommand companyComand = new JoinCompanyCommand();
 		companyComand.setCommandId(commandVO.getCommand().getComid());
-		companyComand.setCompanyId(commandVO.getCommand().getCompanyId());
 		companyCommandDao.delete(companyComand);
 		int rows = commandDao.delete(commandVO.getCommand());
 		if(rows > 0) {

@@ -15,9 +15,7 @@ public class BusinessGoods implements java.io.Serializable {
 	private static final long serialVersionUID = -8232662800623624371L;
 	private Integer goid;
 	private Integer companyId;
-	private Integer categoryId;
 	private Integer shopId;
-	private Integer regionCategoryId;
 	private int shid;
 	private String name;
 	private BigDecimal price;
@@ -125,14 +123,6 @@ public class BusinessGoods implements java.io.Serializable {
 		this.companyId = companyId;
 	}
 
-	public Integer getCategoryId() {
-		return categoryId;
-	}
-
-	public void setCategoryId(Integer categoryId) {
-		this.categoryId = categoryId;
-	}
-
 	public Integer getShopId() {
 		return shopId;
 	}
@@ -141,12 +131,4 @@ public class BusinessGoods implements java.io.Serializable {
 		this.shopId = shopId;
 	}
 
-	public Integer getRegionCategoryId() {
-		return regionCategoryId;
-	}
-
-	public void setRegionCategoryId(Integer regionCategoryId) {
-		this.regionCategoryId = regionCategoryId;
-	}
-	
 }

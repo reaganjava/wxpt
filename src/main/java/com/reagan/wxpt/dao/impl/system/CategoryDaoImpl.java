@@ -15,20 +15,7 @@ import com.reagan.wxpt.pojo.system.SysCategory;
 @Repository
 public class CategoryDaoImpl extends MapperDaoImpl<SysCategory> implements
 		ICategoryDao {
-	
-	public static final String UPDATE_CATEGORY_COMPANY = "UPDATE BUSINESS_COMPANY SET CATEGORY_ID = 0 WHERE CATEGORY_ID = ?";
-	
-	public static final String UPDATE_CATEGORY_SHOP = "UPDATE BUSINESS_SHOP SET CATEGORY_ID = 0 WHERE CATEGORY_ID = ?";
-	
-	public static final String UPDATE_CATEGORY_GOODS = "UPDATE BUSINESS_GOODS SET CATEGORY_ID = 0 WHERE CATEGORY_ID = ?";
-	
-	@Override
-	public void updateCategoryContent(int categoryId) {
-		Object[] args = {categoryId};
-		this.getBaseDao().executeReturn(UPDATE_CATEGORY_COMPANY, args);
-		this.getBaseDao().executeReturn(UPDATE_CATEGORY_SHOP, args);
-		this.getBaseDao().executeReturn(UPDATE_CATEGORY_GOODS, args);
-	}
+
 
 	class CategoryMapper implements RowMapper<SysCategory> {
 		

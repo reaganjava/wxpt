@@ -1,12 +1,12 @@
 package com.reagan.wxpt.pojo.join;
 
-public class JoinCompanyMenuGroup {
+public class JoinCompanyCategory {
 
 	private Integer id;
 	
 	private Integer companyId;
 	
-	private Integer menuGroupId;
+	private Integer categoryId;
 
 	public Integer getId() {
 		return id;
@@ -24,12 +24,12 @@ public class JoinCompanyMenuGroup {
 		this.companyId = companyId;
 	}
 
-	public Integer getMenuGroupId() {
-		return menuGroupId;
+	public Integer getCategoryId() {
+		return categoryId;
 	}
 
-	public void setMenuGroupId(Integer menuGroupId) {
-		this.menuGroupId = menuGroupId;
+	public void setCategoryId(Integer categoryId) {
+		this.categoryId = categoryId;
 	}
 	
 }

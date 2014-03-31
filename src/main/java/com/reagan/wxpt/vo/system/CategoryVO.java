@@ -15,15 +15,9 @@ public class CategoryVO extends BaseVO {
 	
 	private List<BusinessCompany> companyList;
 	
-	private List<BusinessShop> shopList;
-	
-	private List<BusinessGoods> goodsList;
-	
 	public CategoryVO() {
 		category = new SysCategory();
 		companyList = new ArrayList<BusinessCompany>();
-		shopList = new ArrayList<BusinessShop>();
-		goodsList= new ArrayList<BusinessGoods>();
 	}
 
 	public SysCategory getCategory() {
@@ -40,22 +34,6 @@ public class CategoryVO extends BaseVO {
 
 	public void setCompanyList(List<BusinessCompany> companyList) {
 		this.companyList = companyList;
-	}
-
-	public List<BusinessShop> getShopList() {
-		return shopList;
-	}
-
-	public void setShopList(List<BusinessShop> shopList) {
-		this.shopList = shopList;
-	}
-
-	public List<BusinessGoods> getGoodsList() {
-		return goodsList;
-	}
-
-	public void setGoodsList(List<BusinessGoods> goodsList) {
-		this.goodsList = goodsList;
 	}
 
 }

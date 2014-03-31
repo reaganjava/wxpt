@@ -10,7 +10,6 @@ import com.reagan.core.data.dao.impl.MapperDaoImpl;
 import com.reagan.core.exception.MapperException;
 import com.reagan.core.util.ObjectMapperParams;
 import com.reagan.wxpt.dao.common.IAdminActionDao;
-import com.reagan.wxpt.pojo.business.BusinessTransaction;
 import com.reagan.wxpt.pojo.common.CommonAdminAction;
 
 @Repository

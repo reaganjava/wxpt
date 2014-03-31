@@ -5,13 +5,11 @@ import org.springframework.stereotype.Service;
 
 import com.reagan.util.PageBean;
 import com.reagan.wxpt.dao.business.ICompanyDao;
-import com.reagan.wxpt.dao.business.IGoodsDao;
-import com.reagan.wxpt.dao.business.IShopDao;
+import com.reagan.wxpt.dao.join.ICompanyCategoryDao;
 import com.reagan.wxpt.dao.system.ICategoryDao;
 import com.reagan.wxpt.pojo.system.SysCategory;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
-import com.reagan.wxpt.pojo.business.BusinessGoods;
-import com.reagan.wxpt.pojo.business.BusinessShop;
+import com.reagan.wxpt.pojo.join.JoinCompanyCategory;
 import com.reagan.wxpt.service.system.ICategoryService;
 import com.reagan.wxpt.vo.system.CategoryVO;
 
@@ -25,10 +23,8 @@ public class CategoryServiceImpl implements ICategoryService {
 	private ICompanyDao companyDao;
 	
 	@Autowired
-	private IShopDao shopDao;
+	private ICompanyCategoryDao companyCateogryDao;
 	
-	@Autowired
-	private IGoodsDao goodsDao;
 	
 	@Override
 	public void createCategory(CategoryVO categoryVO) throws Exception {
@@ -46,7 +42,9 @@ public class CategoryServiceImpl implements ICategoryService {
 	
 	@Override
 	public boolean removeCategory(CategoryVO categoryVO) {
-		categoryDao.updateCategoryContent(categoryVO.getCategory().getCateid());
+		JoinCompanyCategory companyCategory = new JoinCompanyCategory();
+		companyCategory.setCategoryId(categoryVO.getCategory().getCategoryId());
+		companyCateogryDao.delete(companyCategory);
 		int rows = categoryDao.delete(categoryVO.getCategory());	
 		if(rows > 0) {
 			return true;
@@ -59,19 +57,9 @@ public class CategoryServiceImpl implements ICategoryService {
 		SysCategory category = categoryDao.query(categoryVO.getCategory());
 		categoryVO.setCategory(category);
 		
-		int categoryId = categoryVO.getCategory().getCateid();
-		
 		BusinessCompany company = new BusinessCompany();
 		company.setCategoryId(categoryVO.getCategory().getCateid());
 		categoryVO.setCompanyList(companyDao.queryForList(company));
-		
-		BusinessShop shop = new BusinessShop();
-		shop.setCategoryId(categoryId);
-		categoryVO.setShopList(shopDao.queryForList(shop));
-		
-		BusinessGoods goods = new BusinessGoods();
-		goods.setCategoryId(categoryId);
-		categoryVO.setGoodsList(goodsDao.queryForList(goods));
 		
 		return categoryVO;
 	}
