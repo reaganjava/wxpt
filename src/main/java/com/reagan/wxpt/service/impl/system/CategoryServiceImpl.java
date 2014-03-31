@@ -46,13 +46,10 @@ public class CategoryServiceImpl implements ICategoryService {
 	
 	@Override
 	public boolean removeCategory(CategoryVO categoryVO) {
-		boolean isSuccess = false;
 		categoryDao.updateCategoryContent(categoryVO.getCategory().getCateid());
-		if(isSuccess) {
-			int rows = categoryDao.delete(categoryVO.getCategory());	
-			if(rows > 0) {
-				return true;
-			}
+		int rows = categoryDao.delete(categoryVO.getCategory());	
+		if(rows > 0) {
+			return true;
 		}
 		return false;
 	} 

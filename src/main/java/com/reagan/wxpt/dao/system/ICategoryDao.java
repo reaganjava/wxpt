@@ -5,5 +5,5 @@ import com.reagan.wxpt.pojo.system.SysCategory;
 
 public interface ICategoryDao extends IMapperDao<SysCategory>{
 
-	boolean updateCategoryContent(int categoryId);
+	public void updateCategoryContent(int categoryId);
 }

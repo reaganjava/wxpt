@@ -3,7 +3,10 @@ package com.reagan.wxpt.service.impl.system;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.reagan.util.PageBean;
+import com.reagan.wxpt.dao.join.ICompanyCommandDao;
 import com.reagan.wxpt.dao.system.ICommandDao;
+import com.reagan.wxpt.pojo.join.JoinCompanyCommand;
 import com.reagan.wxpt.pojo.system.SysCommand;
 import com.reagan.wxpt.service.system.ICommandService;
 import com.reagan.wxpt.vo.system.CommandVO;
@@ -14,11 +17,18 @@ public class CommandServiceImpl implements ICommandService {
 	@Autowired
 	private ICommandDao commandDao;
 	
+	@Autowired
+	private ICompanyCommandDao companyCommandDao;
+	
 	public void addCommand(CommandVO commandVO) throws Exception {
 		commandDao.save(commandVO.getCommand());
 	}
 	
 	public boolean removeCommand(CommandVO commandVO) {
+		JoinCompanyCommand companyComand = new JoinCompanyCommand();
+		companyComand.setCommandId(commandVO.getCommand().getComid());
+		companyComand.setCompanyId(commandVO.getCommand().getCompanyId());
+		companyCommandDao.delete(companyComand);
 		int rows = commandDao.delete(commandVO.getCommand());
 		if(rows > 0) {
 			return true;
@@ -36,6 +46,12 @@ public class CommandServiceImpl implements ICommandService {
 	
 	public CommandVO viewCommandDetail(CommandVO commandVO) {
 		SysCommand command = commandDao.query(commandVO.getCommand());
+		commandVO.setCommand(command);
+		return commandVO;
+	}
+	
+	public PageBean<SysCommand> queryCommandList(CommandVO commandVO) {
+		return commandDao.queryForPage(commandVO.getCommand(), commandVO.getPageNO(), commandVO.getPageCount());
 	}
 	
 }

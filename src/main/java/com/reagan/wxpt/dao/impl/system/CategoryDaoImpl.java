@@ -23,23 +23,11 @@ public class CategoryDaoImpl extends MapperDaoImpl<SysCategory> implements
 	public static final String UPDATE_CATEGORY_GOODS = "UPDATE BUSINESS_GOODS SET CATEGORY_ID = 0 WHERE CATEGORY_ID = ?";
 	
 	@Override
-	public boolean updateCategoryContent(int categoryId) {
-		boolean isSuccess = false;
-		int rows = 0;
+	public void updateCategoryContent(int categoryId) {
 		Object[] args = {categoryId};
-		rows = this.getBaseDao().executeReturn(UPDATE_CATEGORY_COMPANY, args);
-		if(rows > 0) {
-			isSuccess = true;
-		}
-		rows = this.getBaseDao().executeReturn(UPDATE_CATEGORY_SHOP, args);
-		if(rows > 0) {
-			isSuccess = true;
-		}
-		rows = this.getBaseDao().executeReturn(UPDATE_CATEGORY_GOODS, args);
-		if(rows > 0) {
-			isSuccess = true;
-		}
-		return isSuccess;
+		this.getBaseDao().executeReturn(UPDATE_CATEGORY_COMPANY, args);
+		this.getBaseDao().executeReturn(UPDATE_CATEGORY_SHOP, args);
+		this.getBaseDao().executeReturn(UPDATE_CATEGORY_GOODS, args);
 	}
 
 	class CategoryMapper implements RowMapper<SysCategory> {
