@@ -9,24 +9,24 @@ import org.springframework.stereotype.Repository;
 import com.reagan.core.data.dao.impl.MapperDaoImpl;
 import com.reagan.core.exception.MapperException;
 import com.reagan.core.util.ObjectMapperParams;
-import com.reagan.wxpt.dao.common.IFractionDao;
-import com.reagan.wxpt.pojo.common.CommonFraction;
+import com.reagan.wxpt.dao.common.ILocationDao;
+import com.reagan.wxpt.pojo.common.CommonLocation;
 
 @Repository
-public class FractionDaoImpl extends MapperDaoImpl<CommonFraction> implements
-		IFractionDao {
+public class LocationDaoImpl extends MapperDaoImpl<CommonLocation> implements
+		ILocationDao {
 
-	class FractionMapper implements RowMapper<CommonFraction> {
+	class LocationMapper implements RowMapper<CommonLocation> {
 		
-		private ObjectMapperParams<CommonFraction> objectMapperParams = null;
+		private ObjectMapperParams<CommonLocation> objectMapperParams = null;
 		
-		public FractionMapper(ObjectMapperParams<CommonFraction> objectMapperParams) {
+		public LocationMapper(ObjectMapperParams<CommonLocation> objectMapperParams) {
 			this.objectMapperParams = objectMapperParams;
 		}
 
 		@Override
-		public CommonFraction mapRow(ResultSet rs, int row) throws SQLException {
-			CommonFraction object = new CommonFraction();
+		public CommonLocation mapRow(ResultSet rs, int row) throws SQLException {
+			CommonLocation object = new CommonLocation();
 			try {
 				return objectMapperParams.resultObjectFactory(object, rs);
 			} catch (MapperException e) {
@@ -38,8 +38,8 @@ public class FractionDaoImpl extends MapperDaoImpl<CommonFraction> implements
 	}
 
 	@Override
-	public RowMapper<CommonFraction> getRowMapper(
-			ObjectMapperParams<CommonFraction> objectMapperParams) {
+	public RowMapper<CommonLocation> getRowMapper(
+			ObjectMapperParams<CommonLocation> objectMapperParams) {
 		return new FractionMapper(objectMapperParams);
 	}
 

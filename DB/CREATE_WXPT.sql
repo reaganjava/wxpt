@@ -435,15 +435,15 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `wxpt`.`common_counties`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `wxpt`.`common_counties` (
+CREATE  TABLE IF NOT EXISTS `wxpt`.`common_contact` (
   `UID` BIGINT(20) NOT NULL ,
   `TEL` VARCHAR(15) NOT NULL ,
   `MOBILE` VARCHAR(15) NOT NULL ,
   `ZIPCODE` VARCHAR(10) NOT NULL ,
   `ADDRESS` VARCHAR(100) NOT NULL ,
   PRIMARY KEY (`UID`) ,
-  INDEX `COUNTIES_INDEX` (`UID` ASC) ,
-  CONSTRAINT `MEMBER_COUNTIES`
+  INDEX `contact_INDEX` (`UID` ASC) ,
+  CONSTRAINT `MEMBER_contact`
     FOREIGN KEY (`UID` )
     REFERENCES `wxpt`.`common_members` (`UID` )
     ON DELETE NO ACTION
@@ -455,14 +455,14 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `wxpt`.`common_fraction`
 -- -----------------------------------------------------
-CREATE  TABLE IF NOT EXISTS `wxpt`.`common_fraction` (
+CREATE  TABLE IF NOT EXISTS `wxpt`.`common_location` (
   `UID` BIGINT(20) NOT NULL ,
   `QUANTITY` INT(11) NOT NULL ,
   `LAST_TIME` DATETIME NOT NULL ,
   `LAST_QUANTITY` INT(11) NOT NULL ,
   PRIMARY KEY (`UID`) ,
-  INDEX `FRACTION_INDEX` (`UID` ASC) ,
-  CONSTRAINT `MEMBER_FRACTION`
+  INDEX `location_INDEX` (`UID` ASC) ,
+  CONSTRAINT `MEMBER_location`
     FOREIGN KEY (`UID` )
     REFERENCES `wxpt`.`common_members` (`UID` )
     ON DELETE NO ACTION
