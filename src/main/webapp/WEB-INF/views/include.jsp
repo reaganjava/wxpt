@@ -6,6 +6,7 @@
 <link rel="stylesheet" type="text/css" href="${rootpath}/man/css/dataList.css" charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="${rootpath}/man/css/error.css" charset="utf-8" />
 <link rel="stylesheet" type="text/css" href="${rootpath}/man/css/tablecloth/tablecloth.css" charset="utf-8" />
+
 <script type="text/javascript" src='${rootpath}/man/js/pagination.js'> </script>
 <script type="text/javascript" src='${rootpath}/man/js/check.js'> </script>
 
@@ -41,6 +42,7 @@
 <link rel="stylesheet" type="text/css" href="${rootpath}/man/css/ctab.css" charset="utf-8" />
 
 <script type="text/javascript">
+
 function inputNoEnter(){
   $("input[type=text]").not("#inputPageNum").keydown(function(event){if(event.keyCode==13){return false;}});
 }

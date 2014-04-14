@@ -112,7 +112,7 @@ public class AdminServiceImpl implements IAdminService {
 	
 	@Override
 	public PageBean<CommonAdmin> queryAdminList(AdminVO adminVO) {
-		return adminDao.queryForPage(adminVO.getAdmin(), adminVO.getPageNO(), adminVO.getPageCount());
+		return adminDao.queryForPage(adminVO.getAdmin(), adminVO.getPageNO(), adminVO.getPageRows());
 	}
 
 }

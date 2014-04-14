@@ -25,23 +25,24 @@ public class BusinessCompany implements java.io.Serializable {
 	
 	@Mapper(column="NAME", update=true)
 	private String name;
-	
-	@Mapper(column="LEVEL", update=true)
-	private int level;
+
 	/**
 	 * 结算方式
 	 */
 	@Mapper(column="SETTLE_TYPE", update=true)
-	private int settleType;
+	private Integer settleType;
+	
+	@Mapper(column="ADDRESS", update=true)
+	private String address;
 	
 	/**
 	 * 服务类型
 	 */
 	@Mapper(column="SERVICE_TYPE", update=true)
-	private int serviceType;
+	private Integer serviceType;
 	
 	@Mapper(column="SCALE", update=true)
-	private int scale;
+	private Integer scale;
 	
 	@Mapper(column="SALES_NAME", update=true)
 	private String salesName;
@@ -52,28 +53,20 @@ public class BusinessCompany implements java.io.Serializable {
 	@Mapper(column="CREATE_NAME")
 	private String createName;
 	
+	@Mapper(column="CONTACT", update=true)
+	private String contact;
+	
+	@Mapper(column="TEL", update=true)
+	private String tel;
+	
+	@Mapper(column="FAX", update=true)
+	private String fax;
+	
+	@Mapper(column="DESCRIPTION", update=true)
+	private String description;
+	
 	@Mapper(column="STATUS", update=true)
 	private Integer status;
-
-	public BusinessCompany() {
-	}
-
-	public BusinessCompany(int categoryId, String name,
-			String district, int level, int settleType, int serviceType,
-			int scale, String salesName, Date createDate, int status) {
-		this.categoryId = categoryId;
-		this.name = name;
-		this.level = level;
-		this.settleType = settleType;
-		this.serviceType = serviceType;
-		this.scale = scale;
-		this.salesName = salesName;
-		this.createDate = createDate;
-		this.status = status;
-	}
-
-	
-
 	
 	public Integer getCoid() {
 		return this.coid;
@@ -99,38 +92,30 @@ public class BusinessCompany implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public int getLevel() {
-		return this.level;
-	}
-
-	public void setLevel(int level) {
-		this.level = level;
-	}
-
 	
-	public int getSettleType() {
+	public Integer getSettleType() {
 		return this.settleType;
 	}
 
-	public void setSettleType(int settleType) {
+	public void setSettleType(Integer settleType) {
 		this.settleType = settleType;
 	}
 
 	
-	public int getServiceType() {
+	public Integer getServiceType() {
 		return this.serviceType;
 	}
 
-	public void setServiceType(int serviceType) {
+	public void setServiceType(Integer serviceType) {
 		this.serviceType = serviceType;
 	}
 
 	
-	public int getScale() {
+	public Integer getScale() {
 		return this.scale;
 	}
 
-	public void setScale(int scale) {
+	public void setScale(Integer scale) {
 		this.scale = scale;
 	}
 
@@ -166,6 +151,46 @@ public class BusinessCompany implements java.io.Serializable {
 
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getContact() {
+		return contact;
+	}
+
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getFax() {
+		return fax;
+	}
+
+	public void setFax(String fax) {
+		this.fax = fax;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

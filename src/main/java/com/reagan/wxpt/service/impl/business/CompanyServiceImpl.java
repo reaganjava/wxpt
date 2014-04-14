@@ -21,13 +21,21 @@ public class CompanyServiceImpl implements ICompanyService {
 	}
 
 	@Override
-	public int modifiCompany(CompanyVO companyVO) {
-		return companyDao.update(companyVO.getCompany());
+	public boolean modifiCompany(CompanyVO companyVO) {
+		int rows = companyDao.update(companyVO.getCompany());
+		if(rows > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
-	public int removeCompany(CompanyVO companyVO) {
-		return companyDao.delete(companyVO.getCompany());
+	public boolean removeCompany(CompanyVO companyVO) {
+		int rows = companyDao.delete(companyVO.getCompany());
+		if(rows > 0) {
+			return true;
+		}
+		return false;
 	}
 
 	@Override
@@ -39,7 +47,7 @@ public class CompanyServiceImpl implements ICompanyService {
 
 	@Override
 	public PageBean<BusinessCompany> queryCompanyList(CompanyVO companyVO) {
-		return companyDao.queryForPage(companyVO.getCompany(), companyVO.getPageNO(), companyVO.getPageCount());
+		return companyDao.queryForPage(companyVO.getCompany(), companyVO.getPageNO(), companyVO.getPageRows());
 	}
 	
 }

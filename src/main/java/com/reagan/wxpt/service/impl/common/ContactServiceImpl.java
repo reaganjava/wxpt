@@ -45,6 +45,6 @@ public class ContactServiceImpl implements ICountiesService {
 	}
 	
 	public PageBean<CommonContact> queryContactList(ContactVO contactVO) {
-		return contactDao.queryForPage(contactVO.getContact(), contactVO.getPageNO(), contactVO.getPageCount());
+		return contactDao.queryForPage(contactVO.getContact(), contactVO.getPageNO(), contactVO.getPageRows());
 	}
 }

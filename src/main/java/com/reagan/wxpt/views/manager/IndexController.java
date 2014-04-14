@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.reagan.util.components.Component;
+import com.reagan.wxpt.pojo.common.CommonMenuItem;
 import com.reagan.wxpt.service.common.IAdminService;
 import com.reagan.wxpt.vo.common.AdminVO;
 
@@ -37,7 +38,7 @@ public class IndexController extends Component {
 		return mav;
 	}
 	
-	@RequestMapping(value = "login.html", method = RequestMethod.POST)
+	@RequestMapping(value = "center.html", method = RequestMethod.POST)
 	public ModelAndView login(ModelAndView mav, String username, String password, HttpServletRequest request, HttpServletResponse response) {
 		AdminVO adminVO = new AdminVO();
 		adminVO.getAdmin().setUsername(username);
@@ -46,6 +47,7 @@ public class IndexController extends Component {
 		if(adminVO.getAdmin() != null) {
 			request.getSession().setAttribute(Component.SESSION_ADMIN_ID, adminVO.getAdmin().getAdmid().toString());
 			request.getSession().setAttribute(Component.SESSION_ADMIN_NAME, adminVO.getAdmin().getUsername());
+			request.getSession().setAttribute(Component.SESSION_ADMIN_MENU_ITEM_LIST, adminVO.getMenuItemList());
 		}
 		return center(mav,request,response);
 	}
@@ -54,6 +56,7 @@ public class IndexController extends Component {
 	public ModelAndView loginOut(ModelAndView mav, HttpServletRequest request, HttpServletResponse response) {
 		request.getSession().removeAttribute(Component.SESSION_ADMIN_ID);
 		request.getSession().removeAttribute(Component.SESSION_ADMIN_NAME);
+		request.getSession().removeAttribute(Component.SESSION_ADMIN_MENU_ITEM_LIST);
 		return center(mav,request, response);
 	}
 

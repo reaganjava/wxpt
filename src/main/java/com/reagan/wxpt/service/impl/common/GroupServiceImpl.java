@@ -56,7 +56,7 @@ public class GroupServiceImpl implements IGroupService {
 
 	@Override
 	public PageBean<CommonGroup> queryGroupList(GroupVO groupVO) {
-		return groupDao.queryForPage(groupVO.getGroup(), groupVO.getPageNO(), groupVO.getPageCount());
+		return groupDao.queryForPage(groupVO.getGroup(), groupVO.getPageNO(), groupVO.getPageRows());
 	}
 
 }

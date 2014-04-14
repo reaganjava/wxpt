@@ -9,29 +9,34 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<%@ include file="/WEB-INF/views/include.jsp"%>
 	<script type="text/javascript">
-	
-	$(document).ready(function(){
-		$("#search").click(function(){
+		$(document).ready(function(){
+			$("#search").click(function(){
+				queryClick();
+			}); 
+			$("#refresh").click(function(){
+				queryClick();
+			}); 
+		});
+		function queryClick() {
 			var name = $("#name").attr("value");
 			if(name == '') {
 				name = 'all';
 			}
 			var status = $("#status").attr("value");
-			var url = "${rootpath}/compnay/list/"+ name + "/" + status + ".html";
+			var url = "${rootpath}company/list/"+ name + "/" + status + "/1.html";
 			location.href=url;
-		}); 
-	});
+		}
     </script>
 </head>
 <body>
 	<div class="tools">
 		<span class="date_btn"><i><input type="button" value="新增企业"
-						onclick="self.parent.addTab('新增企业','${rootpath}/user/add?flag=true','icon-add')" />
+						onclick="self.parent.addTab('新增企业','${rootpath}company/add.html?flag=true','icon-add')" />
 			</i></span>
 		<span class="date_btn"><i> <input type="button"
 				value="条件查询" id="showSearchContainer" />
 		</i> </span> <span class="date_btn"><i> <input type="button"
-				value="刷新" onClick="refreshList();" />
+				value="刷新" id ="refresh" />
 		</i> </span> 
 	</div>
 	<div class="searchContainer" id="searchContainer">
@@ -81,7 +86,7 @@
 					<th align="middle">选择</th>
 					<th align="middle">企业编号</th>
 					<th align="middle">企业名</th>
-					<th align="middle">级别</th>
+					<th align="middle">联系人</th>
 					<th align="middle">结算方式</th>
 					<th align="middle">服务方式</th>
 					<th align="middle">注册日期</th>
@@ -106,7 +111,7 @@
                                 	${company.name }
                                 </td>
                                 <td height="22" align="center" valign="middle">
-                                	${company.level }
+                                	${company.contact }
                                 </td>
                                 <td height="22" align="center" valign="middle">
                                 	${company.settleType }
@@ -127,7 +132,7 @@
                                 	${company.createName }
                                 </td>
                                 <td height="22" align="center" valign="middle">
-                                	<a href="#" onClick="self.parent.addTab('修改企业信息','${rootpath}/user/edit?flag=true&uid=${company.coid}','icon-add')">修改</a>
+                                	<a href="#" onClick="self.parent.addTab('修改企业信息','${rootpath}company/edit/${company.coid}.html','icon-add')">修改</a>
                                 </td>
                             </tr>
                         </c:forEach>

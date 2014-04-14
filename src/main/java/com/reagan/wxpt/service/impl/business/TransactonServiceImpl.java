@@ -21,6 +21,6 @@ public class TransactonServiceImpl implements ITransactionService {
 	}
 	
 	public PageBean<BusinessTransaction> queryTransactionList(TransactionVO transactionVO) {
-		return transactionDao.queryForPage(transactionVO.getTransaction(), transactionVO.getPageNO(), transactionVO.getPageCount());
+		return transactionDao.queryForPage(transactionVO.getTransaction(), transactionVO.getPageNO(), transactionVO.getPageRows());
 	}
 }

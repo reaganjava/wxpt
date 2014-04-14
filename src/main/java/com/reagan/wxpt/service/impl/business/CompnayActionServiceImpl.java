@@ -21,6 +21,6 @@ public class CompnayActionServiceImpl implements ICompanyActionService {
 	}
 	
 	public PageBean<BusinessCompanyAction> queryCompanyActionList(CompanyActionVO companyActionVO) {
-		return companyActionDao.queryForPage(companyActionVO.getCompanyAction(), companyActionVO.getPageNO(), companyActionVO.getPageCount());
+		return companyActionDao.queryForPage(companyActionVO.getCompanyAction(), companyActionVO.getPageNO(), companyActionVO.getPageRows());
 	}
 }

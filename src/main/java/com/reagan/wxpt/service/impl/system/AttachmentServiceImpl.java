@@ -31,6 +31,6 @@ public class AttachmentServiceImpl implements IAttachmentService {
 	
 	@Override
 	public PageBean<SysAttachment> queryAttachementList(AttachmentVO attachmentVO) {
-		return attachmentDao.queryForPage(attachmentVO.getAttachment(), attachmentVO.getPageNO(), attachmentVO.getPageCount());
+		return attachmentDao.queryForPage(attachmentVO.getAttachment(), attachmentVO.getPageNO(), attachmentVO.getPageRows());
 	}
 }

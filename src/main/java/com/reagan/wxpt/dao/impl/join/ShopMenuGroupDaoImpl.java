@@ -3,6 +3,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Repository;
 
 import com.reagan.core.data.dao.impl.MapperDaoImpl;
 import com.reagan.core.exception.MapperException;
@@ -10,6 +11,7 @@ import com.reagan.core.util.ObjectMapperParams;
 import com.reagan.wxpt.dao.join.IShopMenuGroupDao;
 import com.reagan.wxpt.pojo.join.JoinShopMenuGroup;
 
+@Repository
 public class ShopMenuGroupDaoImpl extends MapperDaoImpl<JoinShopMenuGroup>
 		implements IShopMenuGroupDao {
 

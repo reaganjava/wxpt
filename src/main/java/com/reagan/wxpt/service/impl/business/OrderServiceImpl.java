@@ -8,7 +8,7 @@ public class OrderServiceImpl implements IOrderService {
 
 	private IOrderDao orderDao;
 	
-	public void addOrder(OrderVO orderVO) {
-		orderDao.save(orderVO.get);
+	public void addOrder(OrderVO orderVO) throws Exception {
+		orderDao.save(orderVO.getOrder());
 	}
 }

@@ -34,6 +34,12 @@
 			</map>
 		</property>
 		
+		<property name="defaultViews">
+			<list>
+				<bean class="com.reagan.views.mapping.MappingJacksonJsonView" p:renderedAttributes="jsonData"/>
+			</list>
+		</property>
+		
 		<property name="viewResolvers">
 			<list>
 				<bean class="org.springframework.web.servlet.view.BeanNameViewResolver"

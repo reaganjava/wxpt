@@ -6,22 +6,16 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<title>微信平台管理系统管理员登录</title>
-		<link rel="stylesheet" type="text/css"
-			href="${rootpath}/man/js/jquery/themes/default/easyui.css">
-		<link rel="stylesheet" type="text/css"
-			href="${rootpath}/man/js/jquery/themes/icon.css" />
-		<link rel="stylesheet" type="text/css"
-			href="${rootpath}/man/css/default.css">
-		<script type="text/javascript"
-			src="${rootpath}/man/js/jquery/jquery-1.7.2.min.js"></script>
-		<script type="text/javascript"
-			src="${rootpath}/man/js/jquery/jquery.easyui.min.js"></script>
-		<script type="text/javascript"
-			src="${rootpath}/man/js/jquery/locale/easyui-lang-zh_CN.js"></script>
-		<script type="text/javascript"
-			src="${rootpath}/man/js/easyui/outlook2.js"></script>
-		<script type="text/javascript"
-			src="${rootpath}/man/js/easyui/dialog.js"></script>
+		<link rel="stylesheet" type="text/css" href="${rootpath}/man/js/jquery/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="${rootpath}/man/js/jquery/themes/icon.css" />
+		<link rel="stylesheet" type="text/css" href="${rootpath}/css/icon.css" />
+		<link rel="stylesheet" type="text/css" href="${rootpath}/man/css/default.css">
+		<script type="text/javascript" src="${rootpath}/man/js/jquery/jquery-1.7.2.min.js"></script>
+		<script type="text/javascript" src="${rootpath}/man/js/jquery/jquery.easyui.min.js"></script>
+		<script type="text/javascript" src="${rootpath}/man/js/jquery/locale/easyui-lang-zh_CN.js"></script>
+		<script type="text/javascript" src="${rootpath}/man/js/easyui/outlook2.js"></script>
+		<script type="text/javascript" src="${rootpath}/man/js/easyui/dialog.js"></script>
+		
 	</head>
 	<body class="easyui-layout">
 		<div region="north" split="true"
@@ -50,24 +44,17 @@
 		<div region="west" split="true" title="系统菜单" style="width: 180px;"
 			id="west">
 			<div class="easyui-accordion" border="false" style="overflow: auto;">
-				<c:forEach items="${menu.menus}" var="level1Menu">
-					<div title="${level1Menu.menuName}" icon="icon-sys" style="height:50px;overflow: auto;">
 						<ul >
-							<c:if test="${fn:length(level1Menu.menus)>0}">
-								<c:forEach items="${level1Menu.menus}" var="level2Menu">
-									<li>
+								<c:forEach items="${ADMIN_MENU_ITEM_LIST}" var="menu">
+									<li >
 										<div>
-											<a href="javascript:void(0)"
-												onclick="addTab('${level2Menu.menuName}','${rootpath}${level2Menu.menuUrl}', '');return false;">${level2Menu.menuName}</a>
+											<a href="javascript:void(0)" 
+												onclick="addTab('${menu.title}','${rootpath}${menu.url}', '');return false;">${menu.title}</a>
 										</div>
 									</li>
 								</c:forEach>
-							</c:if>
-							
-						
 						</ul>
-					</div>
-				</c:forEach>
+					
 
 			</div>
 		</div>

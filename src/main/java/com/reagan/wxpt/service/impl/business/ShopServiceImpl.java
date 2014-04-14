@@ -37,6 +37,6 @@ public class ShopServiceImpl implements IShopService {
 	}
 	
 	public PageBean<BusinessShop> queryShopList(ShopVO shopVO) {
-		return shopDao.queryForPage(shopVO.getShop(), shopVO.getPageNO(), shopVO.getPageCount());
+		return shopDao.queryForPage(shopVO.getShop(), shopVO.getPageNO(), shopVO.getPageRows());
 	}
 }

@@ -37,6 +37,6 @@ public class AdvertisementServiceImpl implements IAdvertisementService {
 	}
 	
 	public PageBean<BusinessAdvertisement> queryAdvertisementList(AdvertisementVO advertisementVO) {
-		return advertisementDao.queryForPage(advertisementVO.getAdvertisement(), advertisementVO.getPageNO(), advertisementVO.getPageCount());
+		return advertisementDao.queryForPage(advertisementVO.getAdvertisement(), advertisementVO.getPageNO(), advertisementVO.getPageRows());
 	}
 }

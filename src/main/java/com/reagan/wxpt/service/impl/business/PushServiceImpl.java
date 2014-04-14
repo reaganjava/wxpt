@@ -37,6 +37,6 @@ public class PushServiceImpl implements IPushService {
 	}
 	
 	public PageBean<BusinessPush> queryPushList(PushVO pushVO) {
-		return pushDao.queryForPage(pushVO.getPush(), pushVO.getPageNO(), pushVO.getPageCount());
+		return pushDao.queryForPage(pushVO.getPush(), pushVO.getPageNO(), pushVO.getPageRows());
 	}
 }

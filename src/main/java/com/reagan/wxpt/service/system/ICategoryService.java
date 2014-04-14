@@ -16,4 +16,6 @@ public interface ICategoryService {
 
 	PageBean<SysCategory> queryCategoryList(CategoryVO categoryVO);
 
+	CategoryVO viewCategoryList(CategoryVO categoryVO);
+
 }

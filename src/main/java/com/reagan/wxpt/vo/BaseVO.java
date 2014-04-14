@@ -10,7 +10,7 @@ public class BaseVO {
 	
 	private int pageNO;
 	
-	private int pageCount;
+	private int pageRows;
 	
 
 	public String getStartDate() {
@@ -45,12 +45,12 @@ public class BaseVO {
 		this.pageNO = pageNO;
 	}
 
-	public int getPageCount() {
-		return pageCount;
+	public int getPageRows() {
+		return pageRows;
 	}
 
-	public void setPageCount(int pageCount) {
-		this.pageCount = pageCount;
+	public void setPageRows(int pageRows) {
+		this.pageRows = pageRows;
 	}
 
 }

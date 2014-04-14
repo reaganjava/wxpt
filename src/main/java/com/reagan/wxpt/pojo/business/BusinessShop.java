@@ -16,7 +16,8 @@ public class BusinessShop implements java.io.Serializable {
 	private static final long serialVersionUID = 144873009540405094L;
 	private Integer shid;
 	private Integer companyId;
-	private Integer regionCategoryId;
+	private Integer provinceId;
+	private Integer cityId;
 	private String name;
 	private String address;
 	private String tel;
@@ -26,6 +27,8 @@ public class BusinessShop implements java.io.Serializable {
 	private String city;
 	private String district;
 	private int pushType;
+	private int lng;
+	private int lat;
 	private String description;
 	
 	public Integer getShid() {
@@ -133,13 +136,36 @@ public class BusinessShop implements java.io.Serializable {
 		this.companyId = companyId;
 	}
 
-	public Integer getRegionCategoryId() {
-		return regionCategoryId;
+	public Integer getProvinceId() {
+		return provinceId;
 	}
 
-	public void setRegionCategoryId(Integer regionCategoryId) {
-		this.regionCategoryId = regionCategoryId;
+	public void setProvinceId(Integer provinceId) {
+		this.provinceId = provinceId;
 	}
 
+	public Integer getCityId() {
+		return cityId;
+	}
 
+	public void setCityId(Integer cityId) {
+		this.cityId = cityId;
+	}
+
+	public int getLng() {
+		return lng;
+	}
+
+	public void setLng(int lng) {
+		this.lng = lng;
+	}
+
+	public int getLat() {
+		return lat;
+	}
+
+	public void setLat(int lat) {
+		this.lat = lat;
+	}
+	
 }

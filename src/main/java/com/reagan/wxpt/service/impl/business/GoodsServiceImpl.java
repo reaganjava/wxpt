@@ -37,6 +37,6 @@ public class GoodsServiceImpl implements IGoodsService {
 	}
 	
 	public PageBean<BusinessGoods> queryGoodsList(GoodsVO goodsVO) {
-		return goodsDao.queryForPage(goodsVO.getGoods(), goodsVO.getPageNO(), goodsVO.getPageCount());
+		return goodsDao.queryForPage(goodsVO.getGoods(), goodsVO.getPageNO(), goodsVO.getPageRows());
 	}
 }

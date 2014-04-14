@@ -29,6 +29,6 @@ public class DistributionServiceImpl implements IDistributionService {
 	}
 	
 	public PageBean<BusinessDistribution> queryDistributionList(DistributionVO distributionVO) {
-		return distributionDao.queryForPage(distributionVO.getDistribution(), distributionVO.getPageNO(), distributionVO.getPageCount());
+		return distributionDao.queryForPage(distributionVO.getDistribution(), distributionVO.getPageNO(), distributionVO.getPageRows());
 	}
 }

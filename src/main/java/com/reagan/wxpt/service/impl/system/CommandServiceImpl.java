@@ -50,7 +50,7 @@ public class CommandServiceImpl implements ICommandService {
 	}
 	
 	public PageBean<SysCommand> queryCommandList(CommandVO commandVO) {
-		return commandDao.queryForPage(commandVO.getCommand(), commandVO.getPageNO(), commandVO.getPageCount());
+		return commandDao.queryForPage(commandVO.getCommand(), commandVO.getPageNO(), commandVO.getPageRows());
 	}
 	
 }

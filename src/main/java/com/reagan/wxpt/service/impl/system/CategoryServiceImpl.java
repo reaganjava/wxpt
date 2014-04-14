@@ -1,5 +1,7 @@
 package com.reagan.wxpt.service.impl.system;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -65,8 +67,15 @@ public class CategoryServiceImpl implements ICategoryService {
 	}
 	
 	@Override
+	public CategoryVO viewCategoryList(CategoryVO categoryVO) {
+		List<SysCategory> categoryList = categoryDao.queryForList(categoryVO.getCategory());
+		categoryVO.setCategoryList(categoryList);
+		return categoryVO;
+	}
+	
+	@Override
 	public PageBean<SysCategory> queryCategoryList(CategoryVO categoryVO) {
-		return categoryDao.queryForPage(categoryVO.getCategory(), categoryVO.getPageNO(), categoryVO.getPageCount());
+		return categoryDao.queryForPage(categoryVO.getCategory(), categoryVO.getPageNO(), categoryVO.getPageRows());
 	}
 	
 }

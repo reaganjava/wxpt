@@ -8,9 +8,9 @@ public interface ICompanyService {
 	
 	public void addCompany(CompanyVO companyVO) throws Exception;
 	
-	public int modifiCompany(CompanyVO companyVO);
+	public boolean modifiCompany(CompanyVO companyVO);
 	
-	public int removeCompany(CompanyVO companyVO);
+	public boolean removeCompany(CompanyVO companyVO);
 	
 	public CompanyVO viewCompanyDetail(CompanyVO companyVO);
 	

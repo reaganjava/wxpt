@@ -45,6 +45,6 @@ public class LocationServiceImpl implements ILocationService {
 	}
 	
 	public PageBean<CommonLocation> queryLocationList(LocationVO locationVO) {
-		return locationDao.queryForPage(locationVO.getLocation(), locationVO.getPageNO(), locationVO.getPageCount());
+		return locationDao.queryForPage(locationVO.getLocation(), locationVO.getPageNO(), locationVO.getPageRows());
 	}
 }

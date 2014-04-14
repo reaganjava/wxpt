@@ -40,7 +40,7 @@ public class LocationDaoImpl extends MapperDaoImpl<CommonLocation> implements
 	@Override
 	public RowMapper<CommonLocation> getRowMapper(
 			ObjectMapperParams<CommonLocation> objectMapperParams) {
-		return new FractionMapper(objectMapperParams);
+		return new LocationMapper(objectMapperParams);
 	}
 
 

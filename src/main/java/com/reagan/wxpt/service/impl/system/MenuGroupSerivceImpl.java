@@ -58,7 +58,7 @@ public class MenuGroupSerivceImpl implements IMenuGroupService {
 	}
 	
 	public PageBean<SysMenuGroup> queryMenuGroupList(MenuGroupVO menuGroupVO) {
-		return menuGroupDao.queryForPage(menuGroupVO.getMenuGroup(), menuGroupVO.getPageNO(), menuGroupVO.getPageCount());
+		return menuGroupDao.queryForPage(menuGroupVO.getMenuGroup(), menuGroupVO.getPageNO(), menuGroupVO.getPageRows());
 	}
 		
 }

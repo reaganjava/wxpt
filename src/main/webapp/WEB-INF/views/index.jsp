@@ -14,7 +14,7 @@
 		<div id="login">
 			<div class="loginMain">
 				<form name="login" method="post"
-					action="/manager/login.html">
+					action="/manager/center.html">
 					<div class="LoginHead">
 						<img
 							src="${rootpath}/man/images/login_logo.gif"

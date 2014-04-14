@@ -21,6 +21,6 @@ public class AdminActionServiceImpl implements IAdminActionService {
 	}
 	
 	public PageBean<CommonAdminAction> queryAdminActionList(AdminActionVO adminActionVO) {
-		return adminActionDao.queryForPage(adminActionVO.getAdminAction(), adminActionVO.getPageNO(), adminActionVO.getPageCount());
+		return adminActionDao.queryForPage(adminActionVO.getAdminAction(), adminActionVO.getPageNO(), adminActionVO.getPageRows());
 	}
 }
