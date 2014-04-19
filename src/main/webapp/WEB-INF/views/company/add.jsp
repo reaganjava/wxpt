@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>用户管理</title>
+<title>企业管理</title>
 <%@ include file="/WEB-INF/views/include.jsp"%>
 <script type="text/javascript">
 	
@@ -68,11 +68,11 @@
 				<div>
 					<label for="settleType"> 结算类型：<em>*</em>
 					</label> <select name="company.settleType">
-						<option value="0">周结</option>
-						<option value="1">月结</option>
-						<option value="2">季度结</option>
-						<option value="3">半年结</option>
-						<option value="4">年结</option>
+						<option value="1">周结</option>
+						<option value="2">月结</option>
+						<option value="3">季度结</option>
+						<option value="4">半年结</option>
+						<option value="5">年结</option>
 					</select>
 				</div>
 				
@@ -86,35 +86,26 @@
 					<label for="scale"> 分成比例：<em>*</em>
 					</label> <input name="company.scale" class="easyui-validatebox" type="text">%
 				</div>
-				
-				<div>
-					<label for="status"> 公司状态：<em>*</em>
-					</label> <select name="company.status">
-						<option value="1">正常</option>
-						<option value="0">停用</option>
-					</select>
-				</div>
 
 				<div>
 					<label for="serviceType"> 服务类型：<em>*</em></label> 
 					<select name="company.serviceType">
-						<option value="0">贩卖</option>
-						<option value="1">咨询</option>
-						<option value="2">广告</option>
+						<option value="1">贩卖</option>
+						<option value="2">咨询</option>
+						<option value="3">广告</option>
 			  		</select>
 			  </div>
 			  
 			  
 			  <div>
 					<label for="category">行业类型：<em>*</em></label>
-					<span id="roleContext">
+					
 						 <select id="category" name="company.categoryId">
-						 	<option value="-1">--请选择--</option>
 						 	<c:forEach var="category" items="${MAIN_CATEGORY}">
 						 		<option value="${category.cateid }">${category.name }</option>
 						 	</c:forEach>
 						 </select>
-					</span>
+					
 				</div>	
 				</fieldset>
 				<div class="buttonrow">

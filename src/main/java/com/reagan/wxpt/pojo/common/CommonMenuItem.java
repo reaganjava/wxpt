@@ -13,16 +13,10 @@ public class CommonMenuItem implements Serializable {
 	@Mapper(column="MENUID", insert=false, updateWhere=true)
 	private Integer menuId;
 	
-	@Mapper(column="COMPANY_ID", update=true)
-	private Integer companyId;
-	
-	@Mapper(column="GROUP_ID", update=true)
-	private Integer groupId;
-	
-	@Mapper(column="TITLE", update=true)
+	@Mapper(column="TITLE", update=true, like=true)
 	private String title;
 	
-	@Mapper(column="URL", update=true)
+	@Mapper(column="URL", update=true, like=true)
 	private String url;
 	
 	@Mapper(column="CREATEDATE")
@@ -46,22 +40,6 @@ public class CommonMenuItem implements Serializable {
 
 	public void setMenuId(Integer menuId) {
 		this.menuId = menuId;
-	}
-
-	public Integer getCompanyId() {
-		return companyId;
-	}
-
-	public void setCompanyId(Integer companyId) {
-		this.companyId = companyId;
-	}
-
-	public Integer getGroupId() {
-		return groupId;
-	}
-
-	public void setGroupId(Integer groupId) {
-		this.groupId = groupId;
 	}
 
 	public String getTitle() {

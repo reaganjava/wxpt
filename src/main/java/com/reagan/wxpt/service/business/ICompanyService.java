@@ -16,4 +16,6 @@ public interface ICompanyService {
 	
 	public PageBean<BusinessCompany> queryCompanyList(CompanyVO companyVO);
 
+	CompanyVO viewCompanyList(CompanyVO companyVO);
+
 }

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.reagan.util.PageBean;
 import com.reagan.util.components.Component;
 import com.reagan.views.dto.ResultObject;
+import com.reagan.views.dto.Tip;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
 import com.reagan.wxpt.service.business.ICompanyService;
 import com.reagan.wxpt.service.system.ICategoryService;
@@ -47,13 +48,12 @@ public class CompanyController extends Component {
 			String adminName = (String) request.getSession().getAttribute(SESSION_ADMIN_NAME);
 			companyVO.getCompany().setCreateDate(new Date());
 			companyVO.getCompany().setCreateName(adminName);
+			companyVO.getCompany().setStatus(1);
 			companyService.addCompany(companyVO);
-			result.setMessage("添加成功");
-			result.setSuccess(true);
+			result = Tip.addSuccess();
 		} catch (Exception e) {
 			e.printStackTrace();
-			result.setMessage("出现异常添加失败");
-			result.setSuccess(false);
+			result = Tip.addFailure();
 		}
 		mav.addObject(JSONDATA, result);
 		return mav;
@@ -78,15 +78,11 @@ public class CompanyController extends Component {
 	@RequestMapping(value = "edit.json", method = RequestMethod.POST)
 	public ModelAndView edit(ModelAndView mav, CompanyVO companyVO) {
 		ResultObject<Object> result = new ResultObject<Object>();
-		String msg = "";
-		boolean isSuccess = true;
 		if(companyService.modifiCompany(companyVO)) {
-			msg = "修改成功";
+			result = Tip.editSuccess();
 		} else {
-			msg = "修改失败";
+			result = Tip.editFailure();
 		}
-		result.setMessage(msg);
-		result.setSuccess(isSuccess);
 		mav.addObject(JSONDATA, result);
 		return mav;
 	}
@@ -94,35 +90,53 @@ public class CompanyController extends Component {
 	@RequestMapping(value = "remove/{compnayId}.json", method = RequestMethod.GET)
 	public ModelAndView remove(ModelAndView mav, @PathVariable(value="compnayId") int compnayId) {
 		ResultObject<Object> result = new ResultObject<Object>();
-		String msg = "";
-		boolean isSuccess = true;
 		CompanyVO companyVO = new CompanyVO();
 		companyVO.getCompany().setCoid(compnayId);
 		if(companyService.removeCompany(companyVO)) {
-			msg = "删除成功";
+			result = Tip.removeSuccess();
 		} else {
-			msg = "删除失败";
+			result = Tip.removeFailure();
 		}
-		result.setMessage(msg);
-		result.setSuccess(isSuccess);
 		mav.addObject(JSONDATA, result);
 		return mav;
 	}
 	
-	@RequestMapping(value = "list/{name}/{status}/{pageNo}.html", method = RequestMethod.GET)
+	@RequestMapping(value = "list/{name}/{settleType}/{serviceType}/{categoryId}/{salesName}/{status}/{pageNo}.html", method = RequestMethod.GET)
 	public ModelAndView list(ModelAndView mav, 
 			@PathVariable(value="name") String name, 
+			@PathVariable(value="settleType") int settleType,
+			@PathVariable(value="serviceType") int serviceType,
+			@PathVariable(value="categoryId") int categoryId,
+			@PathVariable(value="salesName") String salesName,
 			@PathVariable(value="status") int status, 
 			@PathVariable(value="pageNo") int pageNo) {
 		CompanyVO companyVO = new CompanyVO();
+		name = urlDecoder(name);
 		if(!name.equals("all")) {
 			companyVO.getCompany().setName(name);
 		}
+		if(settleType != 0) {
+			companyVO.getCompany().setSettleType(settleType);
+		}
+		if(serviceType != 0) {
+			companyVO.getCompany().setServiceType(serviceType);
+		}
+		if(categoryId != 0) {
+			companyVO.getCompany().setCategoryId(categoryId);
+		}
+		salesName = urlDecoder(salesName);
+		if(!salesName.equals("all")) {
+			companyVO.getCompany().setSalesName(salesName);
+		}
+		CategoryVO categoryVO = new CategoryVO();
+		categoryVO.getCategory().setCategoryId(0);
+		categoryVO = categoryService.viewCategoryList(categoryVO);
+		mav.addObject("MAIN_CATEGORY", categoryVO.getCategoryList());
+		
 		companyVO.getCompany().setStatus(status);
 		companyVO.setPageNO(pageNo);
 		companyVO.setPageRows(10);
 		PageBean<BusinessCompany> pageBean = companyService.queryCompanyList(companyVO);
-		System.out.println(pageBean.getCurrentPage() + ":" +  pageBean.getPageCount());
 		if(pageBean != null) {
 			mav.addObject("PAGE_BEAN", pageBean);
 		}

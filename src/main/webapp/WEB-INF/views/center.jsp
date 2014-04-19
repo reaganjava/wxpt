@@ -22,7 +22,7 @@
 			style="height: 30px; background: #D2E0F2;">
 			<span style="float: right; padding-right: 20px;" class="footer">欢迎，${ADMIN_INFO.admin.username}&nbsp;
       <a href="javascript:void(0)"
-				onclick="addTab('修改密码','${rootpath}/system/changePwd', '');return false;">修改密码</a>&nbsp;
+				onclick="addTab('修改密码','${rootpath}/admin/editPassword.html', '');return false;">修改密码</a>&nbsp;
 				<c:choose>
 					<c:when test="${ctx.user.USER_LOGIN_OTHER=='loginOther'}">
 						<a href="javascript:void(0)" onclick="window.opener=null;window.close();">安全退出</a> 

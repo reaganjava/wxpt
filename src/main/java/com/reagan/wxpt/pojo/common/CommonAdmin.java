@@ -33,7 +33,7 @@ public class CommonAdmin implements java.io.Serializable {
 	@Mapper(column="PASSWORD", update=true)
 	private String password;
 	
-	@Mapper(column="REALNAME", update=true)
+	@Mapper(column="REALNAME", update=true, like=true)
 	private String realname;
 	
 	@Mapper(column="EMAIL", update=true)

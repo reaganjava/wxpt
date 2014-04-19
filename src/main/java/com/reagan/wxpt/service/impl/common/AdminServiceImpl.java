@@ -11,10 +11,12 @@ import com.reagan.wxpt.dao.business.ICompanyDao;
 import com.reagan.wxpt.dao.common.IAdminDao;
 import com.reagan.wxpt.dao.common.IAdminMenuDao;
 import com.reagan.wxpt.dao.common.IGroupDao;
+import com.reagan.wxpt.dao.join.IGroupMenuItemDao;
 import com.reagan.wxpt.pojo.business.BusinessCompany;
 import com.reagan.wxpt.pojo.common.CommonAdmin;
 import com.reagan.wxpt.pojo.common.CommonGroup;
 import com.reagan.wxpt.pojo.common.CommonMenuItem;
+import com.reagan.wxpt.pojo.join.JoinGroupMenuItem;
 import com.reagan.wxpt.service.common.IAdminService;
 import com.reagan.wxpt.vo.common.AdminVO;
 
@@ -29,6 +31,9 @@ public class AdminServiceImpl implements IAdminService {
 	
 	@Autowired
 	private IGroupDao groupDao;
+	
+	@Autowired
+	private IGroupMenuItemDao groupMenuItemDao;
 	
 	@Autowired
 	private ICompanyDao companyDao;
@@ -53,11 +58,16 @@ public class AdminServiceImpl implements IAdminService {
 		adminVO.setAdmin(adminDao.query(adminVO.getAdmin()));
 		//用户不为空是获取用户的菜单
 		if(adminVO.getAdmin() != null) {
-			CommonMenuItem commonMenuItem = new CommonMenuItem();
+			JoinGroupMenuItem joinGroupMenuItem = new JoinGroupMenuItem();
 			//根据用户组来查找用户的菜单
-			commonMenuItem.setGroupId(adminVO.getAdmin().getGroupId());
-			List<CommonMenuItem> menuItemList = adminMenuDao.queryForList(commonMenuItem);
-			adminVO.setMenuItemList(menuItemList);
+			joinGroupMenuItem.setGroupId(adminVO.getAdmin().getGroupId());
+			List<JoinGroupMenuItem> groupMenuItemList = groupMenuItemDao.queryForList(joinGroupMenuItem);
+			for(JoinGroupMenuItem groupMenuItem : groupMenuItemList) {
+				CommonMenuItem menuItem = new CommonMenuItem();
+				menuItem.setMenuId(groupMenuItem.getMenuItemId());
+				menuItem = adminMenuDao.query(menuItem);
+				adminVO.getMenuItemList().add(menuItem);
+			}
 		}
 		return adminVO;
 	}
@@ -86,19 +96,23 @@ public class AdminServiceImpl implements IAdminService {
 	}
 
 	@Override
-	public boolean modifiAdminPwd(AdminVO adminVO) {
+	public int modifiAdminPwd(AdminVO adminVO) {
+		MD5 md5 = new MD5();
+		String md5Pwd = md5.getMD5ofStr(adminVO.getAdmin().getPassword());
+		adminVO.getAdmin().setPassword(md5Pwd);
 		CommonAdmin admin = adminDao.query(adminVO.getAdmin());
 		if(admin != null) {
-			MD5 md5 = new MD5();
 			String password = adminVO.getNewPassword();
-			String md5Pwd = md5.getMD5ofStr(password);
+			md5Pwd = md5.getMD5ofStr(password);
 			adminVO.getAdmin().setPassword(md5Pwd);
 			int rows = adminDao.update(admin);
 			if(rows > 0) {
-				return true;
+				return 1;
+			} else {
+				return 0;
 			}
 		}
-		return false;
+		return -1;
 	}
 
 	@Override

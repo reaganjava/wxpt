@@ -15,7 +15,7 @@ public interface IAdminService {
 	
 	public boolean modifiAdmin(AdminVO adminVO);
 	
-	public boolean modifiAdminPwd(AdminVO adminVO);
+	public int modifiAdminPwd(AdminVO adminVO);
 	
 	public boolean revmoeAdmin(AdminVO adminVO);
 	

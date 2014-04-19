@@ -32,10 +32,8 @@
 <body onload="init()">
 	<div class="form-container">
 		<form id="updateForm" name="updateForm" method="post"
-			action="${rootpath}company/edit.json?flag=false">
+			action="${rootpath}company/edit.json">
 			<input type="hidden" value="${COMPNAY_EDIT_DETAIL.company.coid}" name="company.coid">
-			<input type="hidden" value="${COMPNAY_EDIT_DETAIL.company.createDate}" name="company.createDate">
-			<input type="hidden" value="${COMPNAY_EDIT_DETAIL.company.createName}" name="company.createName">
 			<fieldset>
 				<legend> 基本信息 </legend>
 				<div>
@@ -59,7 +57,7 @@
 				<div>
 					<label for="contact"> 联系人：<em>*</em>
 					</label> <input name="company.contact" class="easyui-validatebox" type="text"
-						required="true" value="${COMPNAY_EDIT_DETAIL.company.description}"/>
+						required="true" value="${COMPNAY_EDIT_DETAIL.company.contact}"/>
 				</div>
 				
 				<div>
@@ -116,14 +114,12 @@
 			  
 			  <div>
 					<label for="category">行业类型：<em>*</em></label>
-					<span id="roleContext">
 						 <select id="category" name="company.categoryId" id="category">
 						 	<option value="-1">--请选择--</option>
 						 	<c:forEach var="category" items="${MAIN_CATEGORY}">
 						 		<option value="${category.cateid }">${category.name }</option>
 						 	</c:forEach>
 						 </select>
-					</span>
 				</div>	
 				</fieldset>
 

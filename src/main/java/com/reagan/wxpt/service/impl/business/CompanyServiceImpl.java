@@ -1,5 +1,7 @@
 package com.reagan.wxpt.service.impl.business;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -42,6 +44,13 @@ public class CompanyServiceImpl implements ICompanyService {
 	public CompanyVO viewCompanyDetail(CompanyVO companyVO) {
 		BusinessCompany company = companyDao.query(companyVO.getCompany());
 		companyVO.setCompany(company);
+		return companyVO;
+	}
+	
+	@Override
+	public CompanyVO viewCompanyList(CompanyVO companyVO) {
+		List<BusinessCompany> companyList = companyDao.queryForList(companyVO.getCompany());
+		companyVO.setCompanyList(companyList);
 		return companyVO;
 	}
 

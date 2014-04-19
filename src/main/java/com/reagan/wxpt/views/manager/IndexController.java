@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.reagan.util.components.Component;
-import com.reagan.wxpt.pojo.common.CommonMenuItem;
 import com.reagan.wxpt.service.common.IAdminService;
 import com.reagan.wxpt.vo.common.AdminVO;
 
@@ -29,8 +28,8 @@ public class IndexController extends Component {
 	
 	public ModelAndView center(ModelAndView mav,HttpServletRequest request,HttpServletResponse response){
 		HttpSession session = request.getSession();
-		String adminID = (String) session.getAttribute(Component.SESSION_ADMIN_ID);
-		if(adminID == null || adminID == ""){
+		Integer adminID = (Integer) session.getAttribute(Component.SESSION_ADMIN_ID);
+		if(adminID == null){
 			mav.setViewName("index");
 		}else{
 			mav.setViewName("center");
@@ -45,8 +44,9 @@ public class IndexController extends Component {
 		adminVO.getAdmin().setPassword(password);
 		adminVO = adminService.verifiAdmin(adminVO);
 		if(adminVO.getAdmin() != null) {
-			request.getSession().setAttribute(Component.SESSION_ADMIN_ID, adminVO.getAdmin().getAdmid().toString());
+			request.getSession().setAttribute(Component.SESSION_ADMIN_ID, adminVO.getAdmin().getAdmid());
 			request.getSession().setAttribute(Component.SESSION_ADMIN_NAME, adminVO.getAdmin().getUsername());
+			request.getSession().setAttribute(Component.SESSION_ADMIN_COMPANY_ID, adminVO.getAdmin().getCompanyId());
 			request.getSession().setAttribute(Component.SESSION_ADMIN_MENU_ITEM_LIST, adminVO.getMenuItemList());
 		}
 		return center(mav,request,response);
@@ -56,6 +56,7 @@ public class IndexController extends Component {
 	public ModelAndView loginOut(ModelAndView mav, HttpServletRequest request, HttpServletResponse response) {
 		request.getSession().removeAttribute(Component.SESSION_ADMIN_ID);
 		request.getSession().removeAttribute(Component.SESSION_ADMIN_NAME);
+		request.getSession().removeAttribute(Component.SESSION_ADMIN_COMPANY_ID);
 		request.getSession().removeAttribute(Component.SESSION_ADMIN_MENU_ITEM_LIST);
 		return center(mav,request, response);
 	}

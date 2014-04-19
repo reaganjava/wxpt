@@ -16,7 +16,7 @@ public class CommonGroup implements Serializable {
 	@Mapper(column="COMPANY_ID", update=true)
 	private Integer companyId;
 	
-	@Mapper(column="NAME", update=true)
+	@Mapper(column="NAME", update=true, like=true)
 	private String name;
 	
 	@Mapper(column="CREATENAME")

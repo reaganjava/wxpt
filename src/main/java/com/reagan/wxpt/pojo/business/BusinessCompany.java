@@ -20,10 +20,10 @@ public class BusinessCompany implements java.io.Serializable {
 	@Mapper(column="COID", insert=false, updateWhere=true)
 	private Integer coid;
 	
-	@Mapper(column="CATEGORY_ID", update=true, updateWhere=true)
+	@Mapper(column="CATEGORY_ID", update=true)
 	private Integer categoryId;
 	
-	@Mapper(column="NAME", update=true)
+	@Mapper(column="NAME", update=true, like=true)
 	private String name;
 
 	/**
@@ -44,7 +44,7 @@ public class BusinessCompany implements java.io.Serializable {
 	@Mapper(column="SCALE", update=true)
 	private Integer scale;
 	
-	@Mapper(column="SALES_NAME", update=true)
+	@Mapper(column="SALES_NAME", update=true, like=true)
 	private String salesName;
 	
 	@Mapper(column="CREATE_DATE")

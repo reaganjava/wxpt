@@ -1,3 +1,5 @@
+var deleteUrl = '';
+
 jQuery(document).ready( function($) {
 	// 信息列表滚动条控制
 		$('.scrollTable table').tableScroll( {
@@ -21,43 +23,15 @@ function refreshList() {
 	formQuery();
 }
 
-/**
- * 勾选headerListCheckbox复选框时，所有的listCheckbox复选框全部勾选
- * @return void
- */
-function checkAll() {
-	var listCheckbox = document.getElementsByName('listCheckbox');
-	var headerListCheckbox = document.getElementById('headerListCheckbox');
-	for ( var i = 0; i < listCheckbox.length; i++) {
-		listCheckbox[i].checked = headerListCheckbox.checked;
-	}
-}
 
-/**
- * listCheckbox复选框是否有至少一个被选中
- * @return true/false
- */
-function isChecked() {
-	var listCheckbox = document.getElementsByName('listCheckbox');
-	for ( var i = 0; i < listCheckbox.length; i++) {
-		if (listCheckbox[i].checked) {
-			return true;
-		}
-	}
-	return false;
-}
 
 /**
  * deleteForm提交submit，删除选中记录
  * @return
  */
-function deleteFormSubmit() {
-  if (!isChecked()) {
-    msgAlert("信息提示", "请选择一条记录", "info", null);
-    return false;
-  }
-  
-  msgConfirm("删除记录", "您确定要删除选中的记录吗？", doDelete);
+function deleteFormSubmit(url) {
+	deleteUrl = url;
+	msgConfirm("删除记录", "您确定要删除选中的记录吗？", doDelete);
 }
 
 /**
@@ -66,22 +40,21 @@ function deleteFormSubmit() {
  * @return
  */
 function doDelete(b){
-  if (!b){
-    return;
-  }
-  var ajaxformObjInfo = document.getElementById('deleteForm');
-
-  $('#deleteForm').ajaxSubmit( {
-    beforeSubmit : nullCheck,
-    success : function(data) {
-      if (data.success == true) {
-        document.getElementById("queryForm").submit();
-      } else {
-        showErrorInfomation(data);
-      }
-    }
-
-  });
+	if(!b) {
+		return;
+	}
+	$.ajax({
+        type: "GET",
+        url: deleteUrl,
+        dataType: "json",
+        success: function(data){
+        	if(data != null) {
+        		msgAlert('消息提示',data.message,'info',null);
+        	} else {
+        		msgAlert('消息提示',"操作失败！ SESSION已过期，请重新登录！",'error',null);
+        	}
+        }
+    });
 }
 
 
