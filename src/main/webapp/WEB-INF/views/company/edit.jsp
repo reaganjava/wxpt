@@ -48,11 +48,6 @@
 						required="true" value="${COMPNAY_EDIT_DETAIL.company.address}">
 				</div>
 
-				<div>
-					<label for="description"> 简介：<em>*</em>
-					</label> <textarea rows="5" cols="20" name="company.description" class="easyui-validatebox" type="text"
-						required="true" >${COMPNAY_EDIT_DETAIL.company.description}</textarea>
-				</div>
 				
 				<div>
 					<label for="contact"> 联系人：<em>*</em>

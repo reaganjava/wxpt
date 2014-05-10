@@ -1,4 +1,5 @@
 var deleteUrl = '';
+var checkUrl = '';
 
 jQuery(document).ready( function($) {
 	// 信息列表滚动条控制
@@ -22,6 +23,7 @@ jQuery(document).ready( function($) {
 function refreshList() {
 	formQuery();
 }
+
 
 
 

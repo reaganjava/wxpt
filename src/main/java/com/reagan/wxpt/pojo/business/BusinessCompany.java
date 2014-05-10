@@ -62,9 +62,6 @@ public class BusinessCompany implements java.io.Serializable {
 	@Mapper(column="FAX", update=true)
 	private String fax;
 	
-	@Mapper(column="DESCRIPTION", update=true)
-	private String description;
-	
 	@Mapper(column="STATUS", update=true)
 	private Integer status;
 	
@@ -183,14 +180,6 @@ public class BusinessCompany implements java.io.Serializable {
 
 	public void setFax(String fax) {
 		this.fax = fax;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 }

@@ -40,12 +40,6 @@
 						required="true" />
 				</div>
 				
-				<div>
-					<label for="description"> 公司介绍：<em>*</em>
-					</label> 
-					<textarea rows="5" cols="20" name="company.description" class="easyui-validatebox" type="text"
-						required="true"></textarea>
-				</div>
 				
 				<div>
 					<label for="contact"> 联系人：<em>*</em>

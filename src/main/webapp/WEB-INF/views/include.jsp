@@ -23,6 +23,7 @@
 
 <script type="text/javascript" src='${rootpath}/man/js/jquery/jQuery.tableScroll.js'> </script>
 <script type="text/javascript" src='${rootpath}/man/js/jquery/jqueryform.js'> </script>
+<script type="text/javascript" src='${rootpath}/man/js/jquery/ajaxupload.js'> </script>
 <script type="text/javascript" src='${rootpath}/man/js/cm_DatePicker/WdatePicker.js'></script>
 <script type="text/javascript" src='${rootpath}/man/js/listPage.js'></script>
 <script type="text/javascript" src="${rootpath}/man/js/easyui/dialog.js"></script>

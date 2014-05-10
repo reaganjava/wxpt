@@ -93,8 +93,8 @@
 					<td width="10%" align="right" class="querytd">服务类型：</td>
 					<td width="15%" class="querytd">
 						<select id="category" name="categoryId">
+							<option value="0">全部</option>
 						 	<c:forEach var="category" items="${MAIN_CATEGORY}">
-						 		<option value="0">全部</option>
 						 		<option value="${category.cateid }">${category.name }</option>
 						 	</c:forEach>
 						 </select>

@@ -1,5 +1,7 @@
 package com.reagan.wxpt.service.impl.system;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,20 @@ public class AttachmentServiceImpl implements IAttachmentService {
 		} 
 		return false;
 	} 
+	
+	@Override
+	public AttachmentVO viewAttachmentDetail(AttachmentVO attachmentVO) {
+		SysAttachment attachment = attachmentDao.query(attachmentVO.getAttachment());
+		attachmentVO.setAttachment(attachment);
+		return attachmentVO;
+	}
+	
+	@Override
+	public AttachmentVO viewAttachmentList(AttachmentVO attachmentVO) {
+		List<SysAttachment> attachmentList = attachmentDao.queryForList(attachmentVO.getAttachment());
+		attachmentVO.setAttachmentList(attachmentList);
+		return attachmentVO;
+	}
 	
 	@Override
 	public PageBean<SysAttachment> queryAttachementList(AttachmentVO attachmentVO) {

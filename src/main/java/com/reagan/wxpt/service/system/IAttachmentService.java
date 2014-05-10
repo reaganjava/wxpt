@@ -12,4 +12,8 @@ public interface IAttachmentService {
 
 	PageBean<SysAttachment> queryAttachementList(AttachmentVO attachmentVO);
 
+	AttachmentVO viewAttachmentDetail(AttachmentVO attachmentVO);
+
+	AttachmentVO viewAttachmentList(AttachmentVO attachmentVO);
+
 }

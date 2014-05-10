@@ -53,6 +53,10 @@
 		</property>
 	</bean>
 	
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+		p:maxUploadSize="5120000"
+		p:maxInMemorySize="512" />
+	
 	
 	<mvc:resources cache-period="31556926" location="/lib/"
 		mapping="/lib/**" />
@@ -71,5 +75,8 @@
 		
 	<mvc:resources cache-period="31556926" location="man/"
 		mapping="/man/**" />
+		
+	<mvc:resources cache-period="31556926" location="ckeditor/"
+		mapping="/ckeditor/**" />
 	
 </beans>
